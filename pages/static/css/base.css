@@ -1,0 +1,408 @@
+/*base.css*/
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+  font-size: 14px;
+  /* [DC Source] Базовый цвет фона страницы — светло-бежевый */
+  background-color: #eeeeee;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+    /* [DC Source] Сохраняем адаптивный размер шрифта */
+  }
+}
+
+/* [DC Source] Flex layout для body */
+body {
+  margin: 0;
+  color: #222;
+  background-color: #d2d2d2;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* [DC Source] ОБНОВЛЕНО: двухколоночный layout для страницы */
+.main-two-columns {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  width: 100%;
+  max-width: 100vw;
+  margin-top: 115px;
+  margin-bottom: 70px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 25px 25px;
+  min-height: 60vh; /* [DC Source] По умолчанию, чтобы не захватывать весь экран если мало контента */
+}
+@media (max-width: 1200px) {
+  .main-two-columns {
+    gap: 16px;
+    max-width: 100vw;
+  }
+}
+@media (max-width: 991.98px) {
+  .main-two-columns {
+    flex-direction: column;
+    gap: 0;
+    max-width: 100vw;
+  }
+}
+
+/* [DC Source] ОБНОВЛЕНО: основной контейнер теперь .container-main, ширина 70vw */
+.container-main {
+  width: 100%;
+  max-width: 70vw;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff; /* [DC Source] Белый фон для контейнера */
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 0;
+  padding: 0 0 0 0; /* [DC Source] Отступы внутри контейнера */
+  min-height: 0; /* [DC Source] По умолчанию, чтобы не захватывать весь экран если мало контента */
+}
+@media (max-width: 1200px) {
+  .container-main {
+    max-width: 95vw;
+    padding: 18px 8px;
+  }
+}
+@media (max-width: 991.98px) {
+  .container-main {
+    max-width: 100vw;
+    padding: 10px 10px;
+    /*margin-top: 40px;*/
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .container-main {
+    max-width: 100vw;
+    padding: 10px 10px;
+    /*margin-top: 40px;*/
+    margin-bottom: 20px;
+  }
+}
+
+/* [DC Source] Контент внутри .container-main по центру */
+.container-main > * {
+  width: 100%;
+}
+
+/* [DC Source] ДОРАБОТАНО: колонка боковых контейнеров справа с вертикальным расположением */
+.sidebars-column {
+  display: flex;
+  flex-direction: column;    /* [DC Source] Вертикальное расположение боковых контейнеров */
+  gap: 32px;                 /* [DC Source] Расстояние между .container-side и .container-side-anchor */
+  width: 25vw;
+  min-width: 210px;
+  /*max-width: 350px;*/
+  align-items: stretch;
+  position: sticky;          /* [DC Source] ВСЯ колонка плавает при прокрутке */
+  top: 90px;                 /* [DC Source] Отступ от верхнего края, ниже шапки */
+  height: fit-content;
+  /*z-index: 10;*/
+  /* [DC Source] Важно: sticky на всю колонку, а не на отдельные контейнеры */
+}
+@media (max-width: 1200px) {
+  .sidebars-column {
+    max-width: 220px;
+    min-width: 120px;
+    gap: 18px;
+  }
+}
+@media (max-width: 991.98px) {
+  .sidebars-column {
+    max-width: 100vw;
+    min-width: 0;
+    gap: 12px;
+    margin-top: 24px;
+    margin-bottom: 0;
+    position: static; /* [DC Source] На мобильных не закрепляем колонку */
+    top: auto;
+  }
+}
+
+/* [DC Source] Отдельные боковые контейнеры справа */
+.container-side,
+.container-side-anchor {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 0;
+  /* [DC Source] sticky убран, теперь sticky у родительской .sidebars-column */
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* [DC Source] Стилизация секций внутри боковых контейнеров */
+.container-side section,
+.container-side-anchor section {
+  width: 100%; /* [DC Source] Секция занимает всю ширину контейнера */
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* [DC Source] Стилизация меню внутри секций */
+#side-menu,
+#side-menu-anchor {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* [DC Source] Квадратный хедер блока pricing-header */
+.pricing-header {
+  border-bottom: 5px solid rgba(140, 32, 40, 0.7);
+  padding-top: 25px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  border-radius: 0;
+}
+
+.menu-header {
+  /*background-color: #8C2028;*/
+  background: linear-gradient(to right, #8c2020 0%, #af2828 100%);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  margin-bottom: 0;
+  border-radius: 0;
+  font-weight: 200 !important;
+  box-shadow: rgba(140, 32, 40, 0.4) 0 5px 10px 0;
+}
+
+.main-section-header {
+  /*background-color: #8C2028;*/
+  background: linear-gradient(to right, #8c2020 0%, #af2828 100%);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 25px 0 25px 0;
+  margin-bottom: 0;
+  border-radius: 0;
+  font-weight: 200 !important;
+  font-size: 2rem;
+  box-shadow: rgba(140, 32, 40, 0.4) 0 5px 10px 0;
+}
+
+.main-section-content {
+  padding: 20px 4% 20px 4%; /* [DC Source] Отступы внутри контейнера */
+}
+
+/* [DC Source] Sticky footer: тонкая строка, расширение при скролле вниз */
+/* [DC Source] Основной вид футера — тонкая полоса, всегда прикреплён к низу */
+.footer {
+  width: 100%;
+  background-color: #8C2028;
+  color: #FFF;
+  border-radius: 0;
+  font-size: 1rem;
+  flex-shrink: 0;
+  position: fixed; /* [DC Source] sticky к низу экрана */
+  left: 0;
+  bottom: 0;
+  height: 28px; /* [DC Source] Тонкая полоса */
+  line-height: 28px;
+  z-index: 1040;
+  box-shadow: 0 -5px 15px 0 rgba(140, 32, 40, 0.4);
+  transition: height 0.3s, line-height 0.3s;
+  overflow: hidden;
+}
+/* [DC Source] Класс, который расширяет футер при скролле до низа */
+.footer-expanded {
+  height: 78px; /* [DC Source] Расширенный футер */
+  line-height: 28px;
+  transition: height 0.3s, line-height 0.3s;
+}
+@media (max-width: 991.98px) {
+  .footer {
+    font-size: 0.95rem;
+    height: 32px;
+    line-height: 22px;
+  }
+  .footer-expanded {
+    height: 68px;
+    line-height: 22px;
+  }
+}
+@media (max-width: 575.98px) {
+  .footer {
+    font-size: 0.85rem;
+    height: 22px;
+    line-height: 16px;
+  }
+  .footer-expanded {
+    height: 48px;
+    line-height: 16px;
+  }
+}
+
+/* [DC Source] Контент внутри футера выравниваем по центру */
+.footer .container-main {
+  padding: 0;
+  margin: 0 auto;
+  box-shadow: none;
+  background: none;
+}
+
+/* [DC Source] Блок ссылок — скрыт, пока футер не расширен */
+.footer-links-block {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.footer-expanded .footer-links-block {
+  display: block;
+  opacity: 1;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+/* [DC Source] Строка c DCSource — всегда видна, одна строка, по центру */
+.footer-copyright {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: inherit;
+}
+
+/* [DC Source] Квадратные карточки Bootstrap и custom */
+.card,
+.card-header,
+.card-body {
+  width: 100%;
+  border: none;
+  border-radius: 0 !important;
+  /*padding-top: 25px !important;*/
+  /*margin: 0 !important;*/
+}
+
+/* [DC Source] Квадратная таблица реквизитов */
+.table {
+  border-radius: 0 !important;
+  background-color: #eaeaea;
+  font-size: 1rem;
+}
+@media (max-width: 575.98px) {
+  .table {
+    font-size: 0.89rem;
+  }
+}
+
+/* [DC Source] Квадратный контейнер для логотипа */
+.company-detail-avatar-img-container-main {
+  border-radius: 0 !important;
+  background: none !important;
+  padding: 0;
+}
+
+/* [DC Source] Адаптация логотипа в карточке для мобильных */
+.company-detail-avatar-img {
+  max-height: 10vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+@media (max-width: 991.98px) {
+  .company-detail-avatar-img {
+    max-height: 7vh;
+  }
+}
+@media (max-width: 575.98px) {
+  .company-detail-avatar-img {
+    max-height: 5vh;
+  }
+}
+
+/* [DC Source] Квадратные кнопки и элементы управления */
+.button,
+.btn {
+  color: #FFF;
+  background-color: #8C2028;
+  border-radius: 0;
+  border: none;
+  padding: 8px 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1rem;
+}
+@media (max-width: 575.98px) {
+  .button,
+  .btn {
+    padding: 6px 10px;
+    font-size: 0.95rem;
+  }
+}
+
+/* [DC Source] Ссылки: только цвет, без фона и скруглений, адаптация */
+a {
+  color: #8C2028;
+  background: none !important;
+  border-radius: 0 !important;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0;
+  transition: color 0.2s;
+  font-size: 1rem;
+}
+a:hover {
+  color: #A13A42;
+  background: none !important;
+  border-radius: 0 !important;
+  text-decoration: underline;
+}
+@media (max-width: 575.98px) {
+  a {
+    font-size: 0.95rem;
+  }
+}
+
+/* [DC Source] Акцентные и декоративные круги/градиенты (пример) */
+.dc-accent-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #8C2028 70%, #C2825D 100%);
+  opacity: 0.15;
+  position: absolute;
+  z-index: 0;
+}
+@media (max-width: 575.98px) {
+  .dc-accent-circle {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+/* [DC Source] Класс для выделения важных чисел, заголовков, цитат */
+.dc-accent-text {
+  color: #8C2028;
+  font-weight: bold;
+}
+
+/* [DC Source] Класс для светлого бежевого фона */
+.dc-light-bg {
+  background-color: #F2EFE8;
+}
+
+/* [DC Source] Класс для второстепенных подписей/текста */
+.dc-muted {
+  color: #7C7C7C;
+}
+
+/* [DC Source] Конец блока корпоративных стилей */

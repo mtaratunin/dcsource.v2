@@ -1,0 +1,165 @@
+/* menu_landing.css */
+/* [DC Source] Фирменная шапка-меню, закрепленная, градиент, тень, динамический размер, адаптация */
+.navbar-custom {
+  background: linear-gradient(to right, #8c2020 60%, #af2828 100%);
+  color: #FFF !important;
+  border-radius: 0 !important;
+  box-shadow: 0 0 0 0 rgba(140, 32, 32, 0.5) !important;
+  border: none !important;
+  transition: all 0.3s;
+  min-height: 115px;
+  z-index: 1050;
+}
+
+/* [DC Source] Логотип в меню, фирменный стиль */
+.navbar-custom .navbar-brand {
+  color: #FFF !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0;
+  margin-right: 0.75rem;
+  transition: font-size 0.3s;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* [DC Source] Ссылки пунктов меню */
+.navbar-custom .navbar-nav .nav-link {
+  color: #FFF !important;
+  font-weight: 200;
+  border-radius: 0;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  transition: background 0.2s, color 0.2s;
+  background: none !important;
+  text-decoration: none !important; /* [DC Source] Без подчеркивания */
+}
+
+/* [DC Source] Активный пункт меню и наведение */
+.navbar-custom .navbar-nav .nav-link.active {
+  color: #F2EFE8 !important;
+  /*background: #8c2020 !important;*/
+  text-decoration: none !important; /* [DC Source] Без подчеркивания при наведении */
+  box-shadow: 0 2px 12px 0 rgba(140,32,40,0.10);
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+  color: #F2EFE8 !important;
+  background: #000000 !important;
+  text-decoration: none !important; /* [DC Source] Без подчеркивания при наведении */
+  box-shadow: 0 2px 12px 0 rgba(140,32,40,0.10);
+}
+
+/* [DC Source] Элементы меню */
+.navbar-custom .navbar-nav .nav-item {
+  border-radius: 0;
+}
+
+/* [DC Source] Кнопка-иконка меню справа (бургер) — белая, всегда поверх, без бордюра */
+.navbar-custom .navbar-toggler {
+  border: none;
+  background: none;
+  color: #FFF !important;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* [DC Source] Иконка внутри кнопки меню — белая */
+.navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* [DC Source] Выпадающее меню (dropdown) — квадратные границы, цвет как у шапки, активный пункт с выделением */
+.navbar-custom .dropdown-menu {
+  background: linear-gradient(to right, #8c2020 60%, #af2828 100%);
+  color: #FFF !important;
+  border-radius: 0 !important;
+  margin-top: 8px;
+  box-shadow: 0 8px 24px 0 rgba(140, 32, 40, 0.15);
+  border: none !important;
+  min-width: 220px;
+  max-width: 95vw;
+  right: 0;
+  left: auto !important;
+  position: absolute !important;
+  top: 100%;
+  overflow-x: auto;
+}
+
+/* [DC Source] Элементы dropdown-меню — цвет текста, без подчеркивания, выделение при наведении, квадратные границы */
+.navbar-custom .dropdown-item {
+  color: #FFF !important;
+  background: none !important;
+  border-radius: 0 !important;
+  font-weight: 200;
+  transition: background 0.2s, color 0.2s;
+  padding: 0.6em 1.2em;
+  white-space: normal;
+  text-align: right;
+  text-decoration: none !important;
+}
+
+/* [DC Source] dropdown-item — наведение, фон темнее, текст белый, без подчеркивания */
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+  background: #A13A42 !important;
+  color: #FFF !important;
+  text-decoration: none !important;
+}
+
+/* [DC Source] dropdown-divider стилизован под меню */
+.navbar-custom .dropdown-divider {
+  border-top: 1px solid #F2EFE8;
+  opacity: 0.5;
+}
+
+/* [DC Source] Уменьшение шапки при прокрутке */
+.navbar-shrink {
+  min-height: 48px !important;
+  box-shadow: 0 2px 8px 0 rgb(0, 0, 0);
+  background: linear-gradient(to right, #8C2028 80%, #9f242d 100%);
+}
+.navbar-shrink .navbar-brand {
+  font-size: 1.2rem !important;
+}
+
+/* [DC Source] ДОБАВЛЕНО: кнопка-меню для боковых меню разделов и якорей */
+.dc-menu-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #f6f6f6;
+    border: 0 solid #e0e0e0;
+    color: #333333 !important;
+    padding: 5px 0 5px 5%;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    border-radius: 0;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    /*box-shadow: 0 2px 8px 0 rgba(140,32,40,0.04);*/
+}
+.dc-menu-btn:hover, .dc-menu-btn:focus {
+    color: #000000 !important;
+    background: rgba(255, 0, 0, 0.3) !important;
+    font-weight: 400;
+    /*box-shadow: 0 4px 16px 0 rgba(140,32,40,0.10);*/
+    text-decoration: none;
+}
+.dc-menu-btn.active,
+.dc-menu-btn.active:hover,
+.dc-menu-btn.active:focus {
+    color: #000000 !important;
+    /*background: #e5e5e5 !important;*/
+    font-weight: 600 !important;
+    text-decoration: none !important; /* [DC Source] Без подчеркивания при наведении */
+    /*box-shadow: 0 2px 12px 0 rgba(140,32,40,0.10);*/
+}
+
+ul {
+    margin-bottom: 0 !important;
+}
+
+/* [DC Source] Конец блока меню */

@@ -1,0 +1,60 @@
+<!--privacy_policy.html-->
+
+{% extends "_base.html" %}
+{% block title %}
+    О Нас
+{% endblock %}
+
+{% block side_content %}
+    <!-- [DC Source] Меню раздела в боковом контейнере -->
+    <section id="side-menu" name="side-menu-submenu">
+        <div class="menu-header">
+            МЕНЮ РАЗДЕЛА
+        </div>
+        <!-- [DC Source] ДОРАБОТАНО: кнопки-меню вместо обычных ссылок -->
+            <ul class="list-unstyled">
+              <li>
+                <a href="{% url 'about' %}" class="dc-menu-btn{% if request.resolver_match.url_name == 'about' %} active{% endif %}">О Нас</a>
+              </li>
+              <li>
+                <a href="{% url 'privacy_policy' %}" class="dc-menu-btn{% if request.resolver_match.url_name == 'privacy_policy' %} active{% endif %}">Политика обработки персональных данных</a>
+              </li>
+              <li>
+                <a href="{% url 'company_details' %}" class="dc-menu-btn{% if request.resolver_match.url_name == 'company_details' %} active{% endif %}">Реквизиты компании</a>
+              </li>
+            </ul>
+    </section>
+{% endblock %}
+
+{% block side_content_anchor %}
+    <!-- [DC Source] Якорное меню страницы в боковом контейнере -->
+    <section id="side-menu-anchor" name="side-menu-anchor">
+        <div class="menu-header">
+            МЕНЮ СТРАНИЦЫ
+        </div>
+        <!-- [DC Source] ДОРАБОТАНО: кнопки-меню вместо обычных ссылок -->
+        <ul class="list-unstyled">
+            <li><a href="#first-one" class="dc-menu-btn">Один</a></li>
+            <li><a href="#second-one" class="dc-menu-btn">Два</a></li>
+        </ul>
+    </section>
+{% endblock %}
+
+{% block content %}
+    <!-- ======= ДОБАВЛЕНО: обернули всё содержимое в section + card ======= -->
+    <section id="first-one-section">
+        <div class="main-section-header" id="first-one">ОДИН</div>
+                <div class="main-section-content">
+                    <p>Это первый раздел страницы "О Нас". Здесь можно разместить информацию о компании, её миссии и ценностях.</p>
+                    <p>Например, DCSource стремится предоставлять высококачественные решения в области управления данными и информационной безопасности.</p>
+                </div>
+    </section>
+    <section id="second-one-section">
+        <div class="main-section-header" id="second-one">ДВА</div>
+                <div class="main-section-content">
+                    <p>Это второй!!! раздел страницы "О Нас". Здесь можно разместить информацию о компании, её миссии и ценностях.</p>
+                    <p> DCSource стремится предоставлять высококачественные решения в области управления данными и информационной безопасности.</p>
+                </div>
+    </section>
+    <!-- ======= /ДОБАВЛЕНО ======= -->
+{% endblock %}

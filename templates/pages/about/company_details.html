@@ -1,0 +1,94 @@
+<!--company_details.html-->
+
+{% extends "_base.html" %}
+{% load static %}
+{% block title %}DCSource: Реквизиты компании{% endblock %}
+{% block side_content %}
+    <!-- [DC Source] Меню раздела в боковом контейнере -->
+    <section id="side-menu" name="side-menu-submenu">
+        <div class="menu-header">
+            МЕНЮ РАЗДЕЛА
+        </div>
+        <!-- [DC Source] ДОРАБОТАНО: кнопки-меню вместо обычных ссылок -->
+            <ul class="list-unstyled">
+              <li>
+                <a href="{% url 'about' %}" class="dc-menu-btn{% if request.resolver_match.url_name == 'about' %} active{% endif %}">О Нас</a>
+              </li>
+              <li>
+                <a href="{% url 'privacy_policy' %}" class="dc-menu-btn{% if request.resolver_match.url_name == 'privacy_policy' %} active{% endif %}">Политика обработки персональных данных</a>
+              </li>
+              <li>
+                <a href="{% url 'company_details' %}" class="dc-menu-btn{% if request.resolver_match.url_name == 'company_details' %} active{% endif %}">Реквизиты компании</a>
+              </li>
+            </ul>
+    </section>
+{% endblock %}
+
+{% block side_content_anchor %}
+    <!-- [DC Source] Якорное меню страницы в боковом контейнере -->
+    <section id="side-menu-anchor" name="side-menu-anchor">
+        <div class="menu-header">
+            ФОРМА ОБРАТНОЙ СВЯЗИ
+        </div>
+        <!-- [DC Source] ДОРАБОТАНО: кнопки-меню вместо обычных ссылок -->
+
+    </section>
+{% endblock %}
+{% block content %}
+    <section id="company-detail-section" class="mb-4">
+        <div class="main-section-header">РЕКВИЗИТЫ КОМПАНИИ</div>
+            <div class="main-section-content">
+        <!-- ======= ДОБАВЛЕНО: таблица справа от логотипа, логотип не более 10% высоты экрана ======= -->
+                <div class="row px-4 pt-4 pb-3 align-items-center">
+                    <div class="col-12 col-md-3 d-flex justify-content-center mb-3 mb-md-0">
+                        <div class="company-detail-avatar-img-container" style="width:100%; text-align:center;">
+                            <img src="{% static 'images/logo_red.svg' %}" alt="Avatar" class="company-detail-avatar-img" style="max-height:10vh; max-width:100%; object-fit:contain;">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <table class="table w-auto mb-0" style="background:var(--bs-card-bg);">
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="text-end">ТОО</th>
+                                    <td><b>DCSource</b></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-end">БИН</th>
+                                    <td>230140039500</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-end">ОКЭД</th>
+                                    <td>62099 <span style="color: gray;"><sup> * Другие виды деятельности в области информационных технологий и информационных систем, не включенные в другие группировки</sup></span><br>62032<span style="color: gray;"><sup> * Деятельность в области монтажа и настройки аппаратно-программных комплексов</sup></span><br>62092<span style="color: gray;"><sup> * Деятельность в области кибербезопасности</sup></span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-end">АДРЕС</th>
+                                    <td>050000, Республика Казахстан, г.Алматы, пр-т Абая, 109В, этаж 4</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-end">ТЕЛЕФОНЫ</th>
+                                    <td>
+                                        <a href="tel:+77007802723">+7 700 780 27 23</a><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-end">WhatsApp</th>
+                                    <td>
+                                        <!-- ======= ДОБАВЛЕНО: ссылки на WhatsApp для каждого номера ======= -->
+                                        <a href="https://wa.me/77007802723" target="_blank">+7 700 780 27 23</a><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-end">Telegram</th>
+                                    <td>
+                                        <!-- ======= ДОБАВЛЕНО: ссылка на Telegram ======= -->
+                                        <a href="https://t.me/dcsource" target="_blank">@dcsource</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- ======= /ДОБАВЛЕНО ======= -->
+    </section>
+{% endblock %}

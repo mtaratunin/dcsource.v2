@@ -22,32 +22,61 @@
   <link rel="stylesheet" href="{% static 'css/menu.css' %}">
   <link rel="stylesheet" href="{% static 'css/menu_mobile.css' %}">
   {% endblock %}
+
+  <!-- [DC Source] Передаём структуру меню в JS для динамической генерации на фронте -->
+  <script>
+    window.DC_DYNAMIC_MENU = {{ dynamic_menu_json|safe }};
+  </script>
 </head>
 
 <body>
-    {% include "_menu_main.html" %}
-      <!-- [DC Source] ДВУКОЛОНОЧНЫЙ layout: основной контент и сайдбар -->
-    <div class="main-two-columns">
-      <div class="container-main">
-        {% block content %}{% endblock %}
-      </div>
-      <div class="sidebars-column">
-        <div class="container-side">
-          {% block side_content %}{% endblock %}
-        </div>
-        <div class="container-side-anchor">
-          {% block side_content_anchor %}{% endblock %}
-        </div>
+  <!-- [DC Source] Фирменная шапка-меню с логотипом слева и динамическим меню справа, фиксированная, shrink при скролле -->
+  <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="main-navbar">
+    <div class="container-fluid">
+      <!-- [DC Source] Логотип слева, с id для shrink-логики -->
+      <a class="navbar-brand" href="/"><img src="{% static 'images/logo_white.svg' %}" alt="DCSource" height="60" style="margin-right:10px;" id="navbar-logo"></a>
+      <!-- [DC Source] Кнопка-бургер для мобильного меню (работает только <991.98px) -->
+      <button class="navbar-toggler d-lg-none" type="button" id="mobileMenuOpenBtn" aria-label="Открыть меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- [DC Source] Контейнер для динамического меню справа (только для десктопа) -->
+      <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex">
+        <div id="dc-main-menu"></div>
       </div>
     </div>
+  </nav>
+  <!-- /Фирменная шапка-меню -->
+
+  <!-- [DC Source] Контейнер для мобильного меню — показывается только на мобильных -->
+  <div class="mobile-menu hide" id="mobileMenu" tabindex="-1">
+    <button type="button" class="mobile-menu-close" id="mobileMenuCloseBtn" aria-label="Закрыть">&times;</button>
+    <div id="dc-mobile-menu"></div>
+  </div>
+  <!-- /Контейнер для мобильного меню -->
+
+  <!-- [DC Source] ДВУКОЛОНОЧНЫЙ layout: основной контент и сайдбар -->
+  <div class="main-two-columns">
+    <div class="container-main">
+      {% block content %}{% endblock %}
+    </div>
+    <div class="sidebars-column">
+      <div class="container-side">
+        {% block side_content %}{% endblock %}
+      </div>
+      <div class="container-side-anchor">
+        {% block side_content_anchor %}{% endblock %}
+      </div>
+    </div>
+  </div>
 
   <!-- ======= ДОРАБОТАНО: sticky footer с динамическим блоком ======= -->
   <footer class="footer" id="main-footer">
     <div class="container text-center">
       <!-- [DC Source] Блок ссылок — показывается только при расширении футера -->
       <div class="footer-links-block">
-        <a href="{% url 'privacy_policy' %}" class="text-light me-3" style="text-decoration:underline;">Политика обработки персональных данных</a>
-        <a href="{% url 'company_details' %}" class="text-light me-3" style="text-decoration:underline;">Реквизиты компании</a>
+        {# [DC Source] Исправлено: ссылки теперь используют динамический маршрут для корректной работы с DynamicPageView #}
+        <a href="{% url 'dynamic_page' folder='about' page='privacy_policy' %}" class="text-light me-3" style="text-decoration:underline;">Политика обработки персональных данных</a>
+        <a href="{% url 'dynamic_page' folder='about' page='company_details' %}" class="text-light me-3" style="text-decoration:underline;">Реквизиты компании</a>
       </div>
       <!-- [DC Source] Строка с DCSource — всегда видна -->
       <div class="footer-copyright">
@@ -58,17 +87,17 @@
 
   {% block javascript %}
   <!-- Bootstrap JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-
-  <!-- Project JS -->
   <script src="{% static 'js/base.js' %}"></script>
   <script src="{% static 'js/active-menu.js' %}"></script>
   <script src="{% static 'js/menu_mobile.js' %}"></script>
-
+  <!-- [DC Source] Скрипт для динамического построения меню на фронте -->
+  <script src="{% static 'js/dc_dynamic_menu.js' %}"></script>
   <!-- [DC Source] Скрипт для уменьшения меню при прокрутке и для sticky footer -->
   <script src="{% static 'js/sticky_footer.js' %}"></script>
+  <!-- Bootstrap JS после всех кастомных -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
   {% endblock javascript %}
 </body>
 

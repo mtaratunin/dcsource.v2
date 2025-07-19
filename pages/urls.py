@@ -1,10 +1,9 @@
-from django.urls import path
+# pages/urls.py
 
-from .views import HomePageView, AboutPageView, PrivacyPolicyPageView, CompanyDetailsPageView
+from django.urls import path
+from .views import HomePageView, DynamicPageView
 
 urlpatterns = [
     path("", HomePageView.as_view(), name="home"),
-    path("about/", AboutPageView.as_view(), name="about"),
-    path("privacy_policy/", PrivacyPolicyPageView.as_view(), name="privacy_policy"),
-    path("company_details/", CompanyDetailsPageView.as_view(), name="company_details"),
+    path("<str:folder>/<str:page>/", DynamicPageView.as_view(), name="dynamic_page"),
 ]

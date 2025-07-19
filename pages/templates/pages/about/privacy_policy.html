@@ -1,9 +1,10 @@
 <!--privacy_policy.html-->
 
 {% extends "_base.html" %}
+{% block position %}99{% endblock %}
 
 {% block title %}
-    DCSource: Политика в отношении обработки персональных данных
+    Политика в отношении обработки персональных данных
 {% endblock %}
 
 {% block side_content %}
@@ -13,17 +14,7 @@
             МЕНЮ РАЗДЕЛА
         </div>
         <!-- [DC Source] ДОРАБОТАНО: кнопки-меню вместо обычных ссылок -->
-            <ul class="list-unstyled">
-              <li>
-                <a href="{% url 'about' %}" class="dc-menu-btn{% if request.resolver_match.url_name == 'about' %} active{% endif %}">О Нас</a>
-              </li>
-              <li>
-                <a href="{% url 'privacy_policy' %}" class="dc-menu-btn{% if request.resolver_match.url_name == 'privacy_policy' %} active{% endif %}">Политика обработки персональных данных</a>
-              </li>
-              <li>
-                <a href="{% url 'company_details' %}" class="dc-menu-btn{% if request.resolver_match.url_name == 'company_details' %} active{% endif %}">Реквизиты компании</a>
-              </li>
-            </ul>
+        <ul class="list-unstyled" id="dc-side-menu"></ul>
     </section>
 {% endblock %}
 

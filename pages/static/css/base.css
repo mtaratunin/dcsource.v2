@@ -37,7 +37,7 @@ body {
   margin-bottom: 70px;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 25px 25px;
+  padding: 25px 25px 25px 25px;
   min-height: 60vh; /* [DC Source] По умолчанию, чтобы не захватывать весь экран если мало контента */
 }
 @media (max-width: 1200px) {

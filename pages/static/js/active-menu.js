@@ -1,3 +1,4 @@
+//pages/static/js/active-menu.js
 // [DC Source] Автоматическое выделение активного пункта меню-якоря при прокрутке страницы
 document.addEventListener('DOMContentLoaded', function () {
     // Собираем все якорные пункты меню (ссылки с .dc-menu-btn и href="#...")

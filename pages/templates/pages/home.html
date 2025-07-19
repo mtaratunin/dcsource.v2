@@ -1,4 +1,4 @@
-{#homa.html#}
+{#home.html#}
 
 {% load static %}
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-  <title>{% block title %}DCSource: Главная{% endblock title %}</title>
+  <title>{% block title %}DCSource{% endblock title %}</title>
   <meta name="description" content="DCSource Django Project">
   <meta name="author" content="">
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
@@ -19,16 +19,47 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  <link rel="stylesheet" href="{% static 'css/menu_landing.css' %}">
+  <link rel="stylesheet" href="{% static 'css/menu.css' %}">
   <link rel="stylesheet" href="{% static 'css/menu_mobile.css' %}">
   {% endblock %}
+
+  <!-- [DC Source] Передаём структуру меню в JS для динамической генерации на фронте -->
+  <script>
+    window.DC_DYNAMIC_MENU = {{ dynamic_menu_json|safe }};
+  </script>
 </head>
 
 <body>
-    {% include "_menu_main.html" %}
+  <!-- [DC Source] Исправлено: Фирменная шапка-меню с логотипом слева и динамическим меню справа, фиксированная, shrink при скролле -->
+  <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="main-navbar">
+    <div class="container-fluid">
+      <!-- [DC Source] Логотип слева, с id для shrink-логики -->
+      <a class="navbar-brand" href="/"><img src="{% static 'images/logo_white.svg' %}" alt="DCSource" height="38" style="margin-right:10px;" id="navbar-logo"></a>
+      <!-- [DC Source] Кнопка-бургер для мобильного меню -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- [DC Source] Контейнер для динамического меню справа -->
+      <div class="collapse navbar-collapse justify-content-end">
+        <div id="dc-main-menu"></div>
+      </div>
+    </div>
+  </nav>
+  <!-- /Фирменная шапка-меню -->
+
   <!-- ======= ДОРАБОТАНО: sticky footer с динамическим блоком ======= -->
   <footer class="footer" id="main-footer">
-    {% include "_footer.html" %}
+    <div class="container text-center">
+      <!-- [DC Source] Блок ссылок — показывается только при расширении футера -->
+      <div class="footer-links-block">
+        {# [DC Source] Исправлено: ссылки теперь используют динамический маршрут для корректной работы с DynamicPageView #}
+        <a href="{% url 'dynamic_page' folder='about' page='privacy_policy' %}" class="text-light me-3" style="text-decoration:underline;">Политика обработки персональных данных</a>
+        <a href="{% url 'dynamic_page' folder='about' page='company_details' %}" class="text-light me-3" style="text-decoration:underline;">Реквизиты компании</a>
+      </div>
+      <!-- [DC Source] Строка с DCSource — всегда видна -->
+      <div class="footer-copyright">
+        <a href="https://dcsource.kz" class="small" style="color: #bbbbbb;">DCSource</a><span class="small" style="color: #bbbbbb"> &copy; {{ now|default:2025 }} Все права защищены</span></div>
+    </div>
   </footer>
   <!-- ======= /ДОРАБОТАНО ======= -->
 
@@ -42,7 +73,8 @@
   <script src="{% static 'js/base.js' %}"></script>
   <script src="{% static 'js/active-menu.js' %}"></script>
   <script src="{% static 'js/menu_mobile.js' %}"></script>
-
+  <!-- [DC Source] Скрипт для динамического построения меню на фронте -->
+  <script src="{% static 'js/dc_dynamic_menu.js' %}"></script>
   <!-- [DC Source] Скрипт для уменьшения меню при прокрутке и для sticky footer -->
   <script src="{% static 'js/sticky_footer.js' %}"></script>
   {% endblock javascript %}

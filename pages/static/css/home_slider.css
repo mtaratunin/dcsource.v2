@@ -1,0 +1,126 @@
+/* home_slider.css */
+
+/* [DC Source] Слайдер для главной страницы */
+
+.slider {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  max-width: 100vw;
+  max-height: 90vh;
+  overflow: hidden;
+  background: #181818;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-images {
+  width: 100vw;
+  height: 90vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 90vh;
+  object-fit: cover; /* [DC Source] Центрирование и обрезка лишнего, пропорции сохраняются */
+  object-position: center center;
+  opacity: 0;
+  transition: opacity 0.8s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.slider-image.active {
+  opacity: 1;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* [DC Source] Стрелки по умолчанию скрыты и оформлены как прямоугольник */
+.slider-arrow {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, background 0.2s, color 0.2s;
+  background: rgba(30,30,30,0.15);
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 2.2rem;
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;       /* [DC Source] Квадрат с мягкими углами */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 10;
+  user-select: none;
+}
+
+/* [DC Source] Показываем стрелки при наведении на слайдер */
+.slider:hover .slider-arrow,
+.slider:focus-within .slider-arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* [DC Source] Ховер — чуть более тёмный фон и золотой цвет стрелки */
+.slider-arrow:hover, .slider-arrow:focus {
+  background: rgba(30,30,30,0.25);
+  color: #FFD700;
+}
+
+/* [DC Source] Позиционирование стрелок */
+.slider-arrow-left {
+  left: 18px;
+}
+.slider-arrow-right {
+  right: 18px;
+}
+
+/* [DC Source] SVG-стрелка внутри кнопки */
+.slider-arrow svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+}
+
+/* [DC Source] Для мобильных — стрелки меньше */
+@media (max-width: 900px) {
+  .slider, .slider-images, .slider-image {
+    height: 55vw;
+    max-height: 75vw;
+  }
+  .slider-arrow {
+    font-size: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+  }
+  .slider-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.slider-overlay {
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  background: rgba(0,0,0,0.5); /* или rgba(255,255,255,0.18) для светлого эффекта */
+}

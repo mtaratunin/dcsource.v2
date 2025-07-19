@@ -1,5 +1,7 @@
 {#home.html#}
 
+{#home.html#}
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +23,9 @@
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   <link rel="stylesheet" href="{% static 'css/menu.css' %}">
   <link rel="stylesheet" href="{% static 'css/menu_mobile.css' %}">
+  <!-- [DC Source] ДОБАВЛЕНО: Стили для слайдера главной страницы -->
+  <link rel="stylesheet" href="{% static 'css/home_slider.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home_statistics.css' %}">
   {% endblock %}
 
   <!-- [DC Source] Передаём структуру меню в JS для динамической генерации на фронте -->
@@ -31,10 +36,10 @@
 
 <body>
   <!-- [DC Source] Исправлено: Фирменная шапка-меню с логотипом слева и динамическим меню справа, фиксированная, shrink при скролле -->
-  <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="main-navbar">
+  <nav class="navbar navbar-expand-lg navbar-custom-home fixed-top" id="main-navbar">
     <div class="container-fluid">
       <!-- [DC Source] Логотип слева, с id для shrink-логики -->
-      <a class="navbar-brand" href="/"><img src="{% static 'images/logo_white.svg' %}" alt="DCSource" height="38" style="margin-right:10px;" id="navbar-logo"></a>
+      <a class="navbar-brand" href="/"><img src="{% static 'images/logo_red.svg' %}" alt="DCSource" height="60" style="margin-right:10px;" id="navbar-logo"></a>
       <!-- [DC Source] Кнопка-бургер для мобильного меню -->
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
         <span class="navbar-toggler-icon"></span>
@@ -46,6 +51,54 @@
     </div>
   </nav>
   <!-- /Фирменная шапка-меню -->
+
+  <!-- [DC Source] ДОБАВЛЕНО: Слайдер на главной странице -->
+    <div class="slider" id="home-slider">
+      <button class="slider-arrow slider-arrow-left" id="slider-arrow-left"></button>
+      <div class="slider-images" id="slider-images">
+        <div class="slider-overlay"></div>
+        <!-- сюда вставляются <img class="slider-image"> из JS -->
+      </div>
+      <button class="slider-arrow slider-arrow-right" id="slider-arrow-right"></button>
+    </div>
+  <!-- /Слайдер -->
+
+  <!-- [DC Source] ДОБАВЛЕНО: Статистика -->
+  <div class="statistics" id="home-statistics">
+    {% include "pages/_home_statistics.html" %}
+  </div>
+  <!-- /Статистика -->
+
+  <!-- [DC Source] ДОБАВЛЕНО: Компетенции -->
+  <div class="competencies" id="home-competencies">
+    <br>
+        <p>Тест 1</p>
+
+  </div>
+  <!-- /Компетенции -->
+
+  <!-- [DC Source] ДОБАВЛЕНО: Услуги -->
+  <div class="services" id="home-services">
+    <br>
+        <p>Тест 1</p>
+
+  </div>
+  <!-- /Услуги -->
+
+  <!-- [DC Source] ДОБАВЛЕНО: Отзывы -->
+  <div class="reviews" id="home-reviews">
+    <br>
+        <p>Тест 1</p>
+
+  </div>
+  <!-- /Отзывы -->
+
+  <!-- [DC Source] ДОБАВЛЕНО: Клиенты -->
+  <div class="clients" id="home-clients">
+    <br>
+        <p>Тест 1</p>
+  </div>
+  <!-- /Клиенты -->
 
   <!-- ======= ДОРАБОТАНО: sticky footer с динамическим блоком ======= -->
   <footer class="footer" id="main-footer">
@@ -77,6 +130,9 @@
   <script src="{% static 'js/dc_dynamic_menu.js' %}"></script>
   <!-- [DC Source] Скрипт для уменьшения меню при прокрутке и для sticky footer -->
   <script src="{% static 'js/sticky_footer.js' %}"></script>
+  <!-- [DC Source] ДОБАВЛЕНО: Скрипт для слайдера на главной странице -->
+  <script src="{% static 'js/home_slider.js' %}"></script>
+  <script src="{% static 'js/home_statistics.js' %}"></script>
   {% endblock javascript %}
 </body>
 

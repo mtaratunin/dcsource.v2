@@ -4,7 +4,7 @@
 
 .slider {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 90vh;
   max-width: 100vw;
   max-height: 90vh;
@@ -26,13 +26,14 @@
   justify-content: center;
 }
 
+/* [DC Source] Картинка-слайд */
 .slider-image {
   position: absolute;
   left: 0;
   top: 0;
   width: 100vw;
   height: 90vh;
-  object-fit: cover; /* [DC Source] Центрирование и обрезка лишнего, пропорции сохраняются */
+  object-fit: cover;
   object-position: center center;
   opacity: 0;
   transition: opacity 0.8s;
@@ -40,11 +41,131 @@
   pointer-events: none;
 }
 
+/* [DC Source] ДОБАВЛЕНО: эффекты движения для slide-effect-zoom-in и slide-effect-zoom-out */
+.slider-image.slide-effect-zoom-in {
+  animation: slider-image-zoom-in 10s linear forwards;
+}
+.slider-image.slide-effect-zoom-out {
+  animation: slider-image-zoom-out 10s linear forwards;
+}
+/* [DC Source] slide-effect-pan-left и slide-effect-pan-right */
+.slider-image.slide-effect-pan-left {
+  animation: slider-image-pan-left 10s linear forwards;
+}
+.slider-image.slide-effect-pan-right {
+  animation: slider-image-pan-right 10s linear forwards;
+}
+
+@keyframes slider-image-zoom-in {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.28); }
+}
+@keyframes slider-image-zoom-out {
+  0%   { transform: scale(1.28); }
+  100% { transform: scale(1); }
+}
+@keyframes slider-image-pan-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-3vw); }
+}
+@keyframes slider-image-pan-right {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(3vw); }
+}
+
 .slider-image.active {
   opacity: 1;
   z-index: 2;
   pointer-events: auto;
 }
+
+/* [DC Source] Текстовый оверлей для каждого слайда */
+.slider-content {
+  position: absolute;
+  width: 100vw;
+  max-width: 100vw;
+  left: 0;
+  top: 0;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  /* [DC Source] ДОРАБОТАНО: убраны неработающие селекторы, теперь позиционирование задаётся через inline style */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 6;
+  padding: 10vw 7vw;
+  transition: opacity 0.8s;
+}
+.slider-content.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* [DC Source] ДОБАВЛЕНО: z-index: -1 для .slider-content неактивного, чтобы скрыть любые пересечения */
+.slider-content:not(.active) {
+  z-index: -1;
+}
+
+/* [DC Source] Заголовок слайда */
+.slider-title {
+  font-size: 2.6rem;
+  line-height: 1.11;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.6em;
+  text-shadow: 0 4px 28px rgba(0,0,0,0.18);
+  letter-spacing: 0.03em;
+}
+.slider-desc {
+  font-size: 1.28rem;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.45;
+  margin-bottom: 1.3em;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+/* [DC Source] Кнопка Подробнее: мигающая анимация */
+.slider-link {
+  background: #8C2028 !important; /* насыщенный, ярко-красный */
+  opacity: 0.5 !important;
+  color: #fff;
+  font-weight: 500;
+  padding: 0.72em 2.3em;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  margin-top: 0.5em;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5) !important;
+}
+.slider-link:hover, .slider-link:focus {
+  background: #8C2028 !important;
+  color: #fff;
+  text-decoration: none;
+  opacity: 1 !important;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .95) !important;
+}
+
+/* [DC Source] Примеры простых эффектов (добавь по необходимости) */
+.title-effect-zoom { animation: sliderZoomIn 1s both; }
+@keyframes sliderZoomIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.desc-effect-fade-in { animation: sliderFadeIn 1.2s both; }
+@keyframes sliderFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.url-effect-fade-out { animation: sliderFadeOut 1.2s both; }
+@keyframes sliderFadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0.15; }
+}
+.slide-effect-zoom { animation: sliderZoomIn 1.2s both; }
+.slide-effect-fade-in { animation: sliderFadeIn 1.2s both; }
+.slide-effect-fade-out { animation: sliderFadeOut 1.2s both; }
 
 /* [DC Source] Стрелки по умолчанию скрыты и оформлены как прямоугольник */
 .slider-arrow {
@@ -58,7 +179,7 @@
   font-size: 2.2rem;
   width: 54px;
   height: 54px;
-  border-radius: 8px;       /* [DC Source] Квадрат с мягкими углами */
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.09);
   display: flex;
   align-items: center;
@@ -99,7 +220,7 @@
 
 /* [DC Source] Для мобильных — стрелки меньше */
 @media (max-width: 900px) {
-  .slider, .slider-images, .slider-image {
+  .slider, .slider-images, .slider-image, .slider-content {
     height: 55vw;
     max-height: 75vw;
   }
@@ -122,5 +243,5 @@
   height: 100%;
   z-index: 3;
   pointer-events: none;
-  background: rgba(0,0,0,0.5); /* или rgba(255,255,255,0.18) для светлого эффекта */
+  background: rgba(0,0,0,0.5);
 }

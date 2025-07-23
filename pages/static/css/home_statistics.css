@@ -3,7 +3,7 @@
 
 .statistics-inner {
   /* [DC Source] ДОРАБОТАНО: Отрицательный margin-top для наложения на слайдер */
-  margin-top: -5vw;
+  margin-top: -12vw;
   padding: 0 0 0 0;
   /*background: rgba(20,22,44,0.08) !important; !* [DC Source] Фон блока статистики *!*/
   position: relative;

@@ -1,0 +1,131 @@
+/* home_statistics.css */
+/* [DC Source] Статистика: блок с тремя карточками */
+
+.statistics-inner {
+  /* [DC Source] ДОРАБОТАНО: Отрицательный margin-top для наложения на слайдер */
+  margin-top: -5vw;
+  padding: 0 0 0 0;
+  /*background: rgba(20,22,44,0.08) !important; !* [DC Source] Фон блока статистики *!*/
+  position: relative;
+  z-index: 20; /* [DC Source] Поверх слайдера */
+  min-height: 240px;
+  /* [DC Source] Добавляем скос снизу через clip-path */
+  /*clip-path: polygon(0 0,100% 0,100% 90%,50% 100%,0 90%);*/
+  /*margin-bottom: -50px; !* чтобы overlap был с белым фоном ниже *!*/
+}
+
+/*.statistics-angled {*/
+/*  position: absolute;*/
+/*  left: 0; right: 0; bottom: 0;*/
+/*  height: 60px;*/
+/*  !*background: #23284a;*!*/
+/*  z-index: 5;*/
+/*  !*clip-path: polygon(0 0,100% 0,100% 65%,50% 100%,0 65%);*!*/
+/*  pointer-events: none;*/
+/*}*/
+
+.stat-block {
+  background: rgba(140, 32, 40, 0.75);
+  border-radius: 0;
+  box-shadow: 0 10px 20px 0 rgba(140, 32, 40, 0.7);
+  padding: 25px 35px 25px 35px;
+  min-height: 174px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /*margin-bottom: 12px;*/
+  position: relative;
+  transition: box-shadow 0.2s, background 0.2s;
+  width: 100%;
+  /*max-width: 90vw;*/
+  /*gap: 50px 50px;*/
+}
+.stat-block:hover {
+  background: rgba(140, 32, 40, 0.99);
+  box-shadow: 0 15px 30px 0 rgba(140, 32, 40, 0.7);
+  border-radius: 0;
+  padding: 35px 35px 25px 35px;
+  margin-top: -30px;
+  margin-bottom: -30px;
+}
+.stat-header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 13px;
+}
+.stat-dots {
+  display: inline-block;
+  font-family: monospace;
+  color: #e5e5e5;
+  font-size: 1.5rem;
+  opacity: 0.32;
+  margin-right: 10px;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+.stat-number {
+  font-size: 3.7rem;
+  font-weight: 700;
+  color: rgb(238, 238, 238);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.stat-plus {
+  font-size: 3.1rem;
+  color: rgb(238, 238, 238);
+  margin-left: 0.1em;
+}
+.stat-title {
+  font-size: 1.32rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1.2;
+}
+.stat-desc {
+  color: #c8cbe1;
+  font-size: 1.04rem;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+@media (max-width: 991.98px) {
+  .statistics-inner {
+    margin-top: 0; /* [DC Source] Не залазит на слайдер на мобильном */
+    padding: 40px 0 23px 0;
+    clip-path: none;
+    margin-bottom: 0;
+  }
+  .statistics-angled { display: none; }
+  .stat-block {
+    padding: 28px 18px 16px 18px;
+    min-height: 220px;
+    max-width: 100%;
+  }
+  .stat-number {
+    font-size: 2.0rem;
+  }
+  .stat-plus {
+    font-size: 1.3rem;
+  }
+  .stat-title {
+    font-size: 1.08rem;
+  }
+  .stat-desc {
+    font-size: 0.96rem;
+  }
+}
+
+.container-home {
+  /*width: 100%;*/
+  max-width: 100%;
+  padding-left: 4vw;
+  padding-right: 4vw;
+}

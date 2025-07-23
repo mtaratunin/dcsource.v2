@@ -40,8 +40,12 @@
     <div class="container-fluid">
       <!-- [DC Source] Логотип слева, с id для shrink-логики -->
       <a class="navbar-brand" href="/"><img src="{% static 'images/logo_red.svg' %}" alt="DCSource" height="60" style="margin-right:10px;" id="navbar-logo"></a>
-      <!-- [DC Source] Кнопка-бургер для мобильного меню -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+{#      <!-- [DC Source] Кнопка-бургер для мобильного меню -->#}
+{#      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">#}
+{#        <span class="navbar-toggler-icon"></span>#}
+{#      </button>#}
+      <!-- [DC Source] Кнопка-бургер для мобильного меню (работает только <991.98px) -->
+      <button class="navbar-toggler d-lg-none" type="button" id="mobileMenuOpenBtn" aria-label="Открыть меню">
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- [DC Source] Контейнер для динамического меню справа -->
@@ -51,6 +55,13 @@
     </div>
   </nav>
   <!-- /Фирменная шапка-меню -->
+
+  <!-- [DC Source] Контейнер для мобильного меню — показывается только на мобильных -->
+  <div class="mobile-menu hide" id="mobileMenu" tabindex="-1">
+    <button type="button" class="mobile-menu-close" id="mobileMenuCloseBtn" aria-label="Закрыть">&times;</button>
+    <div id="dc-mobile-menu"></div>
+  </div>
+  <!-- /Контейнер для мобильного меню -->
 
   <!-- [DC Source] ДОБАВЛЕНО: Слайдер на главной странице -->
     <div class="slider" id="home-slider">

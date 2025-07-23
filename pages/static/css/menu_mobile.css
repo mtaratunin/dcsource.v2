@@ -15,9 +15,9 @@
     right: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to right, #8c2020 60%, #af2828 100%);
+    background: linear-gradient(to right, #8c2020 60%, #af2828 100%) !important;
     box-shadow: 0 8px 24px 0 rgba(140, 32, 40, 0.18);
-    z-index: 2000;
+    z-index: 5000;
     padding-top: 80px;
     transition: transform 0.3s, opacity 0.3s;
     transform: translateX(0);
@@ -110,7 +110,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 2100;
+    z-index: 5100;
     border-radius: 0 !important;
   }
 }

@@ -31,7 +31,7 @@ slide: 2
 file: slide4.jpg
 title: ПАКС-система
 desc: - решение каталогизированного централизованного хранения снимков
-url: /solutions/pacs/
+url:
 text-position: bottom
 text-align: right
 duration: 5
@@ -44,7 +44,7 @@ slide: 3
 file: slide3.jpg
 title: Медицинская Информационная Система (МИС)
 desc: система управления потоками работников и пациентов
-url: /solutions/mis/
+url:
 text-position: top
 text-align: left
 duration: 5
@@ -57,7 +57,7 @@ slide: 4
 file: slide2.jpg
 title: Лабораторная Информационная Система (ЛИС)
 desc:
-url: /solutions/lis/
+url:
 text-position: bottom
 text-align: left
 duration: 5

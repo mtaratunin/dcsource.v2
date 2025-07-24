@@ -197,19 +197,28 @@ document.addEventListener('DOMContentLoaded', function () {
       // [DC Source] Для каждой текстовой области применяем эффекты (индивидуально для каждого слайда)
       if (slide['slide-effect']) content.classList.add('slide-effect-' + slide['slide-effect']);
       // [DC Source] Контейнеры для title, desc, url
+
+      // [DC Source][NEW] Разделяем title на строки по "\n" и отображаем каждую строку отдельно
       if (slide.title) {
-        let title = document.createElement('div');
-        title.className = 'slider-title';
-        if (slide['title-effects']) title.classList.add('title-effect-' + slide['title-effects']);
-        title.innerText = slide.title;
-        content.appendChild(title);
+        let titleLines = slide.title.split('\\n'); // Разделение по "\n" в строке
+        titleLines.forEach(line => {
+          let title = document.createElement('div');
+          title.className = 'slider-title';
+          if (slide['title-effects']) title.classList.add('title-effect-' + slide['title-effects']);
+          title.innerText = line;
+          content.appendChild(title);
+        });
       }
+      // [DC Source][NEW] Разделяем desc на строки по "\n" и отображаем каждую строку отдельно
       if (slide.desc) {
-        let desc = document.createElement('div');
-        desc.className = 'slider-desc';
-        if (slide['desc-effects']) desc.classList.add('desc-effect-' + slide['desc-effects']);
-        desc.innerText = slide.desc;
-        content.appendChild(desc);
+        let descLines = slide.desc.split('\\n'); // Разделение по "\n" в строке
+        descLines.forEach(line => {
+          let desc = document.createElement('div');
+          desc.className = 'slider-desc';
+          if (slide['desc-effects']) desc.classList.add('desc-effect-' + slide['desc-effects']);
+          desc.innerText = line;
+          content.appendChild(desc);
+        });
       }
       // [DC Source] Кнопка Подробнее только если url не пустой и не пробел
       if (slide.url && slide.url.length > 0) {

@@ -21,7 +21,7 @@ desc: Инновационная система диагностики и обн
 url:
 text-position: top
 text-align: left
-duration: 8
+duration: 5
 title-effects: zoom
 desc-effects: fade-in
 url-effects: fade-out
@@ -29,12 +29,12 @@ slide-effect: zoom-in
 
 slide: 2
 file: slide4.jpg
-title: PACS: Цифровое хранение, Скорость и Минимизация ошибок
-desc: Неограниченное хранение данных, быстрая передача снимков для локальных и удалённых специалистов, совместный анализ снимков врачом и ИИ
+title: PACS: Скорость и Минимизация ошибок
+desc: Неограниченное хранение данных, быстрая передача снимков для локальных и\nудалённых специалистов, совместный анализ снимков врачом и ИИ
 url:
 text-position: bottom
-text-align: right
-duration: 8
+text-align: left
+duration: 5
 title-effects: zoom
 desc-effects: fade-in
 url-effects: fade-out
@@ -42,12 +42,12 @@ slide-effect: zoom-out
 
 slide: 3
 file: slide3.jpg
-title: Стандартизация и Архивирование
+title: PACS: Стандартизация и Архивирование
 desc: Non-DICOM приборы в DICOM, архивирование, передача и визуализация в DICOM 3.0
 url:
-text-position: top
-text-align: left
-duration: 8
+text-position: bottom
+text-align: right
+duration: 5
 title-effects: zoom
 desc-effects: fade-in
 url-effects: fade-out
@@ -55,12 +55,12 @@ slide-effect: zoom-in
 
 slide: 4
 file: slide2.jpg
-title: Доступ и сравнение, Телерадиология
+title: PACS: Доступ и сравнение
 desc: Локальный и дистанционный доступ к предыдущим обращениям, возможность их сравнения
 url:
-text-position: bottom
-text-align: left
-duration: 8
+text-position: top
+text-align: right
+duration: 5
 title-effects: zoom
 desc-effects: fade-in
 url-effects: fade-out

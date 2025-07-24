@@ -1,5 +1,7 @@
 /* home_slider.css */
 
+/* home_slider.css */
+
 /* [DC Source] Слайдер для главной страницы */
 
 .slider {
@@ -10,7 +12,7 @@
   max-height: 95vh;
   overflow: hidden;
   background: #181818;
-  margin: 0;
+  margin-top: 75px;
   padding: 0;
   display: flex;
   align-items: center;
@@ -112,16 +114,16 @@
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.6em;
-  text-shadow: 0 4px 28px rgba(0,0,0,0.18);
+  text-shadow: 0 0 5px rgba(0,0,0,0.80);
   letter-spacing: 0.03em;
 }
 .slider-desc {
   font-size: 1.28rem;
   color: #fff;
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 0.45;
   margin-bottom: 1.3em;
-  text-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  text-shadow: 0 0 2px rgba(0,0,0,0.80);
 }
 
 /* [DC Source] Кнопка Подробнее: мигающая анимация */
@@ -219,10 +221,56 @@
 }
 
 /* [DC Source] Для мобильных — стрелки меньше */
-@media (max-width: 900px) {
-  .slider, .slider-images, .slider-image, .slider-content {
-    height: 55vw;
-    max-height: 75vw;
+/*@media (max-width: 900px) {*/
+/*  .slider, .slider-images, .slider-image, .slider-content {*/
+/*    height: 55vw;*/
+/*    max-height: 75vw;*/
+/*  }*/
+/*  .slider-arrow {*/
+/*    font-size: 1.5rem;*/
+/*    width: 36px;*/
+/*    height: 36px;*/
+/*    border-radius: 6px;*/
+/*  }*/
+/*  .slider-arrow svg {*/
+/*    width: 18px;*/
+/*    height: 18px;*/
+/*  }*/
+/*}*/
+
+/* [DC Source 991.98][NEW] Для мобильных устройств — слайдер вытягивается на всю высоту экрана */
+@media (max-width: 991.98px) {
+  .slider,
+  .slider-images,
+  .slider-image,
+  .slider-content {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+  }
+  .slider-content {
+    padding: 25vw 10vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    min-height: 100vh !important;
+  }
+  /* [DC Source][NEW] Размеры заголовка и описания на мобильных */
+  .slider-title {
+    font-size: 3.0rem;
+    margin-bottom: 0.4em;
+  }
+  .slider-desc {
+    font-size: 2rem;
+    margin-bottom: 0.8em;
+    line-height: 1.0;
+  }
+  .slider-link {
+    font-size: 1rem;
+    padding: 0.5em 1.5em;
   }
   .slider-arrow {
     font-size: 1.5rem;
@@ -236,6 +284,53 @@
   }
 }
 
+/* [DC Source 575.98][NEW] Для мобильных устройств — слайдер вытягивается на всю высоту экрана */
+@media (max-width: 575.98px) {
+  .slider,
+  .slider-images,
+  .slider-image,
+  .slider-content {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+  }
+  .slider-content {
+    padding: 25vw 10vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    min-height: 100vh !important;
+  }
+  /* [DC Source][NEW] Размеры заголовка и описания на мобильных */
+  .slider-title {
+    font-size: 3.0rem;
+    margin-bottom: 0.4em;
+  }
+  .slider-desc {
+    font-size: 2rem;
+    margin-bottom: 0.8em;
+    line-height: 1.0;
+  }
+  .slider-link {
+    font-size: 1rem;
+    padding: 0.5em 1.5em;
+  }
+  .slider-arrow {
+    font-size: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+  }
+  .slider-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* [DC Source] Оверлей для затемнения */
 .slider-overlay {
   position: absolute;
   left: 0; top: 0; right: 0; bottom: 0;
@@ -243,5 +338,5 @@
   height: 100%;
   z-index: 3;
   pointer-events: none;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.2);
 }

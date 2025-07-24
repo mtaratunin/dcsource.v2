@@ -250,7 +250,7 @@ body {
   height: 28px; /* [DC Source] Тонкая полоса */
   line-height: 28px;
   z-index: 1040;
-  box-shadow: 0 -5px 15px 0 rgba(140, 32, 40, 0.4);
+  box-shadow: 0 -5px 15px 0 rgba(0, 0, 0, 0.4);
   transition: height 0.3s, line-height 0.3s;
   overflow: hidden;
 }

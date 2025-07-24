@@ -239,7 +239,8 @@ body {
 /* [DC Source] Основной вид футера — тонкая полоса, всегда прикреплён к низу */
 .footer {
   width: 100%;
-  background-color: #8C2028;
+  background: linear-gradient(to right, #8c2020 60%, #af2828 100%);
+  /*background-color: #8C2028;*/
   color: #FFF;
   border-radius: 0;
   font-size: 1rem;
@@ -259,6 +260,7 @@ body {
   height: 78px; /* [DC Source] Расширенный футер */
   line-height: 28px;
   transition: height 0.3s, line-height 0.3s;
+  background: linear-gradient(to right, #8C2028 80%, #9f242d 100%);
 }
 @media (max-width: 991.98px) {
   .footer {

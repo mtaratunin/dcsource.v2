@@ -15,12 +15,12 @@
 ### КОНЕЦ ОПИСАНИЯ ###
 
 slide: 1
-file: slide1.jpg
+file: 27.png
 title: PACS: Диагностика с ИИ
 desc: Инновационная система диагностики и обнаружения патологий на базе Искусственного Интеллекта
 url:
-text-position: top
-text-align: left
+text-position: bottom
+text-align: right
 duration: 5
 title-effects: zoom
 desc-effects: fade-in
@@ -28,7 +28,7 @@ url-effects: fade-out
 slide-effect: zoom-in
 
 slide: 2
-file: slide4.jpg
+file: 29.png
 title: PACS: Скорость и Минимизация ошибок
 desc: Неограниченное хранение данных, быстрая передача снимков для локальных и\nудалённых специалистов, совместный анализ снимков врачом и ИИ
 url:
@@ -41,12 +41,12 @@ url-effects: fade-out
 slide-effect: zoom-out
 
 slide: 3
-file: slide3.jpg
+file: 32.png
 title: PACS: Стандартизация и Архивирование
 desc: Non-DICOM приборы в DICOM, архивирование, передача и визуализация в DICOM 3.0
 url:
-text-position: bottom
-text-align: right
+text-position: center
+text-align: center
 duration: 5
 title-effects: zoom
 desc-effects: fade-in
@@ -54,12 +54,12 @@ url-effects: fade-out
 slide-effect: zoom-in
 
 slide: 4
-file: slide2.jpg
+file: 30.png
 title: PACS: Доступ и сравнение
 desc: Локальный и дистанционный доступ к предыдущим обращениям, возможность их сравнения
 url:
-text-position: top
-text-align: right
+text-position: center
+text-align: left
 duration: 5
 title-effects: zoom
 desc-effects: fade-in

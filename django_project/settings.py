@@ -78,6 +78,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 'pages.context_processors.dynamic_menu',
+                'pages.context_processors.contact_form_defaults',
             ],
         },
     },
@@ -211,3 +212,18 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000",  # Default Django dev server
     "http://127.0.0.1:8000",  # Alternative local address
 ]
+
+# SMSC.kz config
+SMSC_KZ_LOGIN = os.getenv("SMSC_KZ_LOGIN")
+SMSC_KZ_PASSWORD = os.getenv("SMSC_KZ_PASSWORD")
+SMSC_KZ_SENDER = os.getenv("SMSC_KZ_SENDER")  # если надо, иначе оставь пустым
+SMSC_KZ_DEBUG = False
+
+# Email config
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

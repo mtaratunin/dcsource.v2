@@ -7,7 +7,7 @@ html {
   min-height: 100%;
   font-size: 14px;
   /* [DC Source] Базовый цвет фона страницы — светло-бежевый */
-  background-color: #eeeeee;
+  background-color: #fff;
 }
 @media (min-width: 768px) {
   html {
@@ -20,7 +20,7 @@ html {
 body {
   margin: 0;
   color: #222;
-  background-color: #d2d2d2;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

@@ -1,7 +1,4 @@
 {#home.html#}
-
-{#home.html#}
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +22,7 @@
   <link rel="stylesheet" href="{% static 'css/menu_mobile.css' %}">
   <!-- [DC Source] ДОБАВЛЕНО: Стили для слайдера главной страницы -->
   <link rel="stylesheet" href="{% static 'css/home_slider.css' %}">
-  <link rel="stylesheet" href="{% static 'css/home_statistics.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home_sections.css' %}">
   {% endblock %}
 
   <!-- [DC Source] Передаём структуру меню в JS для динамической генерации на фронте -->
@@ -63,7 +60,7 @@
   </div>
   <!-- /Контейнер для мобильного меню -->
 
-  <!-- [DC Source] ДОБАВЛЕНО: Слайдер на главной странице -->
+  <!-- [DC Source] Слайдер на главной странице -->
     <div class="slider" id="home-slider">
       <button class="slider-arrow slider-arrow-left" id="slider-arrow-left"></button>
       <div class="slider-images" id="slider-images">
@@ -74,42 +71,41 @@
     </div>
   <!-- /Слайдер -->
 
-  <!-- [DC Source] ДОБАВЛЕНО: Статистика -->
+  <!-- [DC Source] Статистика -->
   <div class="statistics" id="home-statistics">
     {% include "pages/_home_statistics.html" %}
   </div>
   <!-- /Статистика -->
 
-  <!-- [DC Source] ДОБАВЛЕНО: Компетенции -->
-  <div class="competencies d-none" id="home-competencies">
-    <br>
-        <p>Тест 1</p>
-
+  <!-- [DC Source] О DCSource -->
+  <div class="about" id="home-about">
+    {% include "pages/_home_about.html" %}
   </div>
-  <!-- /Компетенции -->
+  <!-- /О DCSource -->
 
-  <!-- [DC Source] ДОБАВЛЕНО: Услуги -->
-  <div class="services d-none" id="home-services">
-    <br>
-        <p>Тест 1</p>
-
+  <!-- [DC Source] Услуги -->
+  <div class="services" id="home-services">
+      {% include "pages/_home_services.html" %}
   </div>
   <!-- /Услуги -->
 
-  <!-- [DC Source] ДОБАВЛЕНО: Отзывы -->
-  <div class="reviews d-none" id="home-reviews">
-    <br>
-        <p>Тест 1</p>
-
+  <!-- [DC Source] О нас -->
+  <div class="description" id="home-description">
+      {% include "pages/_home_description.html" %}
   </div>
-  <!-- /Отзывы -->
+  <!-- /О нас -->
 
-  <!-- [DC Source] ДОБАВЛЕНО: Клиенты -->
-  <div class="clients d-none" id="home-clients">
-    <br>
-        <p>Тест 1</p>
+  <!-- [DC Source] Плашка Инфо-->
+  <div class="info" id="home-info">
+      {% include "pages/_home_info.html" %}
   </div>
-  <!-- /Клиенты -->
+  <!-- /Плашка Инфо -->
+
+  <!-- [DC Source] Форма обратной связи-->
+  <div class="contact-form" id="home-contact-form">
+    {% include "pages/contact_form.html" %}
+  </div>
+  <!-- /Форма обратной связи -->
 
   <!-- ======= ДОРАБОТАНО: sticky footer с динамическим блоком ======= -->
   <footer class="footer" id="main-footer">
@@ -134,7 +130,6 @@
     crossorigin="anonymous"></script>
 
   <!-- Project JS -->
-  <script src="{% static 'js/base.js' %}"></script>
   <script src="{% static 'js/active-menu.js' %}"></script>
   <script src="{% static 'js/menu_mobile.js' %}"></script>
   <!-- [DC Source] Скрипт для динамического построения меню на фронте -->
@@ -146,5 +141,4 @@
   <script src="{% static 'js/home_statistics.js' %}"></script>
   {% endblock javascript %}
 </body>
-
 </html>

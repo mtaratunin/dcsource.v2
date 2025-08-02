@@ -1,0 +1,117 @@
+<!-- _home_services.html -->
+{# [DC Source] Наши направления #}
+{% load static %}
+<section class="services-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <!-- [DC Source][NEW] Заголовок секции по макету -->
+      <div class="col-12">
+        <h1 class="mb-4 section-title">Наши направления</h1>
+      </div>
+    </div>
+    <!-- [DC Source][NEW] Четыре направления: PACS, МИС, ЛИС, Техническое сопровождение -->
+    <div class="row justify-content-center align-items-stretch gy-4">
+      <!-- [DC Source][NEW] PACS -->
+      <div class="col-md-3 col-sm-6 col-12 d-flex">
+        <div class="service-card w-100 d-flex flex-column">
+          <div class="service-img-wrapper position-relative">
+            <img src="{% static 'images/home/_home_service_pacs.jpg' %}" alt="PACS" class="img-fluid w-100 service-img">
+            <!-- [DC Source][NEW] Затемнение изображения в .service-img-overlay -->
+            <div class="service-img-overlay"></div>
+            <div class="service-img-title">
+              PACS
+            </div>
+          </div>
+          <div class="service-content flex-grow-1 d-flex flex-column justify-content-between">
+            <div class="service-desc-block">
+              <div class="service-subtitle">
+                Хранение и передача медизображений с ИИ и телерадиологией
+              </div>
+              <div class="service-description">
+                Сертифицированная система с веб-доступом, встроенной РИС и поддержкой ИИ-аналитики.
+              </div>
+            </div>
+            <a href="#" class="service-btn">
+              Подробнее&nbsp; &rsaquo;
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- [DC Source][NEW] МИС -->
+      <div class="col-md-3 col-sm-6 col-12 d-flex">
+        <div class="service-card w-100 d-flex flex-column">
+          <div class="service-img-wrapper position-relative">
+            <img src="{% static 'images/home/_home_service_mis.jpg' %}" alt="МИС" class="img-fluid w-100 service-img">
+            <div class="service-img-overlay"></div>
+            <div class="service-img-title">
+              МИС
+            </div>
+          </div>
+          <div class="service-content flex-grow-1 d-flex flex-column justify-content-between">
+            <div class="service-desc-block">
+              <div class="service-subtitle">
+                Управление всеми клиническими и административными процессами
+              </div>
+              <div class="service-description">
+                Электронная медкарта, расписания, отчетность, интеграция с PACS и ЛИС.
+              </div>
+            </div>
+            <a href="#" class="service-btn">
+              Подробнее&nbsp; &rsaquo;
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- [DC Source][NEW] ЛИС -->
+      <div class="col-md-3 col-sm-6 col-12 d-flex">
+        <div class="service-card w-100 d-flex flex-column">
+          <div class="service-img-wrapper position-relative">
+            <img src="{% static 'images/home/_home_service_lis.jpg' %}" alt="ЛИС" class="img-fluid w-100 service-img">
+            <div class="service-img-overlay"></div>
+            <div class="service-img-title">
+              ЛИС
+            </div>
+          </div>
+          <div class="service-content flex-grow-1 d-flex flex-column justify-content-between">
+            <div class="service-desc-block">
+              <div class="service-subtitle">
+                Полная автоматизация лабораторной диагностики
+              </div>
+              <div class="service-description">
+                Назначения, пробоподготовка, результаты, история исследований.
+              </div>
+            </div>
+            <a href="#" class="service-btn">
+              Подробнее&nbsp; &rsaquo;
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- [DC Source][NEW] Техническое сопровождение -->
+      <div class="col-md-3 col-sm-6 col-12 d-flex">
+        <div class="service-card w-100 d-flex flex-column">
+          <div class="service-img-wrapper position-relative">
+            <img src="{% static 'images/home/_home_service_ts.jpg' %}" alt="Техническое сопровождение" class="img-fluid w-100 service-img">
+            <div class="service-img-overlay"></div>
+            <div class="service-img-title">
+              Техническое сопровождение
+            </div>
+          </div>
+          <div class="service-content flex-grow-1 d-flex flex-column justify-content-between">
+            <div class="service-desc-block">
+              <div class="service-subtitle">
+                Поддержка IT-инфраструктуры и медицинских систем
+              </div>
+              <div class="service-description">
+                Мониторинг, обновления, helpdesk и выполнение SLA.
+              </div>
+            </div>
+            <a href="#" class="service-btn">
+              Подробнее&nbsp; &rsaquo;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

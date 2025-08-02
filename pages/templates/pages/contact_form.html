@@ -1,0 +1,103 @@
+<!-- pages/contact_form.html -->
+{# [DC Source] Форма обратной связи #}
+{% load static %}
+<section class="contact-form-inner">
+  <div class="container-home">
+    <div class="row justify-content-center align-items-center gy-4">
+      <div class="col-md-6 col-12 d-flex justify-content-center">
+        <img src="{% static 'images/contact_form.jpg' %}" alt="Contact Form" class="contact-form-img img-fluid">
+      </div>
+      <div class="col-md-6 col-12">
+        <div class="contact-form-title">
+          Отправьте заявку<br>
+          и наш менеджер свяжется с Вами
+        </div>
+        <form id="contact-form-fields" class="contact-form-fields" autocomplete="off">
+          {% csrf_token %}
+          <div id="contact-form-content">
+            <div class="row">
+              <div class="col-md-6 col-12 contact-form-group">
+                <input type="text" name="name" id="name" class="contact-input" placeholder="*Имя" required>
+                <label id="name-status" class="contact-status-label"></label>
+              </div>
+              <div class="col-md-6 col-12 contact-form-group">
+                <input type="text" name="surname" id="surname" class="contact-input" placeholder="*Фамилия" required>
+                <label id="surname-status" class="contact-status-label"></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-12 contact-form-group">
+                <input type="email" name="email" id="email" class="contact-input" placeholder="*e-mail" required>
+                <label id="email-status" class="contact-status-label"></label>
+              </div>
+              <div class="col-md-8 col-12 contact-form-group">
+                <div class="contact-phone-row" id="contact-phone-row">
+                  <input type="text" name="phone" id="phone" class="contact-input" placeholder="*+7XXXXXXXXXX или 8XXXXXXXXXX" required>
+                  <button type="button" id="otp-send-btn" class="contact-otp-btn">Подтвердить</button>
+                </div>
+                <label id="phone-status" class="contact-status-label"></label>
+                <div class="contact-otp-block" id="otp-block" style="display:none;">
+                  <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-1" autocomplete="off" inputmode="numeric" pattern="\d*" style="width:34px;">
+                  <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-2" autocomplete="off" inputmode="numeric" pattern="\d*" style="width:34px;">
+                  <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-3" autocomplete="off" inputmode="numeric" pattern="\d*" style="width:34px;">
+                  <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-4" autocomplete="off" inputmode="numeric" pattern="\d*" style="width:34px;">
+                </div>
+                <label id="otp-status" class="contact-otp-status"></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 contact-form-group">
+                <div class="contact-dropdown-title">Ваш запрос (интересующие Вас вопросы)</div>
+                <div id="message-dropdown" class="contact-dropdown" tabindex="0" style="position:relative;">
+                  <button type="button" id="dropdown-btn" class="dropdown-btn">Выбрать (можно выбрать несколько вариантов)</button>
+                  <div id="dropdown-list" class="dropdown-list" aria-hidden="true">
+                    {% for value, label in message_choices %}
+                    <div class="dropdown-item">
+                      <input type="checkbox" name="message" value="{{ value }}" class="contact-checkbox" id="msg_{{ forloop.counter }}">
+                      <label for="msg_{{ forloop.counter }}">{{ label }}</label>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <div id="dropdown-selected" class="dropdown-selected-list"></div>
+                </div>
+                <label id="message-status" class="contact-status-label"></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 contact-form-group contact-company-row">
+                <input type="checkbox" id="show-company" class="contact-checkbox">
+                <label for="show-company" class="contact-checkbox-label mb-0">Указать компанию и должность</label>
+              </div>
+            </div>
+            <div class="row" id="company-block" style="display:none;">
+              <div class="col-md-6 col-12 contact-form-group">
+                <input type="text" name="company" id="company" class="contact-input" placeholder="Наименование компании">
+                <label id="company-status" class="contact-status-label"></label>
+              </div>
+              <div class="col-md-6 col-12 contact-form-group">
+                <input type="text" name="position" id="position" class="contact-input" placeholder="Должность">
+                <label id="position-status" class="contact-status-label"></label>
+              </div>
+            </div>
+            <div class="contact-form-submit">
+              <button type="submit" id="contact-submit-btn" class="contact-submit-btn" disabled>Отправить</button>
+            </div>
+          </div>
+          <div id="contact-form-success" style="display:none; text-align:center; padding:48px 0;">
+            <div style="font-size:3em; color:#8C2028; margin-bottom:16px;">
+              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512" fill="#8C2028" style="vertical-align:middle;"><path d="M480 416v32c0 35.3-28.7 64-64 64H224c-35.3 0-64-28.7-64-64V416H48c-26.5 0-48-21.5-48-48V252.1c0-19.4 11.4-36.9 29.3-44.8l256-112c11.3-4.9 24.1-4.9 35.4 0l256 112c17.9 7.8 29.3 25.4 29.3 44.8V368c0 26.5-21.5 48-48 48H480z"/></svg>
+            </div>
+            <div style="font-size:1.3em; color:#222; font-weight:400;">
+              Ваше сообщение успешно отправлено!<br>
+              Мы свяжемся с вами в ближайшее время.
+            </div>
+          </div>
+        </form>
+        <script>
+          window.pageType = "{{ page_type|default:'home' }}";
+        </script>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="{% static 'js/contact_form.js' %}"></script>

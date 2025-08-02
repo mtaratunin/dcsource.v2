@@ -6,12 +6,5 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
-    path("", include("pages.urls")),
+    path("", include("pages.urls")),  # [DC Source][CHECKED] Корректно подключен pages.urls для всех путей с корня
 ]
-
-# if settings.DEBUG:
-#     import debug_toolbar
-#
-#     urlpatterns = [
-#         # path("__debug__/", include(debug_toolbar.urls)),
-#     ] + urlpatterns

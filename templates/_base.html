@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   <link rel="stylesheet" href="{% static 'css/menu.css' %}">
   <link rel="stylesheet" href="{% static 'css/menu_mobile.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home_sections.css' %}">
   {% endblock %}
 
   <!-- [DC Source] Передаём структуру меню в JS для динамической генерации на фронте -->
@@ -66,6 +67,9 @@
       <div class="container-side-anchor">
         {% block side_content_anchor %}{% endblock %}
       </div>
+      <div class="container-side-contact-form">
+        {% block side_contact_form %}{% endblock %}
+      </div>
     </div>
   </div>
 
@@ -87,7 +91,6 @@
 
   {% block javascript %}
   <!-- Bootstrap JavaScript -->
-  <script src="{% static 'js/base.js' %}"></script>
   <script src="{% static 'js/active-menu.js' %}"></script>
   <script src="{% static 'js/menu_mobile.js' %}"></script>
   <!-- [DC Source] Скрипт для динамического построения меню на фронте -->

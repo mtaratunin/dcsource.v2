@@ -114,8 +114,6 @@
   opacity: 0.5;
 }
 
-
-
 /* [DC Source] Уменьшение шапки при прокрутке */
 .navbar-shrink {
   min-height: 48px !important;

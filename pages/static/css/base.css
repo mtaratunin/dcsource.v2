@@ -456,12 +456,12 @@ a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px; /* расстояние между галочкой и текстом */
+  gap: 4px; /* расстояние между галочкой и текстом */
 }
 
 .contact-checkbox-label {
   margin-bottom: 0;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 1rem;
   /* можно добавить vertical-align: middle; если нужно */
 }

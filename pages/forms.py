@@ -23,16 +23,16 @@ class ContactForm(forms.Form):
 
     def clean_name(self):
         name = self.cleaned_data.get('name')
-        # [DC Source][FIXED] минимум 2 символа!
-        if not re.match(r'^[А-Яа-яA-Za-z]{2,}$', name):
-            raise forms.ValidationError('Имя должно содержать минимум 2 буквы (латиница или кириллица).')
+        # [DC Source][FIXED] минимум 2 символа! Разрешены русские, английские, казахские буквы, дефис, пробел
+        if not re.match(r'^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]{2,}$', name):
+            raise forms.ValidationError('Имя должно содержать минимум 2 буквы (латиница, кириллица, казахские буквы, пробел, дефис).')
         return name
 
     def clean_surname(self):
         surname = self.cleaned_data.get('surname')
-        # [DC Source][FIXED] Проверка только если поле заполнено
-        if surname and not re.match(r'^[А-Яа-яA-Za-z]{1,}$', surname):
-            raise forms.ValidationError('Фамилия должна содержать минимум 1 букву (латиница или кириллица).')
+        # [DC Source][FIXED] Проверка только если поле заполнено, разрешены русские, английские, казахские буквы, дефис, пробел
+        if surname and not re.match(r'^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]+$', surname):
+            raise forms.ValidationError('Фамилия должна содержать минимум 1 букву (латиница, кириллица, казахские буквы, пробел, дефис).')
         return surname
 
     # [DC Source][FIXED] Поддержка +7XXXXXXXXXX и 8XXXXXXXXXX, преобразование к +7XXXXXXXXXX
@@ -50,17 +50,19 @@ class ContactForm(forms.Form):
 
     def clean_company(self):
         company = self.cleaned_data.get('company')
-        if company and not re.match(r'^[А-Яа-яЁё\s\-]{2,}.*$', company):
-            raise forms.ValidationError('Название компании должно быть минимум 2 буквы на русском или казахском.')
+        # [DC Source][FIXED] разрешены русские, английские, казахские буквы, дефис, тире, кавычки, пробел, !; минимум 2 символа
+        if company and not re.match(r'^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-–—"\']{2,}.*[!]?$', company):
+            raise forms.ValidationError('Название компании должно быть минимум 2 буквы (русский, казахский, английский алфавит, пробел, дефис, тире, кавычки, !).')
         return company
 
     def clean_position(self):
         position = self.cleaned_data.get('position')
+        # [DC Source][FIXED] минимум 3 символа, разрешены русские, английские, казахские буквы, дефис, пробел
         if position:
             if len(position) < 3:
-                raise forms.ValidationError('Должность должна быть не менее 3 букв.')
-            if not re.match(r'^[А-Яа-яA-Za-z]{3,}$', position):
-                raise forms.ValidationError('Должность должна быть только буквами (латиница или кириллица).')
+                raise forms.ValidationError('Должность должна быть минимум 3 буквы (латиница, кириллица, казахские буквы, пробел, дефис).')
+            if not re.match(r'^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]{3,}$', position):
+                raise forms.ValidationError('Должность должна быть минимум 3 буквы (латиница, кириллица, казахские буквы, пробел, дефис).')
         return position
 
     def clean_message(self):

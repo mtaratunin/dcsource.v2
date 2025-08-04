@@ -49,7 +49,6 @@ def send_sms_code_via_smsc(phone, code):
 
 @require_POST
 def request_phone_sms_code(request):
-    # print("DEBUG POST DATA:", request.POST)
     phone = request.POST.get('phone')
     # [DC Source][FIXED] Поддержка +7XXXXXXXXXX и 8XXXXXXXXXX, но на шлюз отправляем +7XXXXXXXXXX
     phone_norm = phone
@@ -58,23 +57,17 @@ def request_phone_sms_code(request):
     elif re.match(r'^\+7\d{10}$', phone):
         phone_norm = phone
     else:
-        # print("DEBUG: Validation failed (phone format)")
         return JsonResponse({'error': 'Введите номер в формате +7XXXXXXXXXX или 8XXXXXXXXXX'}, status=400)
     code = '%04d' % random.randint(0, 9999)
     try:
         obj = PhoneOTPRequest.objects.create(phone=phone_norm, code=code)
-        # print("DEBUG: PhoneOTPRequest created:", obj)
         result = send_sms_code_via_smsc(phone_norm, code)
-        # print("DEBUG: SMSC result:", result)
         if not result:
-            # print("DEBUG: No result from SMSC")
             return JsonResponse({'error': 'Ошибка отправки SMS. Нет ответа от SMSC.'}, status=400)
     except Exception as e:
-        # print("DEBUG: Exception occurred:", e)
         return JsonResponse({'error': f'Ошибка отправки SMS: {e}'}, status=400)
     request.session['contact_phone'] = phone_norm
     request.session['contact_phone_code'] = code
-    # print("DEBUG: Success, returning ok")
     return JsonResponse({'ok': True})
 
 @require_POST
@@ -94,6 +87,39 @@ def contact_form_submit(request):
     if "message" in post_data and not isinstance(post_data.getlist("message"), list):
         post_data.setlist("message", [post_data.get("message")])
     form = ContactForm(post_data)
+    # [DC Source][FIXED] Валидация на бэке полностью повторяет логику фронта
+    errors = {}
+    name = post_data.get("name", "").strip()
+    surname = post_data.get("surname", "").strip()
+    company = post_data.get("company", "").strip()
+    position = post_data.get("position", "").strip()
+    show_company = post_data.get("show_company", "") == "on"
+    # [DC Source][FIXED] Регулярки для имени, фамилии, должности, компании как на фронте
+    re_letters = r'^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]{2,}$'
+    re_surname = r'^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]+$'
+    re_position = r'^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]+$'
+    re_company = r'^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-–—"\']{2,}.*[!]?$', # разрешаем ! и кавычки
+
+    # [DC Source][FIXED] Имя: минимум 2 буквы, разрешены буквы (рус, англ, казахские), пробелы, дефисы
+    if not re.match(re_letters, name):
+        errors['name'] = ["Имя должно содержать минимум 2 буквы (латиница, кириллица, казахские буквы, пробел, дефис)."]
+
+    # [DC Source][FIXED] Фамилия: минимум 1 буква, разрешены буквы (рус, англ, казахские), пробелы, дефисы
+    if surname and not re.match(re_surname, surname):
+        errors['surname'] = ["Фамилия должна содержать минимум 1 букву (латиница, кириллица, казахские буквы, пробел, дефис)."]
+
+    # [DC Source][FIXED] Компания: если отмечена, минимум 2 символа, разрешены буквы (рус, англ, казахские), пробелы, дефисы, тире, кавычки, !
+    if show_company and (not company or not re.match(r'^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-–—"\']{2,}[!]?$', company)):
+        errors['company'] = ["Название компании должно быть минимум 2 буквы (русский, казахский, английский алфавит, пробел, дефис, тире, кавычки, !)."]
+
+    # [DC Source][FIXED] Должность: если отмечена, минимум 3 символа, разрешены буквы (рус, англ, казахские), пробелы, дефисы
+    if show_company and (not position or not re.match(r'^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]{3,}$', position)):
+        errors['position'] = ["Должность должна быть минимум 3 буквы (латиница, кириллица, казахские буквы, пробел, дефис)."]
+
+    # [DC Source][FIXED] Если есть ошибки, возвращаем их сразу, НЕ трогаем остальное
+    if errors:
+        return JsonResponse({'error': errors}, status=400)
+
     if form.is_valid():
         subject = "Заявка с сайта DC Source"
         cleaned = form.cleaned_data

@@ -1,7 +1,4 @@
 //contract_form.js
-// [DC Source][FIXED] Исправления по статусу телефона, OTP, компании/должности, сообщению после отправки
-// [DC Source][FIXED] Принимаются номера +7XXXXXXXXXX и 8XXXXXXXXXX, на шлюз всегда +7XXXXXXXXXX
-// [DC Source][FIXED] Мерцание подсказки появляющееся только после фокуса и потери фокуса
 
 function getCookie(name) {
     let cookieValue = null;
@@ -108,22 +105,26 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // [DC Source][FIXED] Проверка компании/должности обе обязательны если галочка
+  // [DC Source][FIXED] Теперь разрешены русские, английские, казахские буквы, пробелы, дефисы для имени, фамилии, должности
+  // [DC Source][FIXED] Наименование компании: разрешаем буквы (рус, англ, каз), пробелы, дефисы, тире, кавычки, восклицательные знаки
   function validateCompany() {
     if (!showCompany.checked) return true;
-    return companyInput.value.trim().length >= 2 && /^[А-Яа-яЁё\s\-]{2,}.*$/.test(companyInput.value.trim());
+    return companyInput.value.trim().length >= 2 &&
+      /^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-–—"'!]+$/.test(companyInput.value.trim());
   }
   function validatePosition() {
     if (!showCompany.checked) return true;
     const val = positionInput.value.trim();
-    return val.length >= 3 && /^[А-Яа-яA-Za-z]{3,}$/.test(val);
+    return val.length >= 3 &&
+      /^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]+$/.test(val);
   }
   function isCompanyAndPositionFilled() {
     if (!showCompany.checked) return true;
     return (
       companyInput.value.trim().length >= 2 &&
-      /^[А-Яа-яЁё\s\-]{2,}.*$/.test(companyInput.value.trim()) &&
+      /^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-–—"'!]+$/.test(companyInput.value.trim()) &&
       positionInput.value.trim().length >= 3 &&
-      /^[А-Яа-яA-Za-z]{3,}$/.test(positionInput.value.trim())
+      /^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]+$/.test(positionInput.value.trim())
     );
   }
 
@@ -137,17 +138,19 @@ document.addEventListener('DOMContentLoaded', function () {
       surnameInput.required = false;
     }
   }
+  // [DC Source][FIXED] Фамилия: разрешаем буквы (рус, англ, каз), пробелы, дефисы
   function validateSurname() {
     const nameVal = nameInput.value.trim();
     const val = surnameInput.value.trim();
     if (nameVal.length <= 2) {
-      return /^[А-Яа-яA-Za-z]{1,}$/.test(val);
+      return /^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]+$/.test(val);
     }
-    return val === '' || /^[А-Яа-яA-Za-z]{1,}$/.test(val);
+    return val === '' || /^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]+$/.test(val);
   }
+  // [DC Source][FIXED] Имя: разрешаем буквы (рус, англ, каз), пробелы, дефисы
   function validateName() {
     const val = nameInput.value.trim();
-    return /^[А-Яа-яA-Za-z]{2,}$/.test(val);
+    return /^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]{2,}$/.test(val);
   }
 
   // [DC Source][FIXED] Проверяем оба формата!
@@ -171,9 +174,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const nameVal = nameInput.value.trim();
     let surnameValid = true;
     if (nameVal.length < 2) {
-      surnameValid = /^[А-Яа-яA-Za-z]{1,}$/.test(surnameInput.value.trim());
+      surnameValid = /^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]+$/.test(surnameInput.value.trim());
     } else {
-      surnameValid = surnameInput.value.trim() === '' || /^[А-Яа-яA-Za-z]{1,}$/.test(surnameInput.value.trim());
+      surnameValid = surnameInput.value.trim() === '' || /^[A-Za-zА-Яа-яЁёІіҢңҒғҮүҰұҚқҺһӨөӘәҚқ\s\-]+$/.test(surnameInput.value.trim());
     }
     submitBtn.disabled = !(
       validateName() &&
@@ -203,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
       nameStatus.style.color = "#090";
       nameStatus.classList.remove('flash');
     } else if (wasFocus.name && wasBlur.name) {
-      nameStatus.textContent = "Имя минимум 2 буквы";
+      nameStatus.textContent = "Имя должно содержать минимум 2 буквы (латиница, кириллица, казахские буквы, пробел, дефис)";
       nameStatus.style.color = "#c00";
       flashLabel(nameStatus);
     } else {
@@ -224,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
       surnameStatus.style.color = "#090";
       surnameStatus.classList.remove('flash');
     } else if (wasFocus.surname && wasBlur.surname) {
-      surnameStatus.textContent = "Фамилия минимум 1 буква";
+      surnameStatus.textContent = "Фамилия должна содержать минимум 1 букву (латиница, кириллица, казахские буквы, пробел, дефис)";
       surnameStatus.style.color = "#c00";
       flashLabel(surnameStatus);
     } else {
@@ -283,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (showCompany.checked) {
       if (!validateCompany()) {
         if (wasFocus.company && wasBlur.company) {
-          companyStatus.textContent = "Укажите компанию (мин. 2 буквы)";
+          companyStatus.textContent = "Название компании должно быть минимум 2 буквы (русский, казахский, английский алфавит, пробел, дефис, тире, кавычки, !)";
           companyStatus.style.color = "#c00";
           flashLabel(companyStatus);
         } else {
@@ -297,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       if (!validatePosition()) {
         if (wasFocus.position && wasBlur.position) {
-          positionStatus.textContent = "Укажите должность (мин. 3 буквы)";
+          positionStatus.textContent = "Должность должна быть минимум 3 буквы (латиница, кириллица, казахские буквы, пробел, дефис)";
           positionStatus.style.color = "#c00";
           flashLabel(positionStatus);
         } else {

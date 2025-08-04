@@ -15,11 +15,11 @@
 ### КОНЕЦ ОПИСАНИЯ ###
 
 slide: 1
-file: 27.png
-title: PACS: Диагностика с ИИ
-desc: Инновационная система диагностики и обнаружения патологий на базе Искусственного Интеллекта
+file: slide1.jpg
+title: PACS: Система архивирования и передачи изображений
+desc: Проверенные технологии для цифровизации ЛПУ
 url:
-text-position: bottom
+text-position: center
 text-align: right
 duration: 5
 title-effects: zoom
@@ -28,11 +28,11 @@ url-effects: fade-out
 slide-effect: zoom-in
 
 slide: 2
-file: 29.png
-title: PACS: Скорость и Минимизация ошибок
-desc: Неограниченное хранение данных, быстрая передача снимков для локальных и\nудалённых специалистов, совместный анализ снимков врачом и ИИ
+file: slide2.jpg
+title: МИС: Медицинская Информационная Система
+desc: Готовые цифровые решения для медицинских учреждений
 url:
-text-position: bottom
+text-position: center
 text-align: left
 duration: 5
 title-effects: zoom
@@ -41,27 +41,14 @@ url-effects: fade-out
 slide-effect: zoom-out
 
 slide: 3
-file: 32.png
-title: PACS: Стандартизация и Архивирование
-desc: Non-DICOM приборы в DICOM, архивирование, передача и визуализация в DICOM 3.0
+file: slide3.jpg
+title: ЛИС: Лабораторная Информационная Система
+desc: Проверенные технологии для цифровизации ЛПУ
 url:
-text-position: center
-text-align: center
-duration: 5
-title-effects: zoom
-desc-effects: fade-in
-url-effects: fade-out
-slide-effect: zoom-in
-
-slide: 4
-file: 30.png
-title: PACS: Доступ и сравнение
-desc: Локальный и дистанционный доступ к предыдущим обращениям, возможность их сравнения
-url:
-text-position: center
+text-position: top
 text-align: left
 duration: 5
 title-effects: zoom
 desc-effects: fade-in
 url-effects: fade-out
-slide-effect: zoom-out
+slide-effect: zoom-in

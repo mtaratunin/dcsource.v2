@@ -49,7 +49,7 @@ def send_sms_code_via_smsc(phone, code):
 
 @require_POST
 def request_phone_sms_code(request):
-    print("DEBUG POST DATA:", request.POST)
+    # print("DEBUG POST DATA:", request.POST)
     phone = request.POST.get('phone')
     # [DC Source][FIXED] Поддержка +7XXXXXXXXXX и 8XXXXXXXXXX, но на шлюз отправляем +7XXXXXXXXXX
     phone_norm = phone
@@ -58,23 +58,23 @@ def request_phone_sms_code(request):
     elif re.match(r'^\+7\d{10}$', phone):
         phone_norm = phone
     else:
-        print("DEBUG: Validation failed (phone format)")
+        # print("DEBUG: Validation failed (phone format)")
         return JsonResponse({'error': 'Введите номер в формате +7XXXXXXXXXX или 8XXXXXXXXXX'}, status=400)
     code = '%04d' % random.randint(0, 9999)
     try:
         obj = PhoneOTPRequest.objects.create(phone=phone_norm, code=code)
-        print("DEBUG: PhoneOTPRequest created:", obj)
+        # print("DEBUG: PhoneOTPRequest created:", obj)
         result = send_sms_code_via_smsc(phone_norm, code)
-        print("DEBUG: SMSC result:", result)
+        # print("DEBUG: SMSC result:", result)
         if not result:
-            print("DEBUG: No result from SMSC")
+            # print("DEBUG: No result from SMSC")
             return JsonResponse({'error': 'Ошибка отправки SMS. Нет ответа от SMSC.'}, status=400)
     except Exception as e:
-        print("DEBUG: Exception occurred:", e)
+        # print("DEBUG: Exception occurred:", e)
         return JsonResponse({'error': f'Ошибка отправки SMS: {e}'}, status=400)
     request.session['contact_phone'] = phone_norm
     request.session['contact_phone_code'] = code
-    print("DEBUG: Success, returning ok")
+    # print("DEBUG: Success, returning ok")
     return JsonResponse({'ok': True})
 
 @require_POST

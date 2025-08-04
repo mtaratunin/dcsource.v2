@@ -39,6 +39,7 @@
                   <button type="button" id="otp-send-btn" class="contact-otp-btn">Подтвердить</button>
                 </div>
                 <label id="phone-status" class="contact-status-label"></label>
+                <!-- [DC Source][FIXED] Блок ввода кода отображается в одну линию даже на мобильном -->
                 <div class="contact-otp-block" id="otp-block" style="display:none;">
                   <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-1" autocomplete="off" inputmode="numeric" pattern="\d*" style="width:34px;">
                   <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-2" autocomplete="off" inputmode="numeric" pattern="\d*" style="width:34px;">
@@ -69,8 +70,10 @@
             </div>
             <div class="row contact-form-row">
               <div class="col-12 contact-form-group contact-company-row">
-                <input type="checkbox" name="show_company" id="show-company" class="contact-checkbox">
-                <label for="show-company" class="contact-checkbox-label mb-0">Указать компанию и должность</label>
+                <div class="contact-company-block-flex">
+                    <input type="checkbox" name="show_company" id="show-company" class="contact-checkbox">
+                    <label for="show-company" class="contact-checkbox-label mb-0">Указать компанию и должность</label>
+                </div>
               </div>
             </div>
             <div class="row contact-form-row" id="company-block" style="display:none;">
@@ -89,7 +92,7 @@
                   <input type="checkbox" name="personal_data_accept" id="personal-data-accept" class="contact-checkbox" required>
                   <label for="personal-data-accept" class="contact-checkbox-label mb-0">
                     Даю согласие на сбор, хранение и обработку персональных данных согласно
-                    <a href="{% url 'dynamic_page' folder='about' page='privacy_policy' %}" target="_blank">Политике обработки персональных данных</a>
+                    <a href="{% url 'dynamic_page' folder='about' page='privacy_policy' %}" target="_blank"  style="font-size: 0.8rem; font-weight: 300">Политике обработки персональных данных</a>
                   </label>
                 </div>
               </div>

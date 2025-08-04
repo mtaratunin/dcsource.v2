@@ -452,6 +452,16 @@ a:hover {
 }
 
 /* [DC Source][FIXED] Галочка (чекбокс) слева от текста, всё по одной линии */
+.contact-company-block-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;          /* по вертикали по центру */
+  justify-content: flex-start;  /* по горизонтали к левой стороне */
+  gap: 4px;                     /* отступ между чекбоксом и текстом */
+  width: 100%;                  /* можно добавить, если нужно растянуть */
+}
+
+/* [DC Source][FIXED] Галочка (чекбокс) слева от текста, всё по одной линии */
 .contact-personal-data-flex {
   display: flex;
   flex-direction: row;
@@ -462,6 +472,6 @@ a:hover {
 .contact-checkbox-label {
   margin-bottom: 0;
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 0.8rem;
   /* можно добавить vertical-align: middle; если нужно */
 }

@@ -377,12 +377,18 @@ document.addEventListener('DOMContentLoaded', function () {
   otpSendBtn.addEventListener('click', function () {
     let phone = phoneInput.value.trim();
     let phoneToSend = phone;
+
+    // [DC Source][FIXED] Сначала удаляем классы выделения статуса
+    otpStatus.classList.remove('status-danger', 'status-info');
+
     if (/^8\d{10}$/.test(phone)) {
       phoneToSend = "+7" + phone.substr(1);
     }
     if (!/^\+7\d{10}$/.test(phoneToSend)) {
       otpStatus.textContent = "Введите номер в формате +7XXXXXXXXXX или 8XXXXXXXXXX";
       otpStatus.style.display = "";
+      // [DC Source][FIXED] Выделяем ошибку через danger
+      otpStatus.classList.add('status-danger');
       return;
     }
     fetch('/contact/request_sms/', {
@@ -395,6 +401,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .then(resp => resp.json())
     .then(data => {
+      otpStatus.classList.remove('status-danger', 'status-info');
       if (data.ok) {
         otpRequested = true;
         otpConfirmed = false;
@@ -402,6 +409,8 @@ document.addEventListener('DOMContentLoaded', function () {
         otpBlock.style.display = "flex";
         otpStatus.textContent = "Код отправлен!";
         otpStatus.style.display = "";
+        // [DC Source][FIXED] Выделяем информационный статус
+        otpStatus.classList.add('status-info');
         otpInputs.forEach(inp => { inp.disabled = false; inp.value = ""; });
         otpInputs[0].focus();
         otpAttempts = [0, 0, 0, 0];
@@ -409,11 +418,16 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         otpStatus.textContent = data.error || "Ошибка";
         otpStatus.style.display = "";
+        // [DC Source][FIXED] Выделяем ошибку через danger
+        otpStatus.classList.add('status-danger');
       }
     })
     .catch(err => {
       otpStatus.textContent = err.message;
       otpStatus.style.display = "";
+      // [DC Source][FIXED] Выделяем ошибку через danger
+      otpStatus.classList.remove('status-info');
+      otpStatus.classList.add('status-danger');
     });
   });
 
@@ -429,6 +443,9 @@ document.addEventListener('DOMContentLoaded', function () {
         e.target.disabled = true;
         otpStatus.textContent = "Превышено число попыток для позиции " + (i+1);
         otpStatus.style.display = "";
+        // [DC Source][FIXED] Выделяем ошибку через danger
+        otpStatus.classList.remove('status-info');
+        otpStatus.classList.add('status-danger');
         return;
       } else {
         e.target.disabled = false;
@@ -459,15 +476,21 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .then(resp => resp.json())
     .then(data => {
+      otpStatus.classList.remove('status-danger', 'status-info');
       if (data.ok) {
         otpStatus.textContent = "Номер успешно подтверждён!";
         phoneVerified = true;
         otpConfirmed = true;
         otpStatus.style.display = "";
+        // [DC Source][FIXED] Выделяем информационный статус
+        otpStatus.classList.add('status-info');
         otpInputs.forEach(inp => inp.disabled = true);
       } else {
         otpStatus.textContent = "Код неверный! Исправьте, осталось по 2 попытки для каждой цифры.";
         otpStatus.style.display = "";
+        // [DC Source][FIXED] Выделяем ошибку через danger
+        otpStatus.classList.remove('status-info');
+        otpStatus.classList.add('status-danger');
         phoneVerified = false;
         otpConfirmed = false;
         let firstEditable = otpInputs.find(inp => !inp.disabled);
@@ -479,6 +502,9 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(err => {
       otpStatus.textContent = err.message;
       otpStatus.style.display = "";
+      // [DC Source][FIXED] Выделяем ошибку через danger
+      otpStatus.classList.remove('status-info');
+      otpStatus.classList.add('status-danger');
       phoneVerified = false;
       otpConfirmed = false;
       updateStatusLabels(lastErrors);

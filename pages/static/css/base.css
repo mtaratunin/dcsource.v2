@@ -439,3 +439,29 @@ a:hover {
 }
 
 /* [DC Source] Конец блока корпоративных стилей */
+
+.status-danger {
+  color: #c00;
+  background: #ffe5e5;
+  font-weight: bold;
+}
+.status-info {
+  color: #005aa3;
+  background: #e5f2ff;
+  font-weight: normal;
+}
+
+/* [DC Source][FIXED] Галочка (чекбокс) слева от текста, всё по одной линии */
+.contact-personal-data-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px; /* расстояние между галочкой и текстом */
+}
+
+.contact-checkbox-label {
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 1rem;
+  /* можно добавить vertical-align: middle; если нужно */
+}

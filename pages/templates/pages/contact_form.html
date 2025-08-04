@@ -53,7 +53,7 @@
 {#                <div class="contact-dropdown-title">Интересующие Вас вопросы</div>#}
                 <div id="message-dropdown" class="contact-dropdown" tabindex="0" style="position:relative;">
                   <button type="button" id="dropdown-btn" class="dropdown-btn">Отметьте интересующие Вас вопросы</button>
-                    <label><sub>Уже отмечено:</sub></label>
+                  <label><sub>Уже отмечено:</sub></label>
                   <div id="dropdown-list" class="dropdown-list" aria-hidden="true">
                     {% for value, label in message_choices %}
                     <div class="dropdown-item">
@@ -69,7 +69,7 @@
             </div>
             <div class="row contact-form-row">
               <div class="col-12 contact-form-group contact-company-row">
-                <input type="checkbox" id="show-company" class="contact-checkbox">
+                <input type="checkbox" name="show_company" id="show-company" class="contact-checkbox">
                 <label for="show-company" class="contact-checkbox-label mb-0">Указать компанию и должность</label>
               </div>
             </div>
@@ -81,6 +81,17 @@
               <div class="col-md-6 col-12 contact-form-group">
                 <input type="text" name="position" id="position" class="contact-input" placeholder="Должность*">
                 <label id="position-status" class="contact-status-label"></label>
+              </div>
+            </div>
+            <div class="row contact-form-row" id="personal-data">
+              <div class="col-12 contact-form-group contact-personal-data-row">
+                <div class="contact-personal-data-flex">
+                  <input type="checkbox" name="personal_data_accept" id="personal-data-accept" class="contact-checkbox" required>
+                  <label for="personal-data-accept" class="contact-checkbox-label mb-0">
+                    Даю согласие на сбор, хранение и обработку персональных данных согласно
+                    <a href="{% url 'dynamic_page' folder='about' page='privacy_policy' %}" target="_blank">Политике обработки персональных данных</a>
+                  </label>
+                </div>
               </div>
             </div>
             <div class="contact-form-submit">

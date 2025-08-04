@@ -103,6 +103,12 @@ def contact_form_submit(request):
             f"Телефон: {cleaned.get('phone', '')}",
             f"E-mail: {cleaned.get('email', '')}",
         ]
+        # [DC Source][FIXED] Добавляем статус галочки "Указать компанию и должность"
+        company_checkbox_checked = post_data.get("show_company", "") == "on"
+        msg_lines.append(f'Флажок "Указать компанию и должность": {"Отмечен!" if company_checkbox_checked else "НЕ отмечен!"}')
+        # [DC Source][FIXED] Добавляем статус галочки "Даю согласие на обработку персональных данных"
+        personal_data_checked = post_data.get("personal_data_accept", "") == "on"
+        msg_lines.append(f'Флажок "Даю согласие на обработку персональных данных": {"Отмечен!" if personal_data_checked else "НЕ отмечен!"}')
         if cleaned.get('company'):
             msg_lines.append(f"Компания: {cleaned.get('company')}")
         if cleaned.get('position'):

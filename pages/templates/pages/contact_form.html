@@ -12,8 +12,7 @@
       <!-- [DC Source][FIXED] Контент формы в отдельном блоке -->
       <div class="col-md-6 col-12 contact-form-content">
         <div class="contact-form-title">
-          Отправьте заявку<br>
-          и наш менеджер свяжется с Вами
+          Отправьте заявку и наш менеджер свяжется с Вами
         </div>
         <form id="contact-form-fields" class="contact-form-fields" autocomplete="off">
           {% csrf_token %}
@@ -36,7 +35,11 @@
               <div class="col-md-6 col-12 contact-form-group">
                 <div class="contact-phone-row" id="contact-phone-row">
                   <input type="text" name="phone" id="phone" class="contact-input" placeholder="Тел* +77... или 87..." required>
-                  <button type="button" id="otp-send-btn" class="contact-otp-btn">Подтвердить</button>
+                  <button type="button" id="otp-send-btn" class="contact-otp-btn" disabled>Код SMS</button>
+                </div>
+                <!-- [DC Source][FIXED] Капча Cloudflare Turnstile вынесена ПОД блок ввода телефона и кнопкой "Подтвердить", чтобы не сдвигала разметку. -->
+                <div style="margin-top: 8px; display: flex; justify-content: flex-start;">
+                  <div class="cf-turnstile" data-sitekey="0x4AAAAAABpBj4WLGl8rXSf4" data-callback="cfCaptchaCallback"></div>
                 </div>
                 <label id="phone-status" class="contact-status-label"></label>
                 <!-- [DC Source][FIXED] Блок ввода кода отображается в одну линию даже на мобильном -->
@@ -53,8 +56,12 @@
               <div class="col-12 contact-form-group">
 {#                <div class="contact-dropdown-title">Интересующие Вас вопросы</div>#}
                 <div id="message-dropdown" class="contact-dropdown" tabindex="0" style="position:relative;">
+                  <!-- [DC Source][FIXED] --- Перенесли "Уже отмечено:" и список выбранных наверх, над кнопкой выпадающего списка -->
+                  <label style="font-size: small; padding-bottom: 0.3em; font-weight: 300; color: #1b1b1b">Вы выбрали:</label>
+                  <!-- [DC Source][FIXED] --- добавили стили для отображения в строку, с переносом, если не помещается -->
+                  <div id="dropdown-selected" class="dropdown-selected-list"
+                       style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 4px;"></div>
                   <button type="button" id="dropdown-btn" class="dropdown-btn">Отметьте интересующие Вас вопросы</button>
-                  <label><sub>Уже отмечено:</sub></label>
                   <div id="dropdown-list" class="dropdown-list" aria-hidden="true">
                     {% for value, label in message_choices %}
                     <div class="dropdown-item">
@@ -63,7 +70,6 @@
                     </div>
                     {% endfor %}
                   </div>
-                  <div id="dropdown-selected" class="dropdown-selected-list"></div>
                 </div>
                 <label id="message-status" class="contact-status-label"></label>
               </div>
@@ -113,6 +119,35 @@
         </form>
         <script>
           window.pageType = "{{ page_type|default:'home' }}";
+        </script>
+        <!-- [DC Source][NEW] Cloudflare Turnstile script -->
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        <script>
+        // [DC Source][NEW] JS-флаг для прохождения капчи
+        window.cfCaptchaPassed = false;
+        function cfCaptchaCallback(token) {
+          window.cfCaptchaPassed = !!token;
+          document.getElementById('otp-send-btn').disabled = !window.cfCaptchaPassed;
+          // [DC Source][NEW] Сохраняем токен капчи для отправки на бэкенд
+          if (window.cfCaptchaPassed) {
+            // если нужно, можно добавить скрытое поле
+            let old = document.getElementById('cf-turnstile-response');
+            if (!old) {
+              let input = document.createElement('input');
+              input.type = 'hidden';
+              input.name = 'cf-turnstile-response';
+              input.id = 'cf-turnstile-response';
+              input.value = token;
+              document.getElementById('contact-form-fields').appendChild(input);
+            } else {
+              old.value = token;
+            }
+          }
+        }
+        // [DC Source][NEW] При загрузке формы кнопка подтверждения телефона заблокирована
+        document.addEventListener('DOMContentLoaded', function () {
+          document.getElementById('otp-send-btn').disabled = true;
+        });
         </script>
       </div>
     </div>

@@ -3,6 +3,7 @@
 import os
 import re
 import random
+import requests  # [DC Source][NEW] Для проверки капчи Cloudflare Turnstile
 from django.views.generic import TemplateView
 from django.shortcuts import render
 from django.http import JsonResponse, Http404
@@ -47,9 +48,30 @@ def send_sms_code_via_smsc(phone, code):
     message = f"{code} - Ваш код подтверждения\nKOTERU.KZ для DCSource.kz"
     return send_sms_via_smsc(phone, message)
 
+# [DC Source][NEW] Проверка Cloudflare Turnstile токена
+def verify_turnstile_token(token, remoteip=None):
+    secret_key = "0x4AAAAAABpBjw6nI6aY2vWPyIRFUTyFR8Y"
+    data = {
+        "secret": secret_key,
+        "response": token,
+    }
+    if remoteip:
+        data["remoteip"] = remoteip
+    try:
+        resp = requests.post("https://challenges.cloudflare.com/turnstile/v0/siteverify", data=data, timeout=5)
+        result = resp.json()
+        return result.get("success", False)
+    except Exception as e:
+        # [DC Source][NEW] Если ошибка при проверке капчи — не пропускаем
+        return False
+
 @require_POST
 def request_phone_sms_code(request):
     phone = request.POST.get('phone')
+    # [DC Source][NEW] Проверяем Cloudflare Turnstile капчу перед подтверждением телефона
+    turnstile_token = request.POST.get("cf-turnstile-response")
+    if not turnstile_token or not verify_turnstile_token(turnstile_token, request.META.get("REMOTE_ADDR")):
+        return JsonResponse({'error': 'Не пройдена капча Cloudflare. Пожалуйста, подтвердите, что вы не робот.'}, status=400)
     # [DC Source][FIXED] Поддержка +7XXXXXXXXXX и 8XXXXXXXXXX, но на шлюз отправляем +7XXXXXXXXXX
     phone_norm = phone
     if re.match(r'^8\d{10}$', phone):

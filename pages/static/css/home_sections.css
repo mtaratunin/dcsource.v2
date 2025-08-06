@@ -709,26 +709,6 @@
   }
 }
 
-.dropdown-selected-list {
-  margin-top: 6px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-}
-
-.dropdown-selected-list .selected-label {
-  background: #e5e5e5;
-  color: #000000;
-  font-size: 0.7rem;
-  border-radius: 0;
-  padding: 3px 10px 3px 10px;
-  margin: 0;
-  line-height: 2.3;
-  /*border-left: 4px solid #8C2028;*/
-  display: inline-block;
-}
-
 .contact-status-label {
   display: block;
   font-size: 0.96rem;
@@ -1088,4 +1068,49 @@
   .container-home .contact-phone-row .contact-input {
     margin-bottom: 8px !important;
   }
+}
+
+/*.dropdown-selected-list {*/
+/*  margin-top: 6px;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: flex-start;*/
+/*  gap: 2px;*/
+/*}*/
+
+/* [DC Source][FIXED] Стили для выбранных опций в строку с переносом */
+#dropdown-selected {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-bottom: 2px;
+  align-items: flex-start;
+}
+
+/*.dropdown-selected-list .selected-label {*/
+/*  background: #e5e5e5;*/
+/*  color: #000000;*/
+/*  font-size: 0.7rem;*/
+/*  border-radius: 0;*/
+/*  padding: 3px 10px 3px 10px;*/
+/*  margin: 0;*/
+/*  line-height: 2.3;*/
+/*  !*border-left: 4px solid #8C2028;*!*/
+/*  display: inline-block;*/
+/*}*/
+
+.selected-label {
+  display: inline-block;
+  background: #e5e5e5;
+  color: #000000;
+  padding: 3px 10px 3px 10px;
+  font-size: 0.7em;
+  border-radius: 0;
+  margin: 0;
+  line-height: 2.3;
+  /* [DC Source][FIXED] Не позволяем занимать 100% ширины */
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

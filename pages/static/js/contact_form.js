@@ -1,5 +1,4 @@
 //contract_form.js
-
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== "") {
@@ -377,11 +376,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   dropdownList.addEventListener('change', () => { updateStatusLabels(lastErrors); updateSubmitBtn(); });
 
+  // [DC Source][FIXED] --- ДОРАБОТКА: отправка капчи при запросе SMS
   otpSendBtn.addEventListener('click', function () {
     let phone = phoneInput.value.trim();
     let phoneToSend = phone;
 
-    // [DC Source][FIXED] Сначала удаляем классы выделения статуса
     otpStatus.classList.remove('status-danger', 'status-info');
 
     if (/^8\d{10}$/.test(phone)) {
@@ -390,17 +389,25 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!/^\+7\d{10}$/.test(phoneToSend)) {
       otpStatus.textContent = "Введите номер в формате +7XXXXXXXXXX или 8XXXXXXXXXX";
       otpStatus.style.display = "";
-      // [DC Source][FIXED] Выделяем ошибку через danger
       otpStatus.classList.add('status-danger');
       return;
     }
+
+    // [DC Source][NEW] Получаем токен Cloudflare Turnstile для передачи на бэкенд
+    let turnstileToken = '';
+    let turnstileInput = document.getElementById('cf-turnstile-response');
+    if (turnstileInput) {
+      turnstileToken = turnstileInput.value;
+    }
+
     fetch('/contact/request_sms/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'X-CSRFToken': csrftoken
       },
-      body: `phone=${encodeURIComponent(phoneToSend)}`
+      // [DC Source][NEW] Добавляем токен капчи в body запроса
+      body: `phone=${encodeURIComponent(phoneToSend)}&cf-turnstile-response=${encodeURIComponent(turnstileToken)}`
     })
     .then(resp => resp.json())
     .then(data => {
@@ -412,7 +419,6 @@ document.addEventListener('DOMContentLoaded', function () {
         otpBlock.style.display = "flex";
         otpStatus.textContent = "Код отправлен!";
         otpStatus.style.display = "";
-        // [DC Source][FIXED] Выделяем информационный статус
         otpStatus.classList.add('status-info');
         otpInputs.forEach(inp => { inp.disabled = false; inp.value = ""; });
         otpInputs[0].focus();
@@ -421,14 +427,12 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         otpStatus.textContent = data.error || "Ошибка";
         otpStatus.style.display = "";
-        // [DC Source][FIXED] Выделяем ошибку через danger
         otpStatus.classList.add('status-danger');
       }
     })
     .catch(err => {
       otpStatus.textContent = err.message;
       otpStatus.style.display = "";
-      // [DC Source][FIXED] Выделяем ошибку через danger
       otpStatus.classList.remove('status-info');
       otpStatus.classList.add('status-danger');
     });
@@ -446,7 +450,6 @@ document.addEventListener('DOMContentLoaded', function () {
         e.target.disabled = true;
         otpStatus.textContent = "Превышено число попыток для позиции " + (i+1);
         otpStatus.style.display = "";
-        // [DC Source][FIXED] Выделяем ошибку через danger
         otpStatus.classList.remove('status-info');
         otpStatus.classList.add('status-danger');
         return;
@@ -485,13 +488,11 @@ document.addEventListener('DOMContentLoaded', function () {
         phoneVerified = true;
         otpConfirmed = true;
         otpStatus.style.display = "";
-        // [DC Source][FIXED] Выделяем информационный статус
         otpStatus.classList.add('status-info');
         otpInputs.forEach(inp => inp.disabled = true);
       } else {
         otpStatus.textContent = "Код неверный! Исправьте, осталось по 2 попытки для каждой цифры.";
         otpStatus.style.display = "";
-        // [DC Source][FIXED] Выделяем ошибку через danger
         otpStatus.classList.remove('status-info');
         otpStatus.classList.add('status-danger');
         phoneVerified = false;
@@ -505,7 +506,6 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(err => {
       otpStatus.textContent = err.message;
       otpStatus.style.display = "";
-      // [DC Source][FIXED] Выделяем ошибку через danger
       otpStatus.classList.remove('status-info');
       otpStatus.classList.add('status-danger');
       phoneVerified = false;

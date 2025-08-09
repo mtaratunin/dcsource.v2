@@ -31,7 +31,7 @@ slide: 2
 file: slide2.jpg
 title: МИС: Медицинская Информационная Система
 desc: Готовые цифровые решения для медицинских учреждений
-url:
+url:/solutions/mis/
 text-position: center
 text-align: left
 duration: 5

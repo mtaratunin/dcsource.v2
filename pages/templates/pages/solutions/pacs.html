@@ -238,7 +238,7 @@
     <div class="row justify-content-center">
       <div class="col-12">
         <!-- [DC Source][NEW] Заголовок FAQ. Двоеточие оставлено согласно макету -->
-        <h1 class="mb-4 section-title text-center">FAQ</h1>
+        <h1 class="mb-4 section-title text-center">FAQ:</h1>
       </div>
     </div>
 
@@ -359,13 +359,15 @@
         </div>
       </div>
 
-      <!-- [DC Source][NEW][FAQ ITEM 9] -->
-      <div class="faq-item faq-item-open">
-        <button class="faq-question" type="button" aria-expanded="true">
+      <!-- [DC Source][NEW][FAQ ITEM 9]
+           [DC Source][FIX][FAQ] Убрали дефолтное открытие: ранее был класс .faq-item-open и inline style max-height.
+           Требование: при обновлении страницы все пункты закрыты. -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
           <span class="faq-question-text">Что с техподдержкой?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
-        <div class="faq-answer-wrapper" role="region" aria-hidden="false" style="max-height: 500px;">
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
           <div class="faq-answer">
             Техническая поддержка 24/7, за нее вы не платите, как и за обучение персонала, все это уже входит в наши услуги.
           </div>

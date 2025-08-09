@@ -1,3 +1,4 @@
+// faq.js
 // [DC Source][NEW][FAQ] Логика FAQ вынесена из pacs.html (ранее был инлайн-скрипт)
 (function() {
   // [DC Source][FAQ] Инициализация аккордеона
@@ -5,6 +6,20 @@
   if (!container) return;
 
   const items = Array.from(container.querySelectorAll('.faq-item'));
+
+  // [DC Source][FIX][FAQ] Гарантируем закрытое начальное состояние, даже если в HTML случайно оставили класс .faq-item-open
+  items.forEach(item => {
+    if (item.classList.contains('faq-item-open')) {
+      item.classList.remove('faq-item-open');
+    }
+    const q = item.querySelector('.faq-question');
+    const aw = item.querySelector('.faq-answer-wrapper');
+    if (q) q.setAttribute('aria-expanded', 'false');
+    if (aw) {
+      aw.style.maxHeight = '0px';
+      aw.setAttribute('aria-hidden', 'true');
+    }
+  });
 
   // Функция открытия/закрытия
   function toggleItem(item) {
@@ -24,11 +39,11 @@
       items.forEach(i => {
         if (i !== item && i.classList.contains('faq-item-open')) {
           const aw = i.querySelector('.faq-answer-wrapper');
-          i.classList.remove('faq-item-open');
-          if (aw) aw.style.maxHeight = '0px';
-          const q = i.querySelector('.faq-question');
-          if (q) q.setAttribute('aria-expanded', 'false');
-          if (aw) aw.setAttribute('aria-hidden', 'true');
+            i.classList.remove('faq-item-open');
+            if (aw) aw.style.maxHeight = '0px';
+            const q = i.querySelector('.faq-question');
+            if (q) q.setAttribute('aria-expanded', 'false');
+            if (aw) aw.setAttribute('aria-hidden', 'true');
         }
       });
 

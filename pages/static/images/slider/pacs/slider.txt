@@ -25,7 +25,7 @@ duration: 3
 title-effects:
 desc-effects: fade-in
 url-effects: fade-out
-slide-effect:
+slide-effect:zoom-in
 
 slide: 2
 file: pacs_slide2.jpg
@@ -38,7 +38,7 @@ duration: 3
 title-effects:
 desc-effects: fade-in
 url-effects: fade-out
-slide-effect:
+slide-effect:zoom-out
 
 slide: 3
 file: pacs_slide3.jpg
@@ -51,4 +51,4 @@ duration: 3
 title-effects:
 desc-effects: fade-in
 url-effects: fade-out
-slide-effect:
+slide-effect:zoom-in

@@ -1,0 +1,566 @@
+<!--pacs.html-->
+
+{% extends "_template.html" %}
+{% load static %}
+{% block position %}12{% endblock %}
+{% block title %}ЛИС{% endblock %}
+<script>
+  window.pageType = "lis"; // или другой тип, по странице
+</script>
+{% block chapter1 %}
+
+{% endblock %}
+
+{% block chapter2 %}
+<section class="about-inner">
+  <div class="container-home">
+    <div class="row justify-content-center align-items-center gy-4">
+      <!-- [DC Source][NEW] Двухколоночная секция: слева изображение, справа текстовый блок -->
+      <div class="col-md-6 col-12 d-flex justify-content-center">
+        <!-- [DC Source][NEW] Картинка about секции (_home_about.jpg) -->
+        <img src="{% static 'images/lis/lis_info.jpg' %}" alt="ЛИС Akgun" class="img-crop-vertical">
+      </div>
+      <div class="col-md-6 col-12">
+        <!-- [DC Source][NEW] Подзаголовок -->
+        <h3 class="mb-3" style="font-weight:700;">Лабораторная информационная система (ЛИС)</h3>
+        <!-- [DC Source][NEW] Описание компании -->
+        <h5 class="mb-3" style="font-weight:100;">это решение для автоматизации всех этапов лабораторной диагностики: от назначения исследования до формирования и хранения результатов.</h5>
+        <h5 class="mb-3" style="font-weight:100;">ЛИС обеспечивает точную, быструю и безопасную обработку лабораторных данных и минимизирует влияние человеческого фактора.</h5>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter3 %}
+{% endblock %}
+
+{% block chapter4 %}
+<section class="description-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <!-- [DC Source][NEW] Заголовок секции по макету -->
+      <div class="col-12">
+        <h1 class="section-title" style="margin-bottom: 2rem !important;">Функционал</h1>
+      </div>
+    </div>
+    <!-- [DC Source][NEW] Четыре карточки описания по макету -->
+    <div class="row about-desc-row gx-4 gy-3 justify-content-center">
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Учет и маркировка проб
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Отслеживание статуса каждого анализа
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Электронная передача результатов
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Привязка данных к истории пациента
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Интеграция с МИС и PACS
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Архив результатов с быстрым поиском
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter5 %}
+<section class="description-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <!-- [DC Source][NEW] Заголовок секции по макету -->
+      <div class="col-12">
+        <h1 class="mb-4 section-title" style="margin-bottom: 2rem !important;">Преимущества</h1>
+      </div>
+    </div>
+    <!-- [DC Source][NEW] Четыре карточки описания по макету -->
+    <div class="row about-desc-row gx-4 gy-3 justify-content-center">
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Повышение скорости обработки
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Уменьшение риска ошибок
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Централизованный контроль качества
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Прозрачность и отслеживаемость<br>лабораторных процессов
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter7 %}
+<!-- [DC Source][NEW] FAQ секция (chapter7) для страницы ЛИС (Лабораторная информационная система Akgun)
+     ВАЖНО: сохраняем id="pacs-faq" для переиспользования существующего JS аккордеона без изменений. -->
+<section class="faq-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <!-- [DC Source][NEW] Заголовок общего FAQ-блока (ЛИС) -->
+        <h1 class="mb-4 section-title text-center" style="margin-bottom: 2rem !important;">FAQ (ЛИС Akgun)</h1>
+      </div>
+    </div>
+
+    <!-- [DC Source][REFACT][FAQ][LIS] 3 целевые группы: Руководителю, Специалисту лаборатории (врачу), Системному администратору -->
+    <div class="faq-accordion" id="pacs-faq">
+
+      <!-- ========================== ГРУППА 1. РУКОВОДИТЕЛЮ МЕДИЦИНСКОЙ ОРГАНИЗАЦИИ ========================== -->
+      <h2 class="faq-group-title">Руководителю медицинской организации</h2>
+
+      <!-- [LIS][LEADERSHIP][ITEM 1] Задачи системы -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какие ключевые задачи решает ЛИС Akgun?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <p>ЛИС Akgun автоматизирует полный лабораторный цикл «направление → проба → анализ → верификация → выдача результата → аналитика», снижая операционные издержки и ускоряя оборот проб.</p>
+            <ul>
+              <li><strong>Приём заявок (order entry)</strong> из МИС / порталов / филиалов.</li>
+              <li><strong>Управление пробами</strong>: штрих‑кодирование, трекинг перемещения, контроль сроков.</li>
+              <li><strong>Интеграция с оборудованием</strong> (автоматический импорт результатов, исключение ручного ввода).</li>
+              <li><strong>Правила авто‑валидации</strong> (рефлекс‑тесты, дельта‑контроль, критические значения).</li>
+              <li><strong>Качество (QC)</strong>: регистрация контролей, Westgard-правила (при включении модуля).</li>
+              <li><strong>Формирование многоязычных отчётов</strong> для пациентов и врачей.</li>
+              <li><strong>BI‑аналитика</strong>: TAT (turnaround time), загрузка приборов, частота отклонений.</li>
+              <li><strong>Централизованный контроль филиалов</strong> и сравнение KPI.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LEADERSHIP][ITEM 2] Типы лабораторий -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Для каких типов лабораторий подходит система?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <p>ЛИС адаптирована для частных, государственных и сетевых лабораторий различного профиля:</p>
+            <ul>
+              <li>Клиническая и общеклиническая лаборатория.</li>
+              <li>Биохимия, гематология, коагулология.</li>
+              <li>Микробиология (инкубационные циклы, посевы, антибиотикограмма).</li>
+              <li>Иммунология, серология, ИФА / ПЦР.</li>
+              <li>Цитология / гистология (при подключении модуля patho).</li>
+              <li>Токсикология (учёт цепочки хранения).</li>
+            </ul><br>
+            <p>Гибкая конфигурация профилей тестов и референсных интервалов позволяет учитывать специфику каждого направления.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LEADERSHIP][ITEM 3] Отстройка / преимущества -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Чем ЛИС Akgun принципиально отличается от конкурентов?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li><strong>Практическая ориентация</strong>: формировалась с участием действующих лабораторий.</li>
+              <li><strong>Модульная масштабируемость</strong> (добавление блоков без остановки ядра).</li>
+              <li><strong>Глубокая интеграция с МИС / PACS / ERP / 1С / CRM</strong>.</li>
+              <li><strong>Гибкая логика авто‑валидации</strong> (правила + дельта сравнение + критические значения).</li>
+              <li><strong>Многофилиальность</strong> с консолидацией заказов и показателей качества.</li>
+              <li><strong>Прозрачные аналитические панели</strong> (TAT, нагрузка, отклонения QC).</li>
+              <li><strong>Мультиязычность</strong> интерфейса и отчётов.</li>
+              <li><strong>24/7 поддержка и эволюционное развитие</strong> по roadmap.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LEADERSHIP][ITEM 4] Масштабирование / филиалы -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Подходит ли система для сети филиалов и роста объёма исследований?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <p>Да. Реализована распределённая модель:</p>
+            <ul>
+              <li>Центральный хаб (core) + удалённые пункты забора.</li>
+              <li>Конфигурация прав доступа по филиалам и зонам ответственности.</li>
+              <li>Балансировка по приборам и сменам (оптимизация TAT).</li>
+              <li>Отчёты по филиалам: объём тестов, процент повторов, время логистики проб.</li>
+              <li>Бесшовное добавление новых локаций без миграции схемы данных.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LEADERSHIP][ITEM 5] Интеграции -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">С какими системами и сервисами интегрируется ЛИС?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>МИС / HIS (двусторонний обмен направлений и результатов).</li>
+              <li>ERP / 1С (склад, списание реагентов, биллинг).</li>
+              <li>CRM / портал пациентов (статусы заказов, готовность результатов).</li>
+              <li>Лабораторное оборудование (ASTM / HL7 / драйверы приборов).</li>
+              <li>Платёжные шлюзы и онлайн‑оплата.</li>
+              <li>Гос. реестры и отчётные формы (при подключении).</li>
+              <li>Email / SMS / push уведомления (готовность, критические значения).</li>
+            </ul><br>
+            <p>Используются открытые API, стандарты HL7 / FHIR / ASTM, что упрощает подключение новых систем.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LEADERSHIP][ITEM 6] Безопасность и соответствие -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Насколько безопасны данные и соблюдаются ли нормативные требования?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <p>Мы применяем комплекс мер информационной безопасности:</p>
+            <ul>
+              <li>Шифрование трафика (TLS), защита конфиденциальных полей в покое.</li>
+              <li>Ролевое + атрибутивное разграничение (филиал / роль / тестовый профиль).</li>
+              <li>Аудит действий: просмотр, редактирование, экспорт результатов.</li>
+              <li>Регулярные резервные копии, проверка восстановления, DR‑план.</li>
+              <li>Контроль целостности и мониторинг аномалий (массовые выгрузки).</li>
+            </ul><br>
+            <p>Соответствие локальным регуляторным требованиям обеспечивается адаптацией форм и протоколов отчётности.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LEADERSHIP][ITEM 7] Почему выбрать и поддержка -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Почему стоит выбрать именно нашу ЛИС и что с поддержкой?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Разработана совместно с практикующими лабораториями.</li>
+              <li>Быстрый отклик 24/7 и проактивный мониторинг.</li>
+              <li>Постоянное развитие (roadmap + запросы клиентов).</li>
+              <li>Адаптивный интерфейс снижает время обучения персонала.</li>
+              <li>Масштабирование без деградации производительности.</li>
+            </ul><br>
+            <p>Техническая поддержка и обучение входят в стоимость подписки; специализированные расширения оцениваются индивидуально.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================== ГРУППА 2. СПЕЦИАЛИСТУ ЛАБОРАТОРИИ (ВРАЧУ) ========================== -->
+      <h2 class="faq-group-title">Специалисту лаборатории</h2>
+
+      <!-- [LIS][LAB][ITEM 1] Управление пробами -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как система помогает в управлении пробами (sample tracking)?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Штрих‑кодирование проб на этапе отбора (разные типы контейнеров).</li>
+              <li>Отслеживание статусов: зарегистрирована → в обработке → анализ → верификация → готово.</li>
+              <li>Контроль времени транспортировки и температурных условий (опциональные поля).</li>
+              <li>Предупреждения о просрочке хранения или истекших реагентах.</li>
+              <li>Лог цепочки действий для аудита (chain of custody).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LAB][ITEM 2] Интеграция с оборудованием -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как происходит интеграция с анализаторами и импорт результатов?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Связка через ASTM / HL7 / специфичные драйверы поставщиков.</li>
+              <li>Двусторонний обмен: ЛИС отправляет заказы/панели, анализатор возвращает результаты.</li>
+              <li>Автоматическая маршрутизация повторных прогонов (re-runs) при флагах прибора.</li>
+              <li>Отметка критических и необычных значений (high/low/critical).</li>
+              <li>Минимизация ручного ввода — снижение риска транскрипционных ошибок.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LAB][ITEM 3] Auto-validation / QC -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какие правила авто‑валидации и контроля качества поддерживаются?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Референсные интервалы по полу, возрасту, биоматериалу.</li>
+              <li>Дельта‑контроль (сравнение с предыдущим результатом пациента).</li>
+              <li>Рефлекс‑тестирование (автодобавление доп. анализа при условии).</li>
+              <li>Правила критических значений (мгновенные уведомления врачу).</li>
+              <li>Westgard‑правила для статистического контроля (при активном модуле QC).</li>
+            </ul><br>
+            <p>Записи, не прошедшие авто‑валидацию, уходят в очередь ручной проверки.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LAB][ITEM 4] Формирование результатов -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как формируются и выдаются результаты пациенту и врачу?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Многоязычные шаблоны отчётов с логотипом учреждения.</li>
+              <li>Автоматическое объединение панелей в сводный документ.</li>
+              <li>Отметка референсов, патологических и критических отклонений цветом/значками.</li>
+              <li>Экспорт: PDF, отправка на e‑mail / портал пациента / МИС.</li>
+              <li>QR‑код (при необходимости) для верификации подлинности.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LAB][ITEM 5] Сокращение времени выполнения (TAT) -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как система снижает время выполнения анализов (TAT)?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Приоритетизация проб (STAT / плановые).</li>
+              <li>Автоматическое распределение по доступным приборам.</li>
+              <li>Раннее выявление задержек (превышение целевых временных порогов).</li>
+              <li>Сокращение ручных операций (штрих‑коды, авто‑импорт результатов).</li>
+              <li>Авто‑валидация без участия специалиста для нормальных значений.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LAB][ITEM 6] Интерфейс и обучение -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Насколько сложен интерфейс и сколько занимает обучение персонала?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <p>Интерфейс оптимизирован под частые действия (bulk операции, фильтры очередей). Обучение включает:</p>
+            <ul>
+              <li>Стартовые сессии (онлайн / офлайн) по ролям.</li>
+              <li>Интерактивные подсказки и контекстная помощь.</li>
+              <li>Документация (FAQ, видео, чек‑листы).</li>
+              <li>Повторные тренинги при обновлениях или расширении штата.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][LAB][ITEM 7] Мобильные/удалённые возможности -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Доступны ли мобильные или удалённые функции для лабораторного персонала?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Просмотр статусов проб и результатов с планшета (адаптивный веб).</li>
+              <li>Push / e‑mail уведомления о критических значениях.</li>
+              <li>Удалённое подтверждение результатов (при политике допуска).</li>
+              <li>Доступ к дашбордам TAT и QC для ответственных специалистов.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================== ГРУППА 3. СИСТЕМНОМУ АДМИНИСТРАТОРУ ========================== -->
+      <h2 class="faq-group-title">Системному администратору</h2>
+
+      <!-- [LIS][ADMIN][ITEM 1] Архитектура / развертывание -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какова архитектура ЛИС и варианты её развертывания?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Модульная слоистая архитектура: ядро (orders, samples), сервисы интеграции, отчётный модуль.</li>
+              <li>On‑premise / частное облако / гибрид (центральный ЦОД + филиалы).</li>
+              <li>Горизонтальное масштабирование критичных сервисов (очереди импорта, API‑шлюзы).</li>
+              <li>Кэширование справочников тестов / приборов / референсов.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][ADMIN][ITEM 2] Протоколы интеграции -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какие интеграционные протоколы и форматы поддерживаются в ЛИС?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>HL7 v2.x (ORM, ORU, ADT) для заказов и результатов.</li>
+              <li>FHIR (Observation, Specimen, ServiceRequest, Patient).</li>
+              <li>ASTM / драйверы производителей анализаторов.</li>
+              <li>REST/JSON API для внешних порталов и интеграций.</li>
+              <li>CSV/XML импорт для пакетной миграции исторических данных.</li>
+              <li>Webhooks / message broker (Kafka/RabbitMQ) для событий (опционально).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][ADMIN][ITEM 3] Безопасность / доступ -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какие меры безопасности и управления доступом реализованы?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>RBAC + ограничение по филиалу/зоне лаборатории.</li>
+              <li>MFA (при включении), политики сложности паролей.</li>
+              <li>Шифрование конфиденциальных полей и токенизация (опционально).</li>
+              <li>Полный аудит действий: чтение, подтверждение, экспорт.</li>
+              <li>Аномалия‑детекция (массовые выборки, многократные логины).</li>
+              <li>Изолированные тестовые / staging среды для обновлений.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][ADMIN][ITEM 4] Производительность и масштабирование -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как обеспечивается производительность при росте числа проб и приборов?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Очереди асинхронной обработки импорта результатов.</li>
+              <li>Шардирование/репликация БД при достижении порогов IOPS.</li>
+              <li>Кэширование часто запрашиваемых справочников и референсов.</li>
+              <li>APM‑мониторинг (latency, throughput, error rate).</li>
+              <li>Периодические нагрузочные тесты перед мажорными релизами.</li>
+              <li>Вертикальное + горизонтальное масштабирование контейнеризованных сервисов.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][ADMIN][ITEM 5] Резервное копирование и отказоустойчивость -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какие механизмы резервного копирования и DR реализованы?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Полные и инкрементальные бэкапы БД + проверка восстановления (test restore).</li>
+              <li>Репликация критичных данных в резервный ЦОД.</li>
+              <li>Контроль целостности резервов (hash / checksum).</li>
+              <li>Документированный DR‑план с целями RPO/RTO.</li>
+              <li>Failover сценарии (manual / semi‑auto) для основных сервисов.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][ADMIN][ITEM 6] Обновления и кастомизация -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как обновляется система и сохраняются ли кастомные настройки?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Staging среда для регрессионного тестирования перед продом.</li>
+              <li>Модули расширений используют публичные API — ядро не форкается.</li>
+              <li>Схема БД мигрирует через контролируемые скрипты (rollback возможно).</li>
+              <li>Release notes с перечнем изменений и требованиями.</li>
+              <li>Окна обновлений согласуются заранее (минимальный простой).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [LIS][ADMIN][ITEM 7] API и кастомная интеграция -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Предоставляется ли API / SDK для кастомных интеграций и модулей?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>REST/JSON эндпоинты для заказов, образцов, статусов, результатов.</li>
+              <li>Webhook уведомления об изменении статусов (опционально включаются).</li>
+              <li>Документация (OpenAPI спецификация) и примеры запросов.</li>
+              <li>Контроль версий API (deprecated окна и совместимость).</li>
+              <li>Возможность разработки внутренних виджетов без изменения ядра.</li>
+            </ul><br>
+            <p>Критические интеграции проходят совместное тестирование на пилотной среде.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /#pacs-faq -->
+  </div>
+</section>
+{% endblock %}

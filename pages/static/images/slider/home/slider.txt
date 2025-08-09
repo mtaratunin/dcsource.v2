@@ -44,7 +44,7 @@ slide: 3
 file: slide3.jpg
 title: ЛИС: Лабораторная Информационная Система
 desc: Автоматизации всей клинико-лабораторной деятельности
-url:
+url:/solutions/lis/
 text-position: top
 text-align: left
 duration: 5

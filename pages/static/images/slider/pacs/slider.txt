@@ -1,0 +1,54 @@
+### /static/images/slider/pacs/slider.txt ####
+### НАЧАЛО ОПИСАНИЯ ###
+# slide: номер в очереди показа
+# file: имя файла-картинки для слайда
+# title: наименование (большим шрифтом)
+# desc: краткое описание (стандартным)
+# url: ссылка на страницу (через кнопку Подробнее)
+# text-position: позиция по вертикали: top, center, bottom (рассчитывается относительно высоты слайда, применяется для title; desc располагается под title; url под desc)
+# text-align: позиция по горизонтали: left, center, right (рассчитывается относительно ширины экрана, применяется для title, desc, url)
+# duration: продолжительность в секундах, в течение которого показывать слайд
+# title-effects: эффекты для title (например, zoom, fade-in, fade-out и другие)
+# desc-effects: эффекты для desc (например, zoom, fade-in, fade-out и другие)
+# url-effects: эффекты для url (например, zoom, fade-in, fade-out и другие)
+# slide-effect: эффект для slide (например, zoom, fade-in, fade-out и другие)
+### КОНЕЦ ОПИСАНИЯ ###
+
+slide: 1
+file: pacs_slide1.jpg
+title: PACS: Система архивирования и передачи изображений
+desc: Проверенные технологии для цифровизации ЛПУ
+url:
+text-position: bottom
+text-align: left
+duration: 3
+title-effects:
+desc-effects: fade-in
+url-effects: fade-out
+slide-effect:
+
+slide: 2
+file: pacs_slide2.jpg
+title: PACS: Система архивирования и передачи изображений
+desc: Консорциум врачей и передовых технологий в области ИИ
+url:
+text-position: bottom
+text-align: left
+duration: 3
+title-effects:
+desc-effects: fade-in
+url-effects: fade-out
+slide-effect:
+
+slide: 3
+file: pacs_slide3.jpg
+title: PACS: Система архивирования и передачи изображений
+desc: Анализ изображений с помощью ИИ с эффективностью 99%
+url:
+text-position: bottom
+text-align: left
+duration: 3
+title-effects:
+desc-effects: fade-in
+url-effects: fade-out
+slide-effect:

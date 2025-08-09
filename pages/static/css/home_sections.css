@@ -275,6 +275,124 @@
   }
 }
 
+.module-card {
+  background: #ffffff !important;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.23);
+  /*transition: box-shadow 0.24s, background 0.24s;*/
+  /* [DC Source][NEW] начальное состояние без тени */
+}
+
+.module-card:hover, .module-card:focus-within {
+  background: #ffffff !important;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,0.83);
+  /* [DC Source][NEW] на ховере становится светлее и появляется тень */
+}
+
+.module-img-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  height: 420px;
+  display: block;
+  border-radius: 0 0 0 0;
+  overflow: hidden;
+}
+
+.module-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 0 0 0 0;
+  display: block;
+}
+
+.module-img-overlay {
+  /* [DC Source][NEW] Полупрозрачное затемнение на изображении */
+  position: absolute;
+  left: 0; top: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.54) 60%, rgba(0,0,0,0.9) 100%);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 2;
+  /*transition: opacity 0.24s;*/
+}
+
+.module-card:hover .module-img-overlay,
+.module-card:focus-within .module-img-overlay {
+  opacity: 0.10;
+  /* [DC Source][NEW] при наведении затемнение становится слабее */
+}
+
+.module-img-title {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%;
+  padding: 1.1rem 1.2rem 0.6rem 1.2rem;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  z-index: 3;
+  background: none;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.35);
+}
+
+.module-content {
+  background: #d2c4a9;
+  min-height: 210px;
+  border-radius: 0 0 0 0;
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.module-content:hover, .module-content:focus-within {
+  background: #eadbbd !important;
+  /* [DC Source][NEW] на ховере становится светлее и появляется тень */
+}
+
+.module-desc-block {
+  padding-bottom: 0.6rem;
+}
+
+.module-subtitle {
+  font-weight: 500;
+  font-size: 1.08rem;
+  margin-bottom: 0.6em;
+  color: #232323;
+}
+
+.module-description {
+  font-size: 0.98rem;
+  color: #444;
+}
+
+/* [DC Source][NEW] Адаптация карточек сервисов под мобильные */
+@media (max-width: 991.98px) {
+  .module-img-wrapper, .module-img {
+    min-height: 260px;
+    height: 260px;
+  }
+  .module-content {
+    min-height: 120px;
+    padding: 1.1rem 0.7rem 1rem 0.7rem;
+  }
+  .module-img-title {
+    font-size: 1.1rem;
+    padding: 0.8rem 0.9rem 0.4rem 0.9rem;
+  }
+  .module-subtitle {
+    font-size: 1rem;
+  }
+  .module-description {
+    font-size: 0.93rem;
+  }
+}
+
 .section-title {
     margin-bottom: 4vw !important;
     /*margin-top: 4vw !important;*/
@@ -316,6 +434,41 @@
 /* [DC Source][NEW] Адаптация карточек "О нас" под мобильные */
 @media (max-width: 991.98px) {
   .about-desc-card {
+    font-size: 1.02rem;
+    min-height: 80px;
+    padding: 18px 8px 18px 8px;
+  }
+}
+
+.turtle-card {
+  background: #af2828;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 100;
+  text-align: center;
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  margin-bottom: 0.5vw;
+  padding: 32px 14px 32px 14px;
+  box-sizing: border-box;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,0.53);
+}
+
+.turtle-card:hover, .turtle-card:focus-within {
+  background: #eadbbd !important;
+  color: #000000;
+  font-weight: 500;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,0.73);
+  /* [DC Source][NEW] на ховере становится светлее и появляется тень */
+}
+
+/* [DC Source][NEW] Адаптация карточек "О нас" под мобильные */
+@media (max-width: 991.98px) {
+  .turtle-card {
     font-size: 1.02rem;
     min-height: 80px;
     padding: 18px 8px 18px 8px;
@@ -1070,14 +1223,6 @@
   }
 }
 
-/*.dropdown-selected-list {*/
-/*  margin-top: 6px;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: flex-start;*/
-/*  gap: 2px;*/
-/*}*/
-
 /* [DC Source][FIXED] Стили для выбранных опций в строку с переносом */
 #dropdown-selected {
   display: flex;
@@ -1086,18 +1231,6 @@
   margin-bottom: 2px;
   align-items: flex-start;
 }
-
-/*.dropdown-selected-list .selected-label {*/
-/*  background: #e5e5e5;*/
-/*  color: #000000;*/
-/*  font-size: 0.7rem;*/
-/*  border-radius: 0;*/
-/*  padding: 3px 10px 3px 10px;*/
-/*  margin: 0;*/
-/*  line-height: 2.3;*/
-/*  !*border-left: 4px solid #8C2028;*!*/
-/*  display: inline-block;*/
-/*}*/
 
 .selected-label {
   display: inline-block;
@@ -1113,4 +1246,126 @@
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.img-crop-vertical {
+  width: 100%;
+  height: 320px; /* или другая нужная высота */
+  object-fit: cover;   /* обрезает по вертикали */
+  object-position: center center; /* центрирует */
+  border-radius: 0;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,0.33);
+  display: block;
+}
+@media (max-width: 991.98px) {
+  .img-crop-vertical {
+    height: 220px; /* меньшая высота на мобильном */
+  }
+}
+
+.faq-inner {
+  padding: 60px 0;
+}
+
+.faq-accordion {
+  width: 100%;
+  min-width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,0.13);
+}
+
+.faq-item + .faq-item {
+  margin-top: 4px;
+}
+
+.faq-question {
+  width: 100%;
+  background: #d2c4a9; /* оттенок, близкий к макету */
+  border: none;
+  padding: 18px 54px 18px 28px;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.25;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background .25s ease, color .25s ease;
+}
+
+.faq-question:focus {
+  outline: 2px solid #222;
+  outline-offset: 2px;
+}
+
+.faq-item-open > .faq-question,
+.faq-question:hover {
+  background: #eadbbd;
+}
+
+/* [DC Source][FAQ] Иконка плюс/минус в кружке */
+.faq-icon {
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  background: #000;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.faq-icon::before {
+  width: 14px;
+  height: 2px;
+}
+
+.faq-icon::after {
+  width: 2px;
+  height: 14px;
+}
+
+/* [DC Source][FAQ] Состояние открыто — превращаем плюс в минус */
+.faq-item-open > .faq-question .faq-icon::after {
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+.faq-answer-wrapper {
+  overflow: hidden;
+  max-height: 0;
+  background: #ffffff;
+  transition: max-height .38s cubic-bezier(.65,.05,.36,1);
+}
+
+.faq-answer {
+  padding: 15px 28px 20px 28px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+/* [DC Source][FAQ] Адаптив */
+@media (max-width: 575.98px) {
+  .faq-question {
+    padding: 16px 54px 16px 20px;
+    font-size: 16px;
+  }
+  .faq-answer {
+    padding: 10px 20px 22px 20px;
+  }
 }

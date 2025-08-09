@@ -1,0 +1,377 @@
+<!--pacs.html-->
+
+{% extends "_template.html" %}
+{% load static %}
+{% block position %}10{% endblock %}
+{% block title %}PACS{% endblock %}
+<script>
+  window.pageType = "pacs"; // или другой тип, по странице
+</script>
+{% block chapter1 %}
+
+{% endblock %}
+
+{% block chapter2 %}
+<section class="about-inner">
+  <div class="container-home">
+    <div class="row justify-content-center align-items-center gy-4">
+      <!-- [DC Source][NEW] Двухколоночная секция: слева изображение, справа текстовый блок -->
+      <div class="col-md-6 col-12 d-flex justify-content-center">
+        <!-- [DC Source][NEW] Картинка about секции (_home_about.jpg) -->
+        <img src="{% static 'images/pacs/pacs_info.jpg' %}" alt="PACS Akgun" class="img-crop-vertical">
+      </div>
+      <div class="col-md-6 col-12">
+        <!-- [DC Source][NEW] Подзаголовок -->
+        <h3 class="mb-3" style="font-weight:700;">PACS Akgun от DC Source</h3>
+        <!-- [DC Source][NEW] Описание компании -->
+        <h5 class="mb-3" style="font-weight:100;">Сертифицированная в РК система централизованного хранения и управления медицинскими изображениями с поддержкой телерадиологии и ИИ-аналитики. Решение внедрено более чем в 100 ЛПУ и охватывает 6 регионов Казахстана.</h5>
+        <h5 class="mb-3" style="font-weight:100;">Система обеспечивает автоматический доступ к исследованиям по ИИН, не требует установки клиентского ПО, и легко масштабируется от одной клиники до региональной сети.</h5>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter3 %}
+<section class="description-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <!-- [DC Source][NEW] Заголовок секции по макету -->
+      <div class="col-12">
+        <h1 class="mb-4 section-title">Ключевые возможности</h1>
+      </div>
+    </div>
+    <!-- [DC Source][NEW] Четыре карточки описания по макету -->
+    <div class="row about-desc-row gx-4 gy-3 justify-content-center">
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Встроенная РИС<br>с интеграцией РПН
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Поддержка стандарта<br>DICOM 3.0
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Автоматический доступ по ИИН
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Веб-интерфейс без необходимости<br>дооснащения рабочих мест
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Гибкое разграничение<br>прав доступа
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Хранение изображений до 10 лет<br>без потери качества
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Техническая поддержка 24/7
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Непрерывное обучение системы на<br>реальных снимках из ЛПУ по всей стране
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter4 %}
+<section class="description-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <!-- [DC Source][NEW] Заголовок секции по макету -->
+      <div class="col-12">
+        <h1 class="mb-4 section-title">Доказанная эффективность</h1>
+      </div>
+    </div>
+    <!-- [DC Source][NEW] Четыре карточки описания по макету -->
+    <div class="row about-desc-row gx-4 gy-3 justify-content-center">
+      <div class="col-md-6 col-12 d-flex">
+        <div class="about-desc-card">
+          +37,8% — рост выявления рака молочной железы<br> на ранней стадии
+        </div>
+      </div>
+      <div class="col-md-6 col-12 d-flex">
+        <div class="about-desc-card">
+          100+ медицинских организаций в 6 областях<br>уже используют систему
+        </div>
+      </div>
+      <div class="col-md-6 col-12 d-flex">
+        <div class="about-desc-card">
+          3,3 млн пользователей по стране
+        </div>
+      </div>
+      <div class="col-md-6 col-12 d-flex">
+        <div class="about-desc-card">
+          Первая казахстанская компания,<br> внедрившая ИИ в диагностику
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter5 %}
+<section class="description-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <!-- [DC Source][NEW] Заголовок секции по макету -->
+      <div class="col-12">
+        <h1 class="mb-4 section-title">Почему выбирают PACS Akgun</h1>
+      </div>
+    </div>
+    <!-- [DC Source][NEW] Четыре карточки описания по макету -->
+    <div class="row about-desc-row gx-4 gy-3 justify-content-center">
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Интуитивный интерфейс,<br>не требующий длительного обучения
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Быстрая адаптация под<br>задачи конкретного учреждения
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Сопровождение на всех<br>этапах внедрения
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Обучение персонала и<br>поддержка пользователей
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter6 %}
+<section class="module-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <!-- [DC Source][NEW] Заголовок секции по макету -->
+      <div class="col-12">
+        <h1 class="mb-4 section-title">ИИ-модули для диагностики</h1>
+      </div>
+    </div>
+    <!-- [DC Source][NEW] Четыре направления: PACS, МИС, ЛИС, Техническое сопровождение -->
+    <div class="row justify-content-center align-items-stretch gy-4">
+      <!-- [DC Source][NEW] PACS -->
+      <div class="col-md-6 col-sm-6 col-12 d-flex">
+        <div class="module-card w-100 d-flex flex-column">
+          <div class="module-img-wrapper position-relative">
+            <img src="{% static 'images/pacs/pacs_ai_toraks.jpg' %}" alt="X-Eye Toraks" class="img-fluid w-100 module-img">
+            <!-- [DC Source][NEW] Затемнение изображения в .module-img-overlay -->
+            <div class="module-img-overlay"></div>
+            <div class="module-img-title">
+              X-Eye Toraks
+            </div>
+          </div>
+          <div class="module-content flex-grow-1 d-flex flex-column justify-content-between">
+            <div class="module-desc-block">
+              <div class="module-subtitle">
+                ИИ для раннего выявления рака легких
+              </div>
+              <div class="module-description">
+                <ul>
+                  <li>Автоматическое определение узелков от 2,5 мм</li>
+                  <li>Подсветка подозрительных участков</li>
+                  <li>Возможность пометки истинных/ложных находок</li>
+                  <li>Поддержка принятия решений врачом</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- [DC Source][NEW] МИС -->
+      <div class="col-md-6 col-sm-6 col-12 d-flex">
+        <div class="module-card w-100 d-flex flex-column">
+          <div class="module-img-wrapper position-relative">
+            <img src="{% static 'images/pacs/pacs_ai_mammo.jpg' %}" alt="X-Eye Mammo" class="img-fluid w-100 module-img">
+            <div class="module-img-overlay"></div>
+            <div class="module-img-title">
+              X-Eye Mammo
+            </div>
+          </div>
+          <div class="module-content flex-grow-1 d-flex flex-column justify-content-between">
+            <div class="module-desc-block">
+              <div class="module-subtitle">
+                ИИ для маммографии
+              </div>
+              <div class="module-description">
+                <ul>
+                  <li>Оценка вероятности злокачественности</li>
+                  <li>Локализация и отчет по найденным образованиям</li>
+                  <li>До 99% чувствительности при обнаружении опухолей и кальцификатов</li>
+                  <li>Применяется в клиниках и учебных заведениях</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter7 %}
+<!-- [DC Source][NEW] FAQ секция (chapter7) -->
+<section class="faq-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <!-- [DC Source][NEW] Заголовок FAQ. Двоеточие оставлено согласно макету -->
+        <h1 class="mb-4 section-title text-center">FAQ</h1>
+      </div>
+    </div>
+
+    <!-- [DC Source][NEW] Контейнер аккордеона -->
+    <div class="faq-accordion" id="pacs-faq">
+      <!--
+        [DC Source][NOTE]
+        Структура одного элемента:
+        .faq-item
+          button.faq-question (role="button")
+          .faq-answer-wrapper
+            .faq-answer
+      -->
+
+      <!-- [DC Source][NEW][FAQ ITEM 1] -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Чем отличается от существующих систем?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            Наш PACS централизует хранение, встроенно поддерживает ИИ‑модули и телерадиологию, что уменьшает время на поиск исследований и повышает качество диагностики.
+            <!-- TODO: при необходимости скорректировать формулировку -->
+          </div>
+        </div>
+      </div>
+
+      <!-- [DC Source][NEW][FAQ ITEM 2] -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какие есть преимущества?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            Веб‑доступ без установки ПО, масштабируемость от одной клиники до региона, гибкие роли доступа, долгосрочное хранение и встроенная аналитика.
+          </div>
+        </div>
+      </div>
+
+      <!-- [DC Source][NEW][FAQ ITEM 3] -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Где уже используется PACS?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            В более чем 100 медицинских организациях и 6 областях Казахстана, охватывая миллионы пациентов.
+          </div>
+        </div>
+      </div>
+
+      <!-- [DC Source][NEW][FAQ ITEM 4] -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какой функционал у ИИ?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            Обнаружение патологий (узелки легких, маммография), подсветка зон интереса, расчет вероятностей, накопительное самообучение на верифицированных снимках.
+          </div>
+        </div>
+      </div>
+
+      <!-- [DC Source][NEW][FAQ ITEM 5] -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какова стоимость интеграции?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            Стоимость зависит от объема исследований, числа рабочих мест и необходимых ИИ‑модулей. Мы формируем прозрачную смету после обследования инфраструктуры.
+            <!-- TODO: при подключении бэкенда можно подгружать актуальные прайс‑пакеты -->
+          </div>
+        </div>
+      </div>
+
+      <!-- [DC Source][NEW][FAQ ITEM 6] -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Сколько хранятся снимки?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            До 10 лет без потери качества, с возможностью расширения и политики «горячего / холодного» хранения при росте объема.
+          </div>
+        </div>
+      </div>
+
+      <!-- [DC Source][NEW][FAQ ITEM 7] -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Зачем PACS, если по закону необходимо распечатывать снимки?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            PACS обеспечивает централизованный доступ, удаленный консилиум и ИИ‑поддержку. Печать выполняется выборочно, снижая расходы и ускоряя обмен.
+          </div>
+        </div>
+      </div>
+
+      <!-- [DC Source][NEW][FAQ ITEM 8] -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Почему стоит выбрать именно Ваш PACS?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            Локальная экспертиза, подтверждённая сертификациями РК, поддержка 24/7, готовая интеграция с РПН и модульный рост функционала.
+          </div>
+        </div>
+      </div>
+
+      <!-- [DC Source][NEW][FAQ ITEM 9] -->
+      <div class="faq-item faq-item-open">
+        <button class="faq-question" type="button" aria-expanded="true">
+          <span class="faq-question-text">Что с техподдержкой?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="false" style="max-height: 500px;">
+          <div class="faq-answer">
+            Техническая поддержка 24/7, за нее вы не платите, как и за обучение персонала, все это уже входит в наши услуги.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

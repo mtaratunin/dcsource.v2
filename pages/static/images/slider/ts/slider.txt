@@ -1,0 +1,54 @@
+### /static/images/slider/home/slider.txt ####
+### НАЧАЛО ОПИСАНИЯ ###
+# slide: номер в очереди показа
+# file: имя файла-картинки для слайда
+# title: наименование (большим шрифтом)
+# desc: краткое описание (стандартным)
+# url: ссылка на страницу (через кнопку Подробнее)
+# text-position: позиция по вертикали: top, center, bottom (рассчитывается относительно высоты слайда, применяется для title; desc располагается под title; url под desc)
+# text-align: позиция по горизонтали: left, center, right (рассчитывается относительно ширины экрана, применяется для title, desc, url)
+# duration: продолжительность в секундах, в течение которого показывать слайд
+# title-effects: эффекты для title (например, zoom, fade-in, fade-out и другие)
+# desc-effects: эффекты для desc (например, zoom, fade-in, fade-out и другие)
+# url-effects: эффекты для url (например, zoom, fade-in, fade-out и другие)
+# slide-effect: эффект для slide (например, zoom, fade-in, fade-out и другие)
+### КОНЕЦ ОПИСАНИЯ ###
+
+slide: 1
+file: slide1.jpg
+title: PACS: Система архивирования и передачи изображений
+desc: Проверенные технологии для цифровизации ЛПУ
+url:
+text-position: center
+text-align: right
+duration: 5
+title-effects: zoom
+desc-effects: fade-in
+url-effects: fade-out
+slide-effect: zoom-in
+
+slide: 2
+file: slide2.jpg
+title: МИС: Медицинская Информационная Система
+desc: Готовые цифровые решения для медицинских учреждений
+url:
+text-position: center
+text-align: left
+duration: 5
+title-effects: zoom
+desc-effects: fade-in
+url-effects: fade-out
+slide-effect: zoom-out
+
+slide: 3
+file: slide3.jpg
+title: ЛИС: Лабораторная Информационная Система
+desc: Автоматизации всей клинико-лабораторной деятельности
+url:
+text-position: top
+text-align: left
+duration: 5
+title-effects: zoom
+desc-effects: fade-in
+url-effects: fade-out
+slide-effect: zoom-in

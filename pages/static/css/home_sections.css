@@ -9,20 +9,8 @@
   position: relative;
   z-index: 20; /* [DC Source] Поверх слайдера */
   min-height: 240px;
-  /* [DC Source] Добавляем скос снизу через clip-path */
-  /*clip-path: polygon(0 0,100% 0,100% 90%,50% 100%,0 90%);*/
-  /*margin-bottom: -50px; !* чтобы overlap был с белым фоном ниже *!*/
 }
 
-/*.statistics-angled {*/
-/*  position: absolute;*/
-/*  left: 0; right: 0; bottom: 0;*/
-/*  height: 60px;*/
-/*  !*background: #23284a;*!*/
-/*  z-index: 5;*/
-/*  !*clip-path: polygon(0 0,100% 0,100% 65%,50% 100%,0 65%);*!*/
-/*  pointer-events: none;*/
-/*}*/
 
 .stat-block {
   background: rgba(140, 32, 40, 0.50);
@@ -956,16 +944,6 @@
   width: 100%;
   position: static;
 }
-/*.contact-otp-block .otp-code-input {*/
-/*  width: 34px !important;*/
-/*  font-size: 1.4em;*/
-/*  text-align: center;*/
-/*  padding-left: 0;*/
-/*  padding-right: 0;*/
-/*  margin-right: 2px;*/
-/*  margin-left: 2px;*/
-/*  letter-spacing: 0.08em;*/
-/*}*/
 
 /* [DC Source][FIXED] Сами инпуты компактные и не растягиваются */
 .contact-otp-block .otp-code-input {

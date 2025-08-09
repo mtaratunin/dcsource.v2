@@ -11,6 +11,101 @@
 {% endblock %}
 
 {% block chapter2 %}
+<section class="about-inner">
+  <div class="container-home">
+    <div class="row justify-content-center align-items-center gy-4">
+      <!-- [DC Source][NEW] Двухколоночная секция: слева изображение, справа текстовый блок -->
+         <div class="col-md-4 col-12">
+            <!-- [DC Source][NEW][UPDATE 2025-08-11] Блок контактов переработан под макет (см. скрин).
+                 СТАРЫЙ текст о продукте заменён на заголовок + список способов связи.
+                 Остальные части страницы НЕ затрагиваются. -->
+
+            <!-- [DC Source][CONTACTS] Заголовок -->
+            <h3 class="mb-4" style="font-weight:700; line-height:1.25;">
+              Свяжитесь с нами<br>любым удобным способом
+            </h3>
+
+            <!-- [DC Source][CONTACTS] Список каналов связи -->
+            <ul class="list-unstyled dc-contact-list" style="margin:0; padding:0; font-size:1.05rem; line-height:1.5;">
+              <!-- Адрес -->
+              <li class="d-flex align-items-start mb-3">
+                <span aria-hidden="true" class="me-3 dc-contact-ico" style="color:#8c2020; line-height:1;">
+                  <!-- [DC Source] Иконка (локация) -->
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                       stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 21s-6-5.2-6-11a6 6 0 1 1 12 0c0 5.8-6 11-6 11z"/>
+                    <circle cx="12" cy="10" r="2.5"/>
+                  </svg>
+                </span>
+                <a href="https://maps.google.com/?q=Абая+109в+Алматы" target="_blank" rel="noopener noreferrer"
+                   style="color:#000; text-decoration:underline;">
+                  БЦ «Globus», пр. Абая 109в, Алматы, Казахстан
+                </a>
+              </li>
+
+              <!-- Телефон -->
+              <li class="d-flex align-items-start mb-3">
+                <span aria-hidden="true" class="me-3 dc-contact-ico" style="color:#8c2020; line-height:1;">
+                  <!-- [DC Source] Иконка (телефон) -->
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                       stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.86.37 1.7.72 2.49a2 2 0 0 1-.45 2.18l-1.1 1.1a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.18-.45 11.36 11.36 0 0 0 2.49.72A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </span>
+                <a href="tel:+77084700808" style="color:#000; text-decoration:underline;">+7 (708) 470 08 08</a>
+              </li>
+
+              <!-- Email -->
+              <li class="d-flex align-items-start mb-3">
+                <span aria-hidden="true" class="me-3 dc-contact-ico" style="color:#8c2020; line-height:1;">
+                  <!-- [DC Source] Иконка (email) -->
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                       stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2z"/>
+                    <path d="m22 6-10 7L2 6"/>
+                  </svg>
+                </span>
+                <a href="mailto:sales@dcsource.kz" style="color:#000; text-decoration:underline;">sales@dcsource.kz</a>
+              </li>
+
+                <!-- Техподдержка -->
+              <li class="d-flex align-items-start">
+                <span aria-hidden="true" class="me-3 dc-contact-ico" style="color:#8c2020; line-height:1;">
+                  <!-- [DC Source] Иконка (support) -->
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                       stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 1a10 10 0 0 0-10 10v3a4 4 0 0 0 4 4h1v-8H6a6 6 0 0 1 12 0h-1v8h1a4 4 0 0 0 4-4v-3A10 10 0 0 0 12 1z"/>
+                    <path d="M12 23v-4"/>
+                  </svg>
+                </span>
+                <span style="color:#000;">Техническая поддержка 24/7</span>
+              </li>
+            </ul>
+
+            <!-- [DC Source][CONTACTS][NOTE] Доп. стили можно вынести в CSS:
+                 .dc-contact-list .dc-contact-ico svg { display:block; }
+                 .dc-contact-list a:hover { opacity:.85; }
+            -->
+         </div>
+        <div class="col-md-8 col-12 d-flex justify-content-center">
+          <!-- [DC Source][MAP][Google Embed][Responsive] -->
+          <div class="dc-map-wrapper" style="position:relative;height:420px; max-height: 520px; width:100%;max-width:100%;aspect-ratio:4/3;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.08);">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2055.231054730389!2d76.9042124402693!3d43.240194832420535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skz!4v1754749130817!5m2!1sru!2skz"
+              style="border:0;position:absolute;inset:0;width:100%;height:420px; max-height: 520px;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="БЦ «Globus», пр. Абая 109В, Алматы">
+            </iframe>
+            <noscript>
+              <img src="{% static 'images/contacts/map.png' %}" alt="Карта (статичное изображение)" style="width:100%;height:420px; max-height: 520px;object-fit:cover;">
+            </noscript>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
 
 {% block chapter3 %}

@@ -1338,7 +1338,7 @@
 
 .faq-question {
   width: 100%;
-  background: #d2c4a9; /* оттенок, близкий к макету */
+  background: rgba(210, 196, 169, 0.25); /* оттенок, близкий к макету */
   border: none;
   padding: 18px 54px 18px 28px;
   font-weight: 500;
@@ -1441,7 +1441,7 @@
 .faq-group-title {
   background: #8C2028 !important;
   color: #fff !important;
-  /*margin-top: 10px;*/
+  /*margin-top: 55px;*/
   margin-bottom: 0;
   padding:20px 20px 20px 20px;
   font-size:24px;

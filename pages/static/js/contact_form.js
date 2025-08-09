@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateSurnamePlaceholder() {
     const nameVal = nameInput.value.trim();
     if (nameVal.length <= 2) {
-      surnameInput.placeholder = "*Фамилия";
+      surnameInput.placeholder = "Фамилия*";
       surnameInput.required = true;
     } else {
       surnameInput.placeholder = "Фамилия";

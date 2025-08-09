@@ -8,7 +8,9 @@
   window.pageType = "solutions"; // или другой тип, по странице
 </script>
 {% block chapter1 %}
-
+  <div class="services" id="home-services">
+      {% include "pages/_home_services.html" %}
+  </div>
 {% endblock %}
 
 {% block chapter2 %}

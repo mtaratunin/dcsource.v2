@@ -1,0 +1,102 @@
+<!--/ts/index.html-->
+
+{% extends "_template.html" %}
+{% load static %}
+{% block position %}00{% endblock %}
+{% block title %}Техническая поддержка{% endblock %}
+<script>
+  window.pageType = "ts"; // или другой тип, по странице
+</script>
+{% block chapter1 %}
+
+{% endblock %}
+
+{% block chapter2 %}
+<section class="about-inner">
+  <div class="container-home">
+    <div class="row justify-content-center align-items-center gy-4">
+      <!-- [DC Source][NEW] Двухколоночная секция: слева изображение, справа текстовый блок -->
+      <div class="col-md-6 col-12 d-flex justify-content-center">
+        <!-- [DC Source][NEW] Картинка about секции (_home_about.jpg) -->
+        <img src="{% static 'images/ts/ts_info1.jpg' %}" alt="Техническая поддержка" class="img-crop-vertical">
+      </div>
+      <div class="col-md-6 col-12">
+        <!-- [DC Source][NEW] Подзаголовок -->
+        <h3 class="mb-3" style="font-weight:700;">Техническая поддержка</h3>
+        <!-- [DC Source][NEW] Описание компании -->
+        <h5 class="mb-3" style="font-weight:100;">DC Source обеспечивает полный цикл технической поддержки IT-систем и медицинского программного обеспечения в лечебных учреждениях. Мы сопровождаем проекты на всех этапах — от запуска до ежедневной работы персонала.</h5>
+        <h5 class="mb-3" style="font-weight:100;">Поддержка охватывает инфраструктуру, системы PACS, МИС, ЛИС, серверные решения и пользовательские рабочие места.</h5>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter3 %}
+{% endblock %}
+
+{% block chapter4 %}
+<section class="description-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <!-- [DC Source][NEW] Заголовок секции по макету -->
+      <div class="col-12">
+        <h1 class="section-title" style="margin-bottom: 2rem !important;">Мы предлагаем</h1>
+      </div>
+    </div>
+    <!-- [DC Source][NEW] Четыре карточки описания по макету -->
+    <div class="row about-desc-row gx-4 gy-3 justify-content-center">
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Helpdesk 1–3 линии: обработка обращений,<br>консультации, удаленная диагностика
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Мониторинг и контроль систем:<br>серверы, базы данных, стабильность ПО
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Обновление и поддержка решений:<br>регулярные патчи, техподдержка поставщиков
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Настройка и сопровождение инфраструктуры:<br>рабочие станции, сеть, принтеры, сканеры
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Реакция по SLA: строгое соблюдение<br>сроков обработки и решения задач
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Обучение персонала: методическая и<br>практическая помощь пользователям
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter5 %}
+<section class="info-inner" style="background: url('/static/images/ts/ts_info2.jpg') center center / cover no-repeat;">
+   <div class="page-info-banner">
+     <div class="page-info-text col-md-12 col-12">
+        <!-- [DC Source][NEW] Подзаголовок -->
+        <h1 class="mb-3" style="font-weight:700;">Преимущества</h1>
+        <!-- [DC Source][NEW] Описание компании -->
+        <ul>
+            <li style="padding-bottom: 5px;">Единая точка входа для всех ИТ-вопросов</li>
+            <li style="padding-bottom: 5px;">Сокращение простоев и рисков</li>
+            <li style="padding-bottom: 5px;">Работаем на всей территории Казахстана</li>
+            <li style="padding-bottom: 5px;">Опыт поддержки крупных ЛПУ и распределённых систем</li>
+            <li style="padding-bottom: 5px;">Команда из 25+ инженеров с практическим опытом в медицине и IT</li>
+        </ul><br>
+        <h5 class="mb-3" style="font-weight:100;">Наша цель — чтобы ИТ в медицине работало стабильно, предсказуемо и без сюрпризов.</h5>
+      </div>
+   </div>
+</section>
+{% endblock %}

@@ -5,7 +5,11 @@
   display: none;
 }
 
-/* [DC Source] Мобильное меню: полноэкранное, фиксированное, стилизованное */
+/* ================================================================
+   М О Б И Л Ь Н О Е   М Е Н Ю
+   (адаптация под новую структуру с .mobile-section-header,
+    кнопкой раскрытия .mobile-submenu-toggle и иконкой +/-)
+   ================================================================ */
 @media (max-width: 991.98px) {
   .mobile-menu {
     display: flex !important;
@@ -30,17 +34,21 @@
     opacity: 0;
     pointer-events: none;
   }
+
   .mobile-menu-list {
     list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
   }
+
   .mobile-menu-list > li {
     border-bottom: 1px solid rgba(255,255,255,0.08);
     width: 100%;
     border-radius: 0 !important;
   }
+
+  /* [DC Source] Базовая ссылка (и корневые, и вложенные) */
   .mobile-menu-link {
     display: block;
     width: 100%;
@@ -63,24 +71,126 @@
     color: #FFF !important;
     text-decoration: none !important;
   }
+
+  /* ----------------------------------------------------------------
+     НОВАЯ СТРУКТУРА ДЛЯ РАЗДЕЛА:
+     <li class="mobile-section">
+       <div class="mobile-section-header">
+         <a class="mobile-menu-link mobile-section-link">...</a>
+         <button class="mobile-submenu-toggle"><span class="mobile-submenu-icon"></span></button>
+       </div>
+       <ul class="mobile-submenu">...</ul>
+     </li>
+     ---------------------------------------------------------------- */
+
+  /* [DC Source][NEW] Контейнер шапки раздела (ссылка + кнопка раскрытия) */
+  .mobile-section-header {
+    display: flex;
+    align-items: stretch;
+    position: relative;
+  }
+
+  /* [DC Source][NEW] Ссылка раздела переиспользует .mobile-menu-link.
+     Дополнительные стили при необходимости: */
+  .mobile-section-link {
+    flex: 1 1 auto;
+    padding-right: 3.4em; /* резерв под кнопку, если отображается справа */
+  }
+
+  /* [DC Source][NEW] Кнопка раскрытия подменю (иконка в кружке, аналог FAQ) */
+  .mobile-submenu-toggle {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    border: 2px solid #fff;
+    background: transparent;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .25s ease, color .25s ease, border-color .25s ease;
+  }
+
+  .mobile-submenu-toggle:hover,
+  .mobile-submenu-toggle:focus {
+    background: rgba(255,255,255,0.12);
+    outline: none;
+  }
+
+  /* [DC Source][NEW] Состояние открыто */
+  .mobile-submenu-toggle.open {
+    background: #FFF;
+    color: #8c2020;
+    border-color: #fff;
+  }
+
+  /* [DC Source][NEW] Иконка плюс/минус (две перекрещивающиеся полоски) */
+  .mobile-submenu-toggle .mobile-submenu-icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+  }
+
+  .mobile-submenu-toggle .mobile-submenu-icon::before,
+  .mobile-submenu-toggle .mobile-submenu-icon::after {
+    content: "";
+    position: absolute;
+    background: currentColor;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform .25s ease, opacity .25s ease;
+  }
+
+  .mobile-submenu-toggle .mobile-submenu-icon::before {
+    width: 16px;
+    height: 2px;
+  }
+
+  .mobile-submenu-toggle .mobile-submenu-icon::after {
+    width: 2px;
+    height: 16px;
+  }
+
+  /* [DC Source][NEW] Превращаем плюс в минус при открытии (вертикальная линия исчезает) */
+  .mobile-submenu-toggle.open .mobile-submenu-icon::after {
+    transform: translate(-50%, -50%) scaleY(0);
+    opacity: 0;
+  }
+
+  /* [DC Source] Подменю */
   .mobile-submenu {
     background: linear-gradient(to right, #8c2020 80%, #af2828 100%);
     padding-left: 1.8em;
     overflow: hidden;
     max-height: 0;
     opacity: 0;
-    transition: max-height 0.35s, opacity 0.3s;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
     border-radius: 0 !important;
   }
+
+  /* [DC Source] Состояние открытого подменю */
   .mobile-submenu.open {
-    max-height: 400px;
+    max-height: 480px; /* увеличили для возможного большего количества ссылок */
     opacity: 1;
   }
+
   .mobile-submenu li {
     border-bottom: 1px solid rgba(255,255,255,0.06);
     border-radius: 0 !important;
   }
-  .mobile-submenu-link {
+
+  /* [DC Source] Ссылки внутри подменю (оставляем прежний класс для обратной совместимости) */
+  .mobile-submenu-link,
+  .mobile-submenu li > a.mobile-menu-link {
     display: block;
     color: #FFF !important;
     background: none;
@@ -95,12 +205,17 @@
     border-radius: 0 !important;
     text-decoration: none !important;
   }
+
   .mobile-submenu-link:hover,
-  .mobile-submenu-link.active {
+  .mobile-submenu-link.active,
+  .mobile-submenu li > a.mobile-menu-link:hover,
+  .mobile-submenu li > a.mobile-menu-link.active {
     background: #A13A42 !important;
     color: #FFF !important;
     text-decoration: none !important;
   }
+
+  /* [DC Source] Кнопка закрытия */
   .mobile-menu-close {
     position: absolute;
     top: 18px;
@@ -112,6 +227,29 @@
     cursor: pointer;
     z-index: 2100;
     border-radius: 0 !important;
+  }
+
+  /* [DC Source][NEW] Корневой пункт без подменю — чтобы визуально выровнять */
+  .mobile-root-item > .mobile-menu-link {
+    padding-right: 1.2em; /* нет кнопки справа */
+  }
+
+  /* [DC Source][NEW] Адаптация маленьких экранов */
+  @media (max-width: 420px) {
+    .mobile-menu-link {
+      font-size: 1.05em;
+      padding: 1.1em 1em;
+    }
+    .mobile-section-link {
+      padding-right: 3.0em;
+    }
+    .mobile-submenu-toggle {
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      min-height: 32px;
+    }
   }
 }
 

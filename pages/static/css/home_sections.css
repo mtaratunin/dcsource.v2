@@ -529,6 +529,61 @@
   }
 }
 
+/* [DC Source][FIXED] info-inner и home-info-banner - баннер на всю ширину экрана */
+.page-info-inner {
+  width: 100%;
+  min-width: 100%;
+  /*margin-left: calc(-50vw + 50%);*/
+  /*margin-right: calc(-50vw + 50%);*/
+  margin-top: 4vw;
+  margin-bottom: 4vw;
+  padding: 0;
+  background: none;
+  z-index: 50;
+  position: relative;
+  /* [DC Source][FIXED] Секция занимает всю ширину экрана, вне контейнера */
+}
+
+.page-info-banner {
+  width: 100%;
+  min-height: 420px;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /*box-sizing: border-box;*/
+  position: relative;
+  background: linear-gradient(180deg, rgba(0,0,0,0.44) 40%, rgba(0,0,0,0.99) 100%);
+  opacity: 1;
+  margin: 0;
+}
+
+.page-info-text {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1.21;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  max-width: 1250px;
+  text-align: left;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.32);
+}
+
+@media (max-width: 991.98px) {
+  .page-info-banner {
+    min-height: 220px;
+    height: 280px;
+    width: 100%;
+  }
+  .home-info-text {
+    font-size: 1.22rem;
+    max-width: 100%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+}
+
 /* [DC Source][FIXED] contact-form секция: форма обратной связи с картинкой и полями */
 .contact-form-inner {
   width: 100%;

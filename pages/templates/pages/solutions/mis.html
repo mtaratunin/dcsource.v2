@@ -1,0 +1,559 @@
+<!--pacs.html-->
+
+{% extends "_template.html" %}
+{% load static %}
+{% block position %}11{% endblock %}
+{% block title %}МИС{% endblock %}
+<script>
+  window.pageType = "mis"; // или другой тип, по странице
+</script>
+{% block chapter1 %}
+
+{% endblock %}
+
+{% block chapter2 %}
+<section class="about-inner">
+  <div class="container-home">
+    <div class="row justify-content-center align-items-center gy-4">
+      <!-- [DC Source][NEW] Двухколоночная секция: слева изображение, справа текстовый блок -->
+      <div class="col-md-6 col-12 d-flex justify-content-center">
+        <!-- [DC Source][NEW] Картинка about секции (_home_about.jpg) -->
+        <img src="{% static 'images/mis/mis_info.jpg' %}" alt="PACS Akgun" class="img-crop-vertical">
+      </div>
+      <div class="col-md-6 col-12">
+        <!-- [DC Source][NEW] Подзаголовок -->
+        <h3 class="mb-3" style="font-weight:700;">Медицинская информационная система (МИС)</h3>
+        <!-- [DC Source][NEW] Описание компании -->
+        <h5 class="mb-3" style="font-weight:100;">Это цифровая платформа для управления клиническими и административными процессами в медицинской организации.</h5>
+        <h5 class="mb-3" style="font-weight:100;">Система объединяет работу регистратуры, врачей, лабораторий, аптеки, бухгалтерии и управленческого персонала в едином интерфейсе.</h5>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter3 %}
+{% endblock %}
+
+{% block chapter4 %}
+<section class="description-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <!-- [DC Source][NEW] Заголовок секции по макету -->
+      <div class="col-12">
+        <h1 class="section-title" style="margin-bottom: 2rem !important;">Возможности</h1>
+      </div>
+    </div>
+    <!-- [DC Source][NEW] Четыре карточки описания по макету -->
+    <div class="row about-desc-row gx-4 gy-3 justify-content-center">
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Ведение электронной медицинской карты
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Назначение приемов, госпитализаций, процедур
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Учёт и маршрутизация пациентов
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Формирование отчетности и статистики
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Интеграция с PACS, ЛИС, РПН и ЕМИАС
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+          Работа с электронными направлениями,<br>листами ожидания и результатами
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter5 %}
+<section class="description-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <!-- [DC Source][NEW] Заголовок секции по макету -->
+      <div class="col-12">
+        <h1 class="mb-4 section-title" style="margin-bottom: 2rem !important;">Преимущества</h1>
+      </div>
+    </div>
+    <!-- [DC Source][NEW] Четыре карточки описания по макету -->
+    <div class="row about-desc-row gx-4 gy-3 justify-content-center">
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Сокращение бумажного документооборота
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Повышение прозрачности процессов
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Ускорение работы персонала
+        </div>
+      </div>
+      <div class="col-md-3 col-12 d-flex">
+        <div class="turtle-card">
+          Поддержка нормативной<br>отчетности для МЗ РК
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter7 %}
+<!-- [DC Source][NEW] FAQ секция (chapter7) для страницы МИС (Akgun HIS)
+     ВАЖНО: сохраняем ту же структуру и id="pacs-faq", чтобы переиспользовать существующий JS аккордеона без изменений.
+     При необходимости можно переименовать id и адаптировать JS, но по текущему ТЗ НЕ меняем. -->
+<section class="faq-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <!-- [DC Source][NEW] Заголовок общего FAQ-блока (МИС) -->
+        <h1 class="mb-4 section-title text-center" style="margin-bottom: 2rem !important;">FAQ</h1>
+      </div>
+    </div>
+
+    <!-- [DC Source][REFACT][FAQ][MIS] 3 целевые группы: Руководителю медицинской организации, Врачу, Системному администратору -->
+    <div class="faq-accordion" id="pacs-faq">
+
+      <!-- ========================== ГРУППА 1. РУКОВОДИТЕЛЮ ========================== -->
+      <h2 class="faq-group-title">Руководителю медицинской организации</h2>
+
+      <!-- [MIS][LEADERSHIP][ITEM 1] Отличия -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Чем МИС Akgun отличается от других систем на рынке?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <p>МИС Akgun — модульная платформа управления клинико-административными процессами, ориентированная на прозрачность, интеграцию и масштабирование.</p>
+            <ul>
+              <li><strong>Полный контур</strong>: амбулаторный и стационарный приём, регистратура, расписания, госпитализация, клиническая документация, аптечный и складской учёт, финансы и страховые расчёты.</li>
+              <li><strong>Широкие интеграции</strong> (гос. порталы, ОСМС, 1С, банки, лаборатории, PACS/LIS/RIS).</li>
+              <li><strong>Мультиязычность</strong> (7+ языков, включая RU/KZ/EN с расширяемым словарём терминов).</li>
+              <li><strong>Гибкие рабочие процессы</strong>: настройка маршрутов пациента и ролей без доработки ядра.</li>
+              <li><strong>Дашборды и BI‑аналитика</strong> (производительность, загруженность коек, оборот, SLA).</li>
+              <li><strong>Расширяемость</strong>: дополнительный функционал оформляется как отдельные модули.</li>
+              <li><strong>Единый интерфейс</strong> для филиальной/региональной сети с многоуровневым разграничением доступа.</li>
+              <li><strong>Поддержка интеграции с PACS Akgun</strong> (сквозной доступ к исследованиям из карты пациента).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][LEADERSHIP][ITEM 2] Интеграции -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какие имеются интеграции с внешними системами и государственными сервисами?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <p>Платформа поддерживает широкую шину обмена:</p>
+            <ul>
+              <li><strong>Гос. порталы</strong>: обмен данными по нормативам РК (идентификаторы, больничные листы, отчётность, регистры).</li>
+              <li><strong>ОСМС</strong>: автоматическая проверка статуса застрахованности и расчёт тарификации услуг.</li>
+              <li><strong>1С</strong>: финансово-бухгалтерский учёт, синхронизация справочников и платежных документов.</li>
+              <li><strong>Банки / платежные шлюзы</strong> для онлайн‑оплаты и reconciliation.</li>
+              <li><strong>Поставщики МИС</strong> (через стандартизированные API / HL7 / FHIR).</li>
+              <li><strong>PACS / LIS / RIS</strong> — единый клинико-диагностический контур.</li>
+              <li><strong>SMS / e‑mail / push</strong> сервисы для оповещений пациентов.</li>
+              <li><strong>Справочные классификаторы</strong> (МКБ, номенклатура услуг, лекарственные формы).</li>
+            </ul><br>
+            <p>Поддерживаются REST/JSON, HL7, FHIR, SOAP (наследуемые), а также файлообмен для пакетной загрузки.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][LEADERSHIP][ITEM 3] ОСМС и страхование -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Можно ли принимать пациентов по ОСМС и другим страховым программам?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <p>Да. Система интегрируется с ОСМС и провайдерами страховых услуг:</p>
+            <ul>
+              <li>Онлайн проверка статуса застрахованности (eligibility).</li>
+              <li>Автоматическое применение тарифов и правил расчёта.</li>
+              <li>Генерация страховых пакетов и отчётов по использованию лимитов.</li>
+              <li>Контроль кодировок услуг и соответствия нормативным классификаторам.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][LEADERSHIP][ITEM 4] Индивидуальный функционал -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Возможно ли добавить индивидуальный функционал под наши процессы?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <p>Да. Базовая платформа закрывает типовые сценарии, но:</p>
+            <ul>
+              <li>Дополнительные модули/формы оформляются как расширения (не модифицируя ядро).</li>
+              <li>Стоимость кастомизации рассчитывается индивидуально и фиксируется в коммерческом предложении.</li>
+              <li>Обновления ядра не ломают доработки при соблюдении интерфейсов SDK/API.</li>
+              <li>Возможна стадийная поставка (MVP → расширение функций).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][LEADERSHIP][ITEM 5] Мультиязычность и QR -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Сколько языков поддерживает система и есть ли QR‑коды для документов?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li><strong>Мультиязычность</strong>: более 7 языков (RU, KZ, EN и др.) с динамическим переключением; возможна локализация дополнительных терминов.</li>
+              <li><strong>QR‑коды</strong> на больничных листах и ряде форм — быстрое подтверждение подлинности через интегрированные гос. сервисы.</li>
+              <li>Поддержка двуязычных печатных форм (например, RU/KZ) по шаблонам.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][LEADERSHIP][ITEM 6] Отчёты и аналитика -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какие управленческие отчёты и аналитика доступны?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Поток пациентов: регистрация → приём → выписка.</li>
+              <li>Загруженность коек и оборот койко-дня.</li>
+              <li>Время ожидания (по специализациям и слотам расписания).</li>
+              <li>Финансовые показатели: начисления, оплаты, дебиторка, структура доходов.</li>
+              <li>Использование страховых пакетов (ОСМС, добровольное страхование).</li>
+              <li>Аптечно-складские движения (остатки, сроки годности, ABC/XYZ анализ).</li>
+              <li>Показатели активности врачей (выполненные услуги, среднее время визита).</li>
+              <li>Качество документации (полнота заполнения обязательных полей).</li>
+            </ul><br>
+            <p>Экспорт в PDF / XLS / CSV, разграничение видимости метрик по ролям.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][LEADERSHIP][ITEM 7] Техподдержка и стоимость -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Сколько стоит техническая поддержка и что в неё входит?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <p>Техническая поддержка включена в стоимость подписки (дополнительной оплаты не требует) и покрывает:</p>
+            <ul>
+              <li>24/7 приём и обработку инцидентов (многоуровневая схема L1–L3).</li>
+              <li>Обновления платформы, патчи безопасности, регламентные проверки.</li>
+              <li>Обучение и переобучение персонала при расширении или обновлениях.</li>
+              <li>Мониторинг ключевых сервисов и проактивные уведомления.</li>
+              <li>Помощь при интеграциях и настройках отчётности.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================== ГРУППА 2. ВРАЧУ ========================== -->
+      <h2 class="faq-group-title">Врачу</h2>
+
+      <!-- [MIS][DOCTOR][ITEM 1] Поток работы -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как МИС упрощает приём и маршрутизацию пациента?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Интеллектуальные расписания и поиск ближайшего свободного слота.</li>
+              <li>Автоматическое подтягивание демографии и страхового статуса.</li>
+              <li>Маршрутизация по клиническим протоколам (направления на лабораторию, исследования, консультации).</li>
+              <li>Уведомления пациенту (SMS / e‑mail) о предстоящем визите или переносе.</li>
+              <li>Сокращение ручного дублирования — данные повторно используются во всех формах.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][DOCTOR][ITEM 2] Назначения и рецепты -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как оформляются назначения, рецепты и протоколы лечения?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Структурированные шаблоны визитов (приём, госпитализация, выписка).</li>
+              <li>Электронные назначения и e‑рецепты (история, отмены, продления).</li>
+              <li>Автоподстановка дозировок и форм из справочника лекарств.</li>
+              <li>Подсказки по лекарственным взаимодействиям (при наличии соответствующего модуля).</li>
+              <li>Ведение динамических листов наблюдения (температурные, витальные показатели).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][DOCTOR][ITEM 3] Интеграция с PACS / LIS -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как интеграция с PACS и лабораторными системами помогает врачу?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Просмотр изображений и результатов без выхода из электронной карты.</li>
+              <li>Автоматический возврат заключений и анализов в лист назначений.</li>
+              <li>Сокращение ручного ввода — исключение ошибок транскрипции.</li>
+              <li>Единый временной журнал действий (когда и что выполнено).</li>
+              <li>Быстрый доступ к предыдущей диагностике для сравнительного анализа.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][DOCTOR][ITEM 4] Поддержка принятия решений -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Есть ли функции клинической поддержки принятия решений (CDS)?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Контроль обязательных полей и предупреждения о неполноте записи.</li>
+              <li>Алгоритмы подсказок по протоколам (клинические ветки, рекомендации).</li>
+              <li>Оповещения о потенциальных взаимодействиях лекарств / аллергиях.</li>
+              <li>Поддержка чек‑листов (перед операцией, выпиской и др.).</li>
+              <li>История изменений заключений (версионность).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][DOCTOR][ITEM 5] Мультиязычность интерфейса -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как мультиязычность помогает клинической работе?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Быстрое переключение языка интерфейса без выхода из сессии.</li>
+              <li>Двуязычные печатные формы для пациентов (RU/KZ и др.).</li>
+              <li>Единый клинический словарь — избегание разночтений терминов.</li>
+              <li>Поддержка локализации пользовательских шаблонов заключений.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][DOCTOR][ITEM 6] Сокращение времени документации -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как система сокращает время на оформление документации?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Шаблонные блоки и автоподстановка (данные демографии, страхования, повтор визита).</li>
+              <li>Копирование предыдущего визита с контролем актуализации.</li>
+              <li>Горячие клавиши и пользовательские макросы.</li>
+              <li>Автоматическое подтягивание результатов лаборатории/диагностики.</li>
+              <li>Минимизация двойного ввода (single source of truth для пациента).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][DOCTOR][ITEM 7] Мобильный доступ -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Доступны ли мобильные функции для врача?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Адаптивный веб‑интерфейс для планшетов.</li>
+              <li>Просмотр расписаний, листа задач, результатов анализов.</li>
+              <li>Оповещения (новые результаты, критические значения) — через push/SMS.</li>
+              <li>Безопасная авторизация (MFA / токены) по политике учреждения.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================== ГРУППА 3. СИСТЕМНОМУ АДМИНИСТРАТОРУ ========================== -->
+      <h2 class="faq-group-title">Системному администратору</h2>
+
+      <!-- [MIS][ADMIN][ITEM 1] Архитектура -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какова архитектура и варианты развертывания МИС Akgun?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Модульная сервисная архитектура (отдельные компоненты: идентификация, расписания, биллинг, отчёты и т.д.).</li>
+              <li>Варианты: on‑premise, частное облако, гибрид (центральный кластер + филиальные точки доступа).</li>
+              <li>Горизонтальное масштабирование критичных сервисов (балансировщики, шардирование БД при необходимости).</li>
+              <li>Использование кэширования для ускорения запросов чтения (в т.ч. справочники и расписания).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][ADMIN][ITEM 2] Интеграционные протоколы -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какие интеграционные протоколы и форматы поддерживаются?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>REST/JSON API (CRUD, поиск, события).</li>
+              <li>HL7 v2.x для обмена сообщениями (ADT, ORM, ORU и др.).</li>
+              <li>FHIR (Resources: Patient, Encounter, Observation, Condition, MedicationRequest и др.).</li>
+              <li>SOAP (поддержка наследуемых гос./корп. сервисов).</li>
+              <li>Файловый импорт/экспорт (CSV/XML) для пакетной миграции и внешней отчётности.</li>
+              <li>Message broker (Kafka/RabbitMQ) — опционально для высоконагруженных интеграций.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][ADMIN][ITEM 3] Безопасность и соответствие -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какие меры безопасности и контроля доступа реализованы?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>RBAC + атрибуты (отделение, роль, уровень доступа к данным).</li>
+              <li>MFA, сложные политики паролей, срок действия сессий.</li>
+              <li>Шифрование трафика (TLS), опционально VPN для административных каналов.</li>
+              <li>Шифрование конфиденциальных полей (в покое) и контроль целостности.</li>
+              <li>Журналирование действий (create/update/view/export) с возможностью forensic‑анализа.</li>
+              <li>Разделение сред (dev/test/stage/prod) и контроль переноса артефактов.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][ADMIN][ITEM 4] Права и аудит -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как настраиваются права пользователей и ведётся аудит действий?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Иерархия ролей (администратор, регистратор, врач, фармацевт, бухгалтер и т.д.).</li>
+              <li>Тонкая настройка операций: просмотр, редактирование, экспорт, подтверждение.</li>
+              <li>Атрибутивные фильтры (доступ только к своим филиалам/отделениям).</li>
+              <li>Логи доступа к медицинским записям (кто, когда, из какого IP).</li>
+              <li>Отчёты аномалий (массовые выборки, частые неудачные входы).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][ADMIN][ITEM 5] Производительность и масштабирование -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как обеспечивается производительность и масштабируемость системы?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Пул сервисов за балансировщиком (горизонтальное масштабирование по нагрузке).</li>
+              <li>Шардирование / репликация БД (при достижении порогов объёма/IOPS).</li>
+              <li>Кэш справочников и результатов частых запросов.</li>
+              <li>Отложенная обработка тяжёлых заданий (очереди задач).</li>
+              <li>Метрики (APM, latency, error rate, throughput) с алертами.</li>
+              <li>Регулярные нагрузочные тесты перед крупными релизами.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][ADMIN][ITEM 6] Резервное копирование и отказоустойчивость -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Какие механизмы резервного копирования и отказоустойчивости реализованы?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Периодические резервные копии БД (инкрементальные + полные) с проверкой восстановления.</li>
+              <li>Репликация критичных данных на вторичный узел / ЦОД.</li>
+              <li>Ротация логов и контроль целостности резервов (hash / checksum).</li>
+              <li>Документированный DR‑план (RPO/RTO цели).</li>
+              <li>Failover сценарии (автоматический или полуавтоматический) для основных сервисов.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- [MIS][ADMIN][ITEM 7] Обновления и кастомизация -->
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span class="faq-question-text">Как происходит обновление версии и не ломаются ли кастомизации?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrapper" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <ul>
+              <li>Обновления идут через staging среду с регрессионным чек‑листом.</li>
+              <li>Кастомные модули используют публичные API/SDK — ядро не форкается.</li>
+              <li>Версионирование схемы БД через миграции с откатом.</li>
+              <li>Документация изменений (release notes) и инструкция по пост‑обновлению.</li>
+              <li>Плановые окна обновлений согласуются заранее (минимизация простоя).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /#pacs-faq -->
+  </div>
+</section>
+{% endblock %}

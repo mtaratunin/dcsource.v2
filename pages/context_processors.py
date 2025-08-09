@@ -122,6 +122,12 @@ def contact_form_defaults(request):
         page_type = "pacs"
     elif re.search(r'/ts', path):
         page_type = "ts"
+    elif re.search(r'/contacts', path):
+        page_type = "contacts"
+    elif re.search(r'/solutions', path):
+        page_type = "solutions"
+    elif re.search(r'/about', path):
+        page_type = "about"
     elif re.search(r'/about/privacy_policy', path):
         page_type = "compliance"
     elif re.search(r'/about/company_details', path):

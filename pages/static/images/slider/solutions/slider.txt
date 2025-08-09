@@ -1,4 +1,4 @@
-### /static/images/slider/home/slider.txt ####
+### /static/images/slider/solutions/slider.txt ####
 ### НАЧАЛО ОПИСАНИЯ ###
 # slide: номер в очереди показа
 # file: имя файла-картинки для слайда
@@ -15,14 +15,14 @@
 ### КОНЕЦ ОПИСАНИЯ ###
 
 slide: 1
-file: ts_slide1.jpg
-title: Техническая поддержка
+file: slide1.jpg
+title: Решения
 desc:
 url:
 text-position: bottom
-text-align: left
+text-align: right
 duration: 15
 title-effects: zoom
 desc-effects: fade-in
 url-effects: fade-out
-slide-effect: zoom-out
+slide-effect: zoom-in

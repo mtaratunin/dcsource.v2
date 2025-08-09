@@ -1276,7 +1276,9 @@
 }
 
 .faq-item + .faq-item {
-  margin-top: 4px;
+  margin-top: 0;
+  /*border-bottom: #eadbbd 1px solid;*/
+  border-top: rgba(140, 32, 32, 0.4) 1px solid;
 }
 
 .faq-question {
@@ -1379,4 +1381,14 @@
 }
 .dc-abbr:hover {
   text-decoration-color: #555;
+}
+
+.faq-group-title {
+  background: #8C2028 !important;
+  color: #fff !important;
+  /*margin-top: 10px;*/
+  margin-bottom: 0;
+  padding:20px 20px 20px 20px;
+  font-size:24px;
+  font-weight:700;
 }

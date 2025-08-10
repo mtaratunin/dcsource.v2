@@ -584,12 +584,12 @@
   position: relative;
   /* [DC Source][NEW] Секция занимает всю ширину экрана, вне контейнера */
 }
-@media (max-width: 1600px) {
+@media (max-width: 1399.98px) {
   .contact-form-inner {
     padding-bottom: 220px;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1199.98px) {
   .contact-form-inner {
     padding-bottom: 220px;
   }

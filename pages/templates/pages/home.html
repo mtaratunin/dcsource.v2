@@ -105,17 +105,7 @@
 
   <!-- ======= ДОРАБОТАНО: sticky footer с динамическим блоком ======= -->
   <footer class="footer" id="main-footer">
-    <div class="container text-center">
-      <!-- [DC Source] Блок ссылок — показывается только при расширении футера -->
-      <div class="footer-links-block">
-        {# [DC Source] Исправлено: ссылки теперь используют динамический маршрут для корректной работы с DynamicPageView #}
-        <a href="{% url 'dynamic_page' folder='about' page='privacy_policy' %}" class="text-light me-3" style="text-decoration:underline;">Политика обработки персональных данных</a>
-        <a href="{% url 'dynamic_page' folder='about' page='company_details' %}" class="text-light me-3" style="text-decoration:underline;">Реквизиты компании</a>
-      </div>
-      <!-- [DC Source] Строка с DCSource — всегда видна -->
-      <div class="footer-copyright">
-        <a href="https://dcsource.kz" class="small" style="color: #bbbbbb;">DCSource</a><span class="small" style="color: #bbbbbb"> &copy; {{ now|default:2025 }} Все права защищены</span></div>
-    </div>
+    {% include "_footer.html" %}
   </footer>
   <!-- ======= /ДОРАБОТАНО ======= -->
 

@@ -560,8 +560,8 @@
 
 @media (max-width: 991.98px) {
   .page-info-banner {
-    min-height: 220px;
-    height: 280px;
+    min-height: 320px;
+    height: 380px;
     width: 100%;
   }
   .home-info-text {
@@ -578,11 +578,31 @@
   min-width: 100%;
   /*margin-left: calc(-50vw + 50%);*/
   /*margin-right: calc(-50vw + 50%);*/
-  padding-bottom: 10vw;
+  padding-bottom: 12vw;
   background: none;
   z-index: 20;
   position: relative;
   /* [DC Source][NEW] Секция занимает всю ширину экрана, вне контейнера */
+}
+@media (max-width: 1600px) {
+  .contact-form-inner {
+    padding-bottom: 220px;
+  }
+}
+@media (max-width: 1200px) {
+  .contact-form-inner {
+    padding-bottom: 220px;
+  }
+}
+@media (max-width: 991.98px) {
+  .contact-form-inner {
+    padding-bottom: 220px;
+  }
+}
+@media (max-width: 575.98px) {
+  .contact-form-inner {
+    padding-bottom: 220px;
+  }
 }
 
 .contact-form-banner {

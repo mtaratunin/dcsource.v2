@@ -240,6 +240,7 @@ body {
 .footer {
   width: 100%;
   background: linear-gradient(to right, #8c2020 60%, #af2828 100%);
+  padding-top: 5px;
   /*background-color: #8C2028;*/
   color: #FFF;
   border-radius: 0;
@@ -248,8 +249,8 @@ body {
   position: fixed; /* [DC Source] sticky к низу экрана */
   left: 0;
   bottom: 0;
-  height: 28px; /* [DC Source] Тонкая полоса */
-  line-height: 28px;
+  height: 30px; /* [DC Source] Тонкая полоса */
+  line-height: 20px;
   z-index: 1040;
   box-shadow: 0 -5px 15px 0 rgba(0, 0, 0, 0.4);
   transition: height 0.3s, line-height 0.3s;
@@ -257,20 +258,21 @@ body {
 }
 /* [DC Source] Класс, который расширяет футер при скролле до низа */
 .footer-expanded {
-  height: 78px; /* [DC Source] Расширенный футер */
-  line-height: 28px;
+  height: 200px; /* [DC Source] Расширенный футер */
+  padding-top: 25px;
+  line-height: 18px;
   transition: height 0.3s, line-height 0.3s;
   background: linear-gradient(to right, #8C2028 80%, #9f242d 100%);
 }
 @media (max-width: 991.98px) {
   .footer {
     font-size: 0.95rem;
-    height: 32px;
-    line-height: 22px;
+    height: 25px;
+    line-height: 18px;
   }
   .footer-expanded {
-    height: 68px;
-    line-height: 22px;
+    height: 200px;
+    line-height: 18px;
   }
 }
 @media (max-width: 575.98px) {
@@ -280,9 +282,17 @@ body {
     line-height: 16px;
   }
   .footer-expanded {
-    height: 48px;
+    height: 200px;
     line-height: 16px;
   }
+}
+
+.container-fluid {
+  padding-left: 2%;
+  padding-right: 2%;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* [DC Source] Контент внутри футера выравниваем по центру */

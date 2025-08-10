@@ -1,13 +1,116 @@
 <!-- _footer.html -->
+{% load static %}
 
-    <div class="container text-center">
-      <!-- [DC Source] Блок ссылок — показывается только при расширении футера -->
-      <div class="footer-links-block">
-        {# [DC Source] Исправлено: ссылки теперь используют динамический маршрут. #}
-        <a href="{% url 'dynamic_page' folder='about' page='privacy_policy' %}" class="text-light me-3" style="text-decoration:underline;">Политика обработки персональных данных</a>
-        <a href="{% url 'dynamic_page' folder='about' page='company_details' %}" class="text-light me-3" style="text-decoration:underline;">Реквизиты компании</a>
+<!-- [DC Source][FOOTER] Основной контейнер для раскрывающейся части футера.
+     Поле .footer-links-block показывается ТОЛЬКО когда к элементу #main-footer
+     (родитель задаётся в базовом шаблоне) добавлен класс .footer-expanded (см. sticky_footer.js).
+     До доскролла вниз видна только нижняя строка copyright. -->
+<div class="container-fluid">
+  <div class="footer-links-block">
+    <div class="row gx-5 gy-4 align-items-start">
+
+      <!-- =========================================================
+           КОЛОНКА 1: Логотип + соц. иконки + ссылка на политику
+           ========================================================= -->
+      <!-- [DC Source][UPDATE] Добавлено align-items-start (flex) и text-start для гарантии левого выравнивания -->
+      <div class="col-xl-6 col-lg-4 col-md-5 col-12 footer-brand-col d-flex flex-column align-items-start text-start">
+        <!-- [DC Source] Логотип -->
+        <div class="mb-4">
+          <a class="navbar-brand d-inline-flex align-items-center" href="/" style="text-decoration:none;">
+            <img src="{% static 'images/logo_white.svg' %}" alt="DCSource" height="38" style="margin-right:10px;" id="navbar-logo-footer">
+            <!-- [DC Source] Можно добавить текстовый вариант логотипа, если потребуется -->
+          </a>
+        </div>
+
+        <!-- [DC Source] Соц / мессенджеры (иконки-кружки). При необходимости заменить href на реальные. -->
+        <div class="d-flex flex-row gap-1 mb-4">
+          <a href="https://wa.me/77084700808" target="_blank" rel="noopener noreferrer"
+             class="dc-footer-social d-inline-flex align-items-center justify-content-center"
+             aria-label="WhatsApp"
+             style="width:44px;height:34px;border:0 solid #fff;border-radius:50%;color:#fff;">
+            <!-- WhatsApp SVG -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16.7 14.3c-.3-.2-1.8-.9-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.4.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1 0-.2-.1-.5-.3z"/>
+              <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12c0 1.7.5 3.4 1.4 4.9L2 22l5.3-1.4A9.93 9.93 0 0 0 12 22z"/>
+            </svg>
+          </a>
+
+          <a href="https://t.me/dcsource" target="_blank" rel="noopener noreferrer"
+             class="dc-footer-social d-inline-flex align-items-center justify-content-center"
+             aria-label="Telegram"
+             style="width:44px;height:34px;border:0 solid #fff;border-radius:50%;color:#fff;">
+            <!-- Telegram SVG -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.5 2.5 2.8 10.3c-.9.4-.9 1.1-.2 1.3l4.6 1.4 1.7 5.4c.2.5.4.7.9.7.4 0 .6-.2.9-.5l2.4-2.4 4.9 3.6c.9.5 1.5.2 1.7-.9l2.7-15.7c.3-1.2-.4-1.7-1.2-1.3z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- [DC Source] Ссылка на политику конфиденциальности -->
+        <div class="mt-auto">
+          <a href="{% url 'dynamic_page' folder='about' page='privacy_policy' %}"
+             class="text-light small"
+             style="font-size:0.75rem;font-weight:200;text-decoration:none;">Политика конфиденциальности</a>
+        </div>
       </div>
-      <!-- [DC Source] Строка с DCSource — всегда видна -->
-      <div class="footer-copyright">
-        <a href="https://dcsource.kz" class="small" style="color: #bbbbbb;">DCSource</a><span class="small" style="color: #bbbbbb"> &copy; {{ now|default:2025 }} Все права защищены</span></div>
+
+      <!-- =========================================================
+           КОЛОНКА 2: Навигация
+           ========================================================= -->
+      <div class="col-xl-2 col-md-3 col-sm-4 col-6 d-flex flex-column">
+        <div class="fw-bold mb-3" style="font-size:0.85rem;font-weight:500;">Навигация</div>
+        <nav class="dc-footer-nav d-flex flex-column gap-1">
+          <a href="/" class="text-light" style="font-size:0.75rem;text-decoration:none;font-weight:300;">Главная</a>
+          <a href="{% url 'dynamic_page' folder='about' page='index' %}" class="text-light" style="font-size:0.75rem;text-decoration:none;font-weight:300;">О нас</a>
+          <a href="{% url 'dynamic_page' folder='ts' page='index' %}" class="text-light" style="font-size:0.75rem;text-decoration:none;font-weight:300;">Техподдержка</a>
+          <a href="{% url 'dynamic_page' folder='contacts' page='index' %}" class="text-light" style="font-size:0.75rem;text-decoration:none;font-weight:300;">Контакты</a>
+        </nav>
+      </div>
+
+      <!-- =========================================================
+           КОЛОНКА 3: Решения
+           ========================================================= -->
+      <div class="col-xl-2 col-md-3 col-sm-4 col-6 d-flex flex-column">
+        <div class="fw-bold mb-3">
+          <a href="{% url 'dynamic_page' folder='solutions' page='index' %}" class="text-light" style="font-size:0.85rem;text-decoration:none;font-weight:500;">Решения</a>
+        </div>
+        <div class="d-flex flex-column gap-1">
+          <a href="{% url 'dynamic_page' folder='solutions' page='pacs' %}" class="text-light" style="font-size:0.75rem;text-decoration:none;font-weight:300;">PACS</a>
+          <a href="{% url 'dynamic_page' folder='solutions' page='mis' %}"  class="text-light" style="font-size:0.75rem;text-decoration:none;font-weight:300;">МИС</a>
+          <a href="{% url 'dynamic_page' folder='solutions' page='lis' %}"  class="text-light" style="font-size:0.75rem;text-decoration:none;font-weight:300;">ЛИС</a>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           КОЛОНКА 4: Контакты
+           ========================================================= -->
+      <!-- [DC Source][UPDATE] Добавлены align-items-end и text-end для правого выравнивания содержания колонки -->
+      <div class="col-xl-2 col-md-3 col-lg-2 col-sm-4 col-12 d-flex flex-column align-items-end text-end">
+        <div class="fw-bold mb-3">
+            <a href="{% url 'dynamic_page' folder='contacts' page='index' %}" class="text-light" style="font-size:0.85rem;text-decoration:none;font-weight:500;">Контакты</a>
+        </div>
+        <!-- [DC Source][UPDATE] Добавлен класс text-end для наследования выравнивания и d-block ссылкам (через display блок обеспечивается полное выравнивание) -->
+        <address class="mb-0 d-flex flex-column gap-1 not-italic text-end" style="font-style:normal;">
+          <a href="https://maps.google.com/?q=Абая+109в+Алматы" target="_blank" rel="noopener noreferrer"
+             class="text-light d-block"
+             style="font-size:0.75rem;text-decoration:none;font-weight:300;line-height:1.05;">
+            г.Алматы, Казахстан, пр. Абая 109В, БЦ «Globus», этаж 4
+          </a>
+          <a href="tel:+77084700808" class="text-light d-block"
+             style="font-size:0.75rem;text-decoration:none;font-weight:300;">+7 (708) 470 08 08</a>
+          <a href="mailto:sales@dcsource.kz" class="text-light d-block"
+             style="font-size:0.75rem;text-decoration:none;font-weight:300;">sales@dcsource.kz</a>
+        </address>
+      </div>
+
     </div>
+  </div>
+</div>
+
+<!-- [DC Source] Строка с DCSource — всегда видна (не зависит от footer-expanded). -->
+<div class="footer-copyright">
+  <a href="https://dcsource.kz" class="small" style="font-size:0.75rem;color:#bbbbbb;text-decoration:none;">DCSource</a>
+  <span class="small" style="font-size:0.75rem;color:#bbbbbb;"> &copy; {{ now|default:2025 }} Все права защищены</span>
+</div>

@@ -167,7 +167,7 @@ def contact_form_submit(request):
             subject,
             message,
             settings.DEFAULT_FROM_EMAIL,
-            ["info@koteru.kz"],
+            ["m.taratunin@inova.kz"],
         )
         return JsonResponse({'ok': True})
     else:

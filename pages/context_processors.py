@@ -25,11 +25,12 @@ def get_section_position_and_title(folder, folder_path, default_title=None, defa
                     return default_position, lines[0]
     return default_position, (default_title or folder)
 
-def get_page_position_and_title(filepath, default_title=None, default_position=99):
-    # ... не трогаем, остальная логика не меняется ...
+# [DC Source][NEW] Доработка: поддержка скрытых страниц через {% block menu_hidden %}true{% endblock %}
+def get_page_position_title_hidden(filepath, default_title=None, default_position=99):
     import re
     block_title_re = re.compile(r'{%\s*block\s+title\s*%}(.*?){%\s*endblock\s*%}', re.DOTALL | re.IGNORECASE)
     block_position_re = re.compile(r'{%\s*block\s+position\s*%}(.*?){%\s*endblock\s*%}', re.DOTALL | re.IGNORECASE)
+    block_hidden_re = re.compile(r'{%\s*block\s+menu_hidden\s*%}(.*?){%\s*endblock\s*%}', re.DOTALL | re.IGNORECASE)
     html_title_re = re.compile(r'<title>(.*?)</title>', re.DOTALL | re.IGNORECASE)
     meta_position_re = re.compile(r'<meta\s+name=["\']position["\']\s+content=["\'](\d+)["\']', re.IGNORECASE)
     try:
@@ -59,9 +60,12 @@ def get_page_position_and_title(filepath, default_title=None, default_position=9
                     title = html_title_match.group(1).strip()
                 else:
                     title = default_title
-            return position, title
+            # [DC Source][NEW] Логика скрытия страницы из меню
+            hidden_match = block_hidden_re.search(content)
+            hidden = bool(hidden_match and 'true' in hidden_match.group(1))
+            return position, title, hidden
     except Exception:
-        return default_position, default_title
+        return default_position, default_title, False
 
 def dynamic_menu(request):
     # ... не трогаем, остальная логика не меняется ...
@@ -81,7 +85,8 @@ def dynamic_menu(request):
                 ):
                     name = file.replace(".html", "")
                     file_path = os.path.join(folder_path, file)
-                    page_position, page_title = get_page_position_and_title(
+                    # [DC Source][NEW] Получаем признак скрытия из шаблона
+                    page_position, page_title, page_hidden = get_page_position_title_hidden(
                         file_path,
                         name.capitalize()
                     )
@@ -92,6 +97,7 @@ def dynamic_menu(request):
                         "url": f"/{folder}/{name}/",  # [DC Source] Оставлено для удобства фронта
                         "title": page_title,
                         "position": page_position,     # [DC Source] ДОБАВЛЕНО: позиция для сортировки в подменю
+                        "hidden": page_hidden,         # [DC Source][NEW] Признак скрытия страницы из меню
                     })
             pages_list_sorted = sorted(pages_list, key=lambda p: (p.get("position", 99), p.get("title", "")))
             menu.append({
@@ -126,11 +132,11 @@ def contact_form_defaults(request):
         page_type = "contacts"
     elif re.search(r'/solutions', path):
         page_type = "solutions"
+    elif re.search(r'/about/privacy-policy', path):
+        page_type = "privacy-policy"
     elif re.search(r'/about', path):
         page_type = "about"
-    elif re.search(r'/about/privacy_policy', path):
-        page_type = "compliance"
-    elif re.search(r'/about/company_details', path):
+    elif re.search(r'/company-details', path):
         page_type = "home"
     # [DC Source][NEW] Список пунктов для message (чекбоксы)
     return {
@@ -139,6 +145,7 @@ def contact_form_defaults(request):
             ("МИС", "МИС - Медицинская информационная система"),
             ("PACS", "PACS - Система архивирования и передачи изображений"),
             ("ТехПоддержка", "ТехПоддержка - Техническая поддержка и сопровождение"),
+            ("Персональные данные", "Персональные данные - Политика по обработке персональных данных"),
             ("Комплаенс", "Комплаенс"),
             ("Общие вопросы", "Общие вопросы"),
         ],

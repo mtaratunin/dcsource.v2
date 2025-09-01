@@ -24,7 +24,6 @@
   <link rel="stylesheet" href="{% static 'css/home_slider.css' %}">
   <link rel="stylesheet" href="{% static 'css/home_sections.css' %}">
   {% endblock %}
-
   <!-- [DC Source] Передаём структуру меню в JS для динамической генерации на фронте -->
   <script>
     window.DC_DYNAMIC_MENU = {{ dynamic_menu_json|safe }};

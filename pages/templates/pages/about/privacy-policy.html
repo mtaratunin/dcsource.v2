@@ -1,48 +1,35 @@
-<!--privacy_policy.html-->
+<!--privacy-policy.html-->
 
-{% extends "_base.html" %}
+{% extends "_template.html" %}
 {% load static %}
-{% block position %}99{% endblock %}
+{% block position %}10{% endblock %}
 {% block title %}Персональные данные{% endblock %}
-{% block side_content %}
-    <!-- [DC Source] Меню раздела в боковом контейнере -->
-    <section id="side-menu" name="side-menu-submenu">
-        <div class="menu-header">
-            МЕНЮ РАЗДЕЛА
-        </div>
-        <!-- [DC Source] ДОРАБОТАНО: кнопки-меню вместо обычных ссылок -->
-        <ul class="list-unstyled" id="dc-side-menu"></ul>
-    </section>
+{% block menu_hidden %}true{% endblock %}
+<script>
+  window.pageType = "privacy-policy"; // или другой тип, по странице
+</script>
+
+{% block chapter1 %}
+
 {% endblock %}
 
-{% block side_content_anchor %}
-    <!-- [DC Source] Якорное меню страницы в боковом контейнере -->
-    <section id="side-menu-anchor" name="side-menu-anchor">
-        <div class="menu-header">
-            МЕНЮ СТРАНИЦЫ
-        </div>
-        <!-- [DC Source] ДОРАБОТАНО: кнопки-меню вместо обычных ссылок -->
-        <ul class="list-unstyled">
-            <li><a href="#privacy-policy-paragraph-1" class="dc-menu-btn">Общие положения</a></li>
-            <li><a href="#privacy-policy-paragraph-2" class="dc-menu-btn">Основные понятия, используемые в Политике</a></li>
-            <li><a href="#privacy-policy-paragraph-3" class="dc-menu-btn">Основные права и обязанности Оператора</a></li>
-            <li><a href="#privacy-policy-paragraph-4" class="dc-menu-btn">Основные права и обязанности субъектов персональных данных</a></li>
-            <li><a href="#privacy-policy-paragraph-5" class="dc-menu-btn">Принципы обработки персональных данных</a></li>
-            <li><a href="#privacy-policy-paragraph-6" class="dc-menu-btn">Цели обработки персональных данных</a></li>
-            <li><a href="#privacy-policy-paragraph-7" class="dc-menu-btn">Условия обработки персональных данных</a></li>
-            <li><a href="#privacy-policy-paragraph-8" class="dc-menu-btn">Порядок сбора, хранения, передачи и других видов обработки персональных данных</a></li>
-            <li><a href="#privacy-policy-paragraph-9" class="dc-menu-btn">Перечень действий, производимых Оператором с полученными персональными данными</a></li>
-            <li><a href="#privacy-policy-paragraph-10" class="dc-menu-btn">Трансграничная передача персональных данных</a></li>
-            <li><a href="#privacy-policy-paragraph-11" class="dc-menu-btn">Конфиденциальность персональных данных</a></li>
-            <li><a href="#privacy-policy-paragraph-12" class="dc-menu-btn">Заключительные положения</a></li>
-        </ul>
-    </section>
+{% block chapter2 %}
+<section class="about-inner">
+  <div class="container-home">
+    <div class="row justify-content-center align-items-center gy-4">
+      <div class="col-md-12 col-12">
+        <!-- [DC Source][NEW] Подзаголовок -->
+        <h3 class="mb-3" style="font-weight:700;">ПОЛИТИКА В ОТНОШЕНИИ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h3>
+        <!-- [DC Source][NEW] Описание компании -->
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
 
-{% block content %}
+{% block chapter3 %}
     <!-- ======= ДОБАВЛЕНО: обернули всё содержимое в section + card ======= -->
     <section id="privacy-policy-section">
-        <div class="main-section-header">ПОЛИТИКА В ОТНОШЕНИИ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</div>
                 <div class="main-section-content">
                     <h2 id="privacy-policy-paragraph-1" class="h4 mt-4 mb-3">1. Общие положения</h2>
                     <p>Настоящая политика обработки персональных данных составлена в соответствии с требованиями Закона Республики Казахстан от 21 мая 2013 года N 94-V «О персональных данных и их защите» (далее — Закон о персональных данных) и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных, предпринимаемые Индивидуальным предпринимателем "dcsource" (идентично ИП "dcsource") (далее — Оператор).</p>

@@ -1,18 +1,6 @@
 // dc_dynamic_menu.js
-//
-// [DC Source] Динамическое построение главного, мобильного и бокового меню на основе window.DC_DYNAMIC_MENU
-//
-// [DC Source] ДОРАБОТАНО: поддержка сортировки разделов меню по полю position, если оно есть
-// [DC Source] ДОРАБОТАНО: поддержка сортировки пунктов подменю по полю position, если оно есть
-// [DC Source][UPDATE 2025-08-09] (ИСТОРИЯ) Ранее добавлялся статический пункт "Техподдержка" (ts.html) после раздела "Решения".
-// [DC Source][UPDATE 2025-08-11] Реализация новых требований (index страницы, hover, мобильное меню с +/-).
-// [DC Source][UPDATE 2025-08-11][CHANGE] Убрано статическое добавление пункта "Техподдержка". Теперь "Техподдержка" формируется
-//                                      динамически как обычный раздел (если присутствует в window.DC_DYNAMIC_MENU).
-// [DC Source][UPDATE 2025-08-11][FIX] Выпадающее меню слишком быстро закрывалось (добавлена задержка закрытия).
-// [DC Source][UPDATE 2025-08-11][FIX2] Показывать стрелочку (caret) у раздела в десктопном меню ТОЛЬКО если есть реальные
-//                                      дочерние пункты (кроме index). Реализовано условным добавлением классов
-//                                      .dropdown / .dropdown-toggle и HTML списка.
-//
+
+// [DC Source][NEW] Доработка: поддержка скрытых страниц через поле hidden в структуре страницы
 document.addEventListener('DOMContentLoaded', function() {
 
   // --- Вспомогательные функции -------------------------------------------------
@@ -65,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const indexPage = pages.find(p => isIndexPage(p));
       const indexUrl = indexPage ? indexPage.url : (pages[0] ? pages[0].url : '#');
 
-      // Фильтруем страницы для выпадающего меню (убираем index)
-      const dropdownPages = pages.filter(p => !isIndexPage(p));
+      // [DC Source][NEW] Фильтруем скрытые страницы при отображении подменю
+      const dropdownPages = pages.filter(p => !isIndexPage(p) && !p.hidden);
 
       // [DC Source][FIX2] Добавляем классы dropdown / dropdown-toggle ТОЛЬКО если есть элементы подменю
       const hasDropdown = dropdownPages.length > 0;
@@ -169,7 +157,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const indexPage = pages.find(p => isIndexPage(p));
       const indexUrl = indexPage ? indexPage.url : (pages[0] ? pages[0].url : '#');
-      const submenuPages = pages.filter(p => !isIndexPage(p));
+      // [DC Source][NEW] Фильтруем скрытые страницы при отображении подменю
+      const submenuPages = pages.filter(p => !isIndexPage(p) && !p.hidden);
 
       html += '<li class="mobile-section">';
       html += '<div class="mobile-section-header">';
@@ -220,7 +209,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       let html = '';
-      pages.forEach(page => {
+      // [DC Source][NEW] Фильтруем скрытые страницы при отображении бокового меню
+      pages.filter(page => !page.hidden).forEach(page => {
         // if (isIndexPage(page)) return; // при необходимости скрыть index в боковом меню
         const active = (page.page === currentPage) ? ' active' : '';
         html += `<li><a href="${page.url}" class="dc-menu-btn${active}">${page.title}</a></li>`;

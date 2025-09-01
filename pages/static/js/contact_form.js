@@ -555,6 +555,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function setDefaultMessage(pageType) {
     let value = "Общие вопросы";
     if (pageType === "compliance") value = "Комплаенс";
+    else if (pageType === "privacy-policy") value = "Персональные данные";
     else if (pageType === "lis") value = "ЛИС";
     else if (pageType === "mis") value = "МИС";
     else if (pageType === "pacs") value = "PACS";

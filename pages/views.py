@@ -16,13 +16,13 @@ class HomePageView(TemplateView):
     template_name = "pages/home.html"
 
 class AboutPageView(TemplateView):
-    template_name = "pages/about/about.html"
+    template_name = "pages/about/index.html"
 
 class PrivacyPolicyPageView(TemplateView):
-    template_name = "pages/about/privacy_policy.html"
+    template_name = "pages/about/privacy-policy.html"
 
-class CompanyDetailsPageView(TemplateView):
-    template_name = "pages/about/company_details.html"
+# class CompanyDetailsPageView(TemplateView):
+#     template_name = "pages/about/company_details.html"
 
 class DynamicPageView(TemplateView):
     """
@@ -181,6 +181,7 @@ def contact_form_page(request):
         ("PACS", "PACS"),
         ("ТехПоддержка", "ТехПоддержка"),
         ("Комплаенс", "Комплаенс"),
+        ("Персональные данные", "Персональные данные"),
         ("Общие вопросы", "Общие вопросы"),
     ]
     return render(request, 'contact_form.html', {'page_type': page_type, 'message_choices': message_choices})

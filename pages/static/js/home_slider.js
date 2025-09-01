@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   // [DC Source] Настройки
-  const sliderImagesFolder = '/static/images/slider/home/';
+  const sliderImagesFolder = '/static/images/_slider/home/';
   const sliderConfigFile = sliderImagesFolder + 'slider.txt';
   const defaultDuration = 5; // секунд, если не указано в slider.txt
 

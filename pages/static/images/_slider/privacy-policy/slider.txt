@@ -1,4 +1,4 @@
-### /static/images/slider/contacts/slider.txt ####
+### /static/images/slider/privacy-policy/slider.txt ####
 ### НАЧАЛО ОПИСАНИЯ ###
 # slide: номер в очереди показа
 # file: имя файла-картинки для слайда
@@ -16,7 +16,7 @@
 
 slide: 1
 file: slide1.jpg
-title: О Компании
+title: Персональные данные
 desc:
 url:
 text-position: bottom

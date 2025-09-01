@@ -3,7 +3,7 @@
 {% extends "_template.html" %}
 {% load static %}
 {% block position %}00{% endblock %}
-{% block title %}О Компании{% endblock %}
+{% block title %}О Нас{% endblock %}
 <script>
   window.pageType = "about"; // или другой тип, по странице
 </script>
@@ -12,4 +12,68 @@
 {% endblock %}
 
 {% block chapter2 %}
+<section class="about-inner">
+  <div class="container-home">
+    <div class="row justify-content-center align-items-center gy-4">
+      <!-- [DC Source][NEW] Двухколоночная секция: слева изображение, справа текстовый блок -->
+      <div class="col-md-6 col-12 d-flex justify-content-center">
+        <!-- [DC Source][NEW] Картинка about секции (_home_about.jpg) -->
+        <img src="{% static 'images/about/about_info.jpg' %}" alt="Наша команда" class="img-crop-vertical">
+      </div>
+      <div class="col-md-6 col-12">
+        <!-- [DC Source][NEW] Подзаголовок -->
+        <h3 class="mb-3" style="font-weight:700;">О Нас</h3>
+        <!-- [DC Source][NEW] Описание компании -->
+        <h5 class="mb-3" style="font-weight:100;">DC Source — казахстанская IT-компания, которая помогает медицинским организациям переходить на цифровой формат работы.</h5>
+        <h5 class="mb-3" style="font-weight:100;">Мы внедряем и сопровождаем решения для хранения медицинских изображений (<abbr class="dc-abbr" data-bs-toggle="tooltip" data-bs-placement="top" title="Медицинская система для хранения, управления, передачи и отображения медицинских изображений, таких как рентген, КТ, МРТ и УЗИ">PACS</abbr>), автоматизации клинических и лабораторных процессов (<abbr class="dc-abbr" data-bs-toggle="tooltip" data-bs-placement="top" title="Медицинская Информационная Система">МИС</abbr>, <abbr class="dc-abbr" data-bs-toggle="tooltip" data-bs-placement="top" title="Лабораторная Информационная Система">ЛИС</abbr>), а также обеспечиваем техническую поддержку и стабильную работу IT-инфраструктуры.</h5>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter3 %}
+{% endblock %}
+
+{% block chapter4 %}
+<section class="description-inner">
+  <div class="container-home">
+    <div class="row justify-content-center">
+      <!-- [DC Source][NEW] Заголовок секции по макету -->
+      <div class="col-12">
+{#        <h1 class="section-title" style="margin-bottom: 2rem !important;">Мы предлагаем</h1>#}
+      </div>
+    </div>
+    <div class="row about-desc-row gx-4 gy-3 justify-content-center">
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+            <h5>В команде <span style="font-weight: bold;">15+ специалистов высшей категории</span> по построению IT-систем и <span style="font-weight: bold;">более 25 инженеров технической поддержки</span>, готовых быстро реагировать на обращения и закрывать задачи в срок.</h5>
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+            <h5>Уже <span style="font-weight: bold;">более 10 лет</span> мы <span style="font-weight: bold;">реализуем проекты</span> в частных и государственных учреждениях здравоохранения, адаптируя решения под реальные процессы, требования и регламенты Минздрава РК.</h5>
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex">
+        <div class="about-desc-card">
+            <h5>Наши системы работают в <span style="font-weight: bold;">100+ медицинских организациях</span> в <span style="font-weight: bold;">6 регионах</span> и обслуживают <span style="font-weight: bold;">свыше 3,3 млн пользователей</span>.</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block chapter5 %}
+<section class="info-inner" style="background: url('/static/images/about/about_bg.jpg') center center / cover no-repeat;">
+   <div class="page-about-info-banner">
+     <div class="page-info-text col-md-12 col-12">
+        <!-- [DC Source][NEW] Подзаголовок -->
+        <h2 class="mb-3" style="font-weight:700;">DC Source - это цифровая стабильность,</h2>
+        <h2 class="mb-3" style="font-weight:700;">на которую можно опереться в повседневной</h2>
+        <h2 class="mb-3" style="font-weight:700;">медицинской практике.</h2>
+      </div>
+   </div>
+</section>
 {% endblock %}

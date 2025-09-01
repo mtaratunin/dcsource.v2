@@ -546,6 +546,20 @@
   margin: 0;
 }
 
+.page-about-info-banner {
+  width: 100%;
+  min-height: 320px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /*box-sizing: border-box;*/
+  position: relative;
+  /*background: linear-gradient(180deg, rgba(0,0,0,0.44) 40%, rgba(0,0,0,0.99) 100%);*/
+  opacity: 1;
+  margin: 0;
+}
+
 .page-info-text {
   color: #fff;
   font-size: 1rem;
@@ -729,15 +743,6 @@
   background: #8C2028;
   color: #fff;
 }
-
-/*.contact-otp-block {*/
-/*  display: flex;*/
-/*  flex-direction: row;*/
-/*  align-items: center;*/
-/*  gap: 8px;*/
-/*  margin-top: 8px;*/
-/*  width: 100%;*/
-/*}*/
 
 /* [DC Source][FIXED] Блок ввода OTP всегда в одну линию, даже на мобильном */
 .contact-otp-block {

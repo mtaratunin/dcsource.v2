@@ -24,6 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: 'TTNorms', Arial, Helvetica, sans-serif;
 }
 
 /* [DC Source] ОБНОВЛЕНО: двухколоночный layout для страницы */

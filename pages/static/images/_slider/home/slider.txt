@@ -14,18 +14,18 @@
 # slide-effect: эффект для slide (например, zoom, fade-in, fade-out и другие)
 ### КОНЕЦ ОПИСАНИЯ ###
 
-slide: 1
-file: slide1.jpg
-title: PACS: Система архивирования и передачи изображений
-desc: Проверенные технологии для цифровизации ЛПУ
-url:/solutions/pacs/
-text-position: center
-text-align: right
-duration: 5
-title-effects: zoom
-desc-effects: fade-in
-url-effects: fade-out
-slide-effect: zoom-in
+#slide: 1
+#file: slide1.jpg
+#title: PACS: Система архивирования и передачи изображений
+#desc: Проверенные технологии для цифровизации ЛПУ
+#url:/solutions/pacs/
+#text-position: center
+#text-align: right
+#duration: 5
+#title-effects: zoom
+#desc-effects: fade-in
+#url-effects: fade-out
+#slide-effect: zoom-in
 
 slide: 2
 file: slide2.jpg

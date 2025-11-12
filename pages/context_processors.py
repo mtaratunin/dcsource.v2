@@ -124,8 +124,8 @@ def contact_form_defaults(request):
         page_type = "lis"
     elif re.search(r'/mis', path):
         page_type = "mis"
-    elif re.search(r'/pacs', path):
-        page_type = "pacs"
+    # elif re.search(r'/pacs', path):
+    #     page_type = "pacs"
     elif re.search(r'/ts', path):
         page_type = "ts"
     elif re.search(r'/contacts', path):
@@ -143,7 +143,7 @@ def contact_form_defaults(request):
         'message_choices': [
             ("ЛИС", "ЛИС - Лабораторная информационная система"),
             ("МИС", "МИС - Медицинская информационная система"),
-            ("PACS", "PACS - Система архивирования и передачи изображений"),
+            # ("PACS", "PACS - Система архивирования и передачи изображений"),
             ("ТехПоддержка", "ТехПоддержка - Техническая поддержка и сопровождение"),
             ("Персональные данные", "Персональные данные - Политика по обработке персональных данных"),
             ("Комплаенс", "Комплаенс"),

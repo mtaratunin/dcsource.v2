@@ -558,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function () {
     else if (pageType === "privacy-policy") value = "Персональные данные";
     else if (pageType === "lis") value = "ЛИС";
     else if (pageType === "mis") value = "МИС";
-    else if (pageType === "pacs") value = "PACS";
+    // else if (pageType === "pacs") value = "PACS";
     else if (pageType === "ts") value = "ТехПоддержка";
     dropdownList.querySelectorAll('input[type="checkbox"]').forEach(cb => {
       cb.checked = (cb.value === value);

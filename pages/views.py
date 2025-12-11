@@ -48,9 +48,12 @@ def send_sms_code_via_smsc(phone, code):
     message = f"{code} - Ваш код подтверждения\nKOTERU.KZ для DCSource.kz"
     return send_sms_via_smsc(phone, message)
 
+
 # [DC Source][NEW] Проверка Cloudflare Turnstile токена
 def verify_turnstile_token(token, remoteip=None):
-    secret_key = "0x4AAAAAABpBjw6nI6aY2vWPyIRFUTyFR8Y"
+    from django.conf import settings
+
+    secret_key = settings.CLOUDFLARE_TURNSTILE_SECRET_KEY
     data = {
         "secret": secret_key,
         "response": token,

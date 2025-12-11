@@ -3,7 +3,7 @@
 {% load static %}
 <section class="contact-form-inner">
   <div class="container-home">
-    <!-- [DC Source][FIXED] Для container queries: container-type: inline-size; нужен в CSS -->
+    <!-- [DC Source][FIXED] Для container queries:  container-type:  inline-size; нужен в CSS -->
     <div class="row contact-form-banner justify-content-center align-items-center gy-4">
       <!-- [DC Source][FIXED] Картинка формы в отдельном блоке -->
       <div class="contact-form-image col-md-6 col-12 d-flex justify-content-center">
@@ -31,7 +31,7 @@
               <div class="col-md-6 col-6">
               </div>
               <div class="col-md-6 col-6">
-                  <label id="personal-data-info" class="info" style="padding-left: 2em; text-align: left; font-size: 0.7rem; font-weight: 300">Подтверждая номер телефона, я даю согласие ТОО "DC Source" (БИН 230140039500) на обработку персональных данных согласно <br><a href="{% url 'dynamic_page' folder='about' page='privacy-policy' %}" target="_blank"  style="font-size: 0.7rem; color: red; font-weight: 300">Политике обработки персональных данных</a></label>
+                  <label id="personal-data-info" class="info" style="padding-left: 2em; text-align: left; font-size: 0.7rem; font-weight: 300">Подтверждая номер телефона, я даю согласие ТОО "DC Source" (БИН 230140039500) на обработку персональных данных согласно <br><a href="{% url 'dynamic_page' folder='about' page='privacy-policy' %}" target="_blank"  style="font-size: 0.7rem; color:  red; font-weight: 300">Политике обработки персональных данных</a></label>
               </div>
             </div>
             <div class="row contact-form-row">
@@ -41,18 +41,18 @@
               </div>
               <div class="col-md-6 col-12 contact-form-group">
                 <div class="contact-phone-row" id="contact-phone-row">
-                  <input type="text" name="phone" id="phone" class="contact-input" placeholder="Тел* +77... или 87..." required>
+                  <input type="text" name="phone" id="phone" class="contact-input" placeholder="Тел* +77...  или 87..." required>
                   <button type="button" id="otp-send-btn" class="contact-otp-btn" disabled>Подтвердить</button>
                 </div>
-                <!-- [DC Source][FIXED] Капча Cloudflare Turnstile вынесена ПОД блок ввода телефона и кнопкой "Подтвердить", чтобы не сдвигала разметку. -->
+                <!-- [DC Source][FIXED] Капча Cloudflare Turnstile с правильным site key -->
                 <div style="margin-top: 8px; display: flex; justify-content: flex-start;">
-                  <div class="cf-turnstile" data-sitekey="0x4AAAAAABpBj4WLGl8rXSf4" data-callback="cfCaptchaCallback"></div>
+                  <div class="cf-turnstile" data-sitekey="0x4AAAAAACF1bVQC22WoILz7" data-callback="cfCaptchaCallback"></div>
                 </div>
                 <label id="phone-status" class="contact-status-label"></label>
                 <!-- [DC Source][FIXED] Блок ввода кода отображается в одну линию даже на мобильном -->
-                <div class="contact-otp-block" id="otp-block" style="display:none;">
-                  <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-1" autocomplete="off" inputmode="numeric" pattern="\d*" style="width:34px;">
-                  <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-2" autocomplete="off" inputmode="numeric" pattern="\d*" style="width:34px;">
+                <div class="contact-otp-block" id="otp-block" style="display: none;">
+                  <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-1" autocomplete="off" inputmode="numeric" pattern="\d*" style="width: 34px;">
+                  <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-2" autocomplete="off" inputmode="numeric" pattern="\d*" style="width: 34px;">
                   <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-3" autocomplete="off" inputmode="numeric" pattern="\d*" style="width:34px;">
                   <input type="text" maxlength="1" class="contact-input otp-code-input" id="otp-code-4" autocomplete="off" inputmode="numeric" pattern="\d*" style="width:34px;">
                 </div>
@@ -62,7 +62,7 @@
             <div class="row contact-form-row">
               <div class="col-12 contact-form-group">
 {#                <div class="contact-dropdown-title">Интересующие Вас вопросы</div>#}
-                <div id="message-dropdown" class="contact-dropdown" tabindex="0" style="position:relative;">
+                <div id="message-dropdown" class="contact-dropdown" tabindex="0" style="position: relative;">
                   <!-- [DC Source][FIXED] --- Перенесли "Уже отмечено:" и список выбранных наверх, над кнопкой выпадающего списка -->
                   <label style="font-size: small; padding-bottom: 0.3em; font-weight: 300; color: #1b1b1b">Вы выбрали:</label>
                   <!-- [DC Source][FIXED] --- добавили стили для отображения в строку, с переносом, если не помещается -->
@@ -114,7 +114,7 @@
               <button type="submit" id="contact-submit-btn" class="contact-submit-btn" disabled>Отправить</button>
             </div>
           </div>
-          <div id="contact-form-success" style="display:none; text-align:center; padding:48px 0;">
+          <div id="contact-form-success" style="display:none; text-align: center; padding:48px 0;">
             <div style="font-size:3em; color:#8C2028; margin-bottom:16px;">
               <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512" fill="#8C2028" style="vertical-align:middle;"><path d="M480 416v32c0 35.3-28.7 64-64 64H224c-35.3 0-64-28.7-64-64V416H48c-26.5 0-48-21.5-48-48V252.1c0-19.4 11.4-36.9 29.3-44.8l256-112c11.3-4.9 24.1-4.9 35.4 0l256 112c17.9 7.8 29.3 25.4 29.3 44.8V368c0 26.5-21.5 48-48 48H480z"/></svg>
             </div>
@@ -133,10 +133,10 @@
         // [DC Source][NEW] JS-флаг для прохождения капчи
         window.cfCaptchaPassed = false;
         function cfCaptchaCallback(token) {
-          window.cfCaptchaPassed = !!token;
+          window. cfCaptchaPassed = !!token;
           document.getElementById('otp-send-btn').disabled = !window.cfCaptchaPassed;
           // [DC Source][NEW] Сохраняем токен капчи для отправки на бэкенд
-          if (window.cfCaptchaPassed) {
+          if (window. cfCaptchaPassed) {
             // если нужно, можно добавить скрытое поле
             let old = document.getElementById('cf-turnstile-response');
             if (!old) {

@@ -17,10 +17,10 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_DEBUG')
+DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 
 # Application definition
@@ -232,3 +232,5 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # Cloudflare Turnstile config
 CLOUDFLARE_TURNSTILE_SITE_KEY = os.getenv("CLOUDFLARE_TURNSTILE_SITE_KEY")
 CLOUDFLARE_TURNSTILE_SECRET_KEY = os.getenv("CLOUDFLARE_TURNSTILE_SECRET_KEY")
+
+WHITENOISE_MANIFEST_STRICT = False

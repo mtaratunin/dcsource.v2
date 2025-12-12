@@ -188,3 +188,15 @@ def contact_form_page(request):
         ("Общие вопросы", "Общие вопросы"),
     ]
     return render(request, 'contact_form.html', {'page_type': page_type, 'message_choices': message_choices})
+
+def page_not_found(request, exception):
+    return render(request, "404.html", status=404)
+
+def server_error(request):
+    return render(request, "500.html", status=500)
+
+def permission_denied(request, exception):
+    return render(request, "403_csrf.html", status=403)
+
+def bad_request(request, exception):
+    return render(request, "400.html", status=400)
